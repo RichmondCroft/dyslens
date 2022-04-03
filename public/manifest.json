@@ -9,11 +9,7 @@
   },
   "icons": {
     "16": "favicon.ico",
-    "48": "logo192.png",
-    "128": "logo512.png"
-  },
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+    "48": "logo-64.png",
+    "128": "logo-128.png"
+  }
 }
