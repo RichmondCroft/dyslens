@@ -8,8 +8,8 @@
     "default_title": "Open Dyslens"
   },
   "icons": {
-    "16": "favicon.ico",
-    "48": "logo-64.png",
-    "128": "logo-128.png"
+    "16": "img/icon-16.png",
+    "48": "img/logo-64.png",
+    "128": "img/logo-128.png"
   }
 }
