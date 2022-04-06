@@ -1,17 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faFontAwesomeFlag,
-  faFontAwesome,
-  faImage,
-} from "@fortawesome/free-solid-svg-icons";
+import { faImage } from "@fortawesome/free-solid-svg-icons";
 
 const HideImageMainContainer = styled.div`
   width: 393px;
   height: 98px;
   background-color: #fefbeb;
-  position: relative;
 `;
 
 const MenuItemHideBox = styled.div`

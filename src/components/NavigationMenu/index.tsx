@@ -1,19 +1,23 @@
 import react from "react";
-import MenuItem from "./../menuItem";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import styled from "styled-components";
+import MenuItem from "./../MenuItem";
+import { faImage } from "@fortawesome/free-solid-svg-icons";
+
 import {
-  faFontAwesomeFlag,
-  faFontAwesome,
-  faImage,
   faClone,
   faA,
   faHighlighter,
   faWindowMaximize,
 } from "@fortawesome/free-solid-svg-icons";
 
+const MenuItemContainer = styled.div`
+  padding: 4px 12px;
+  background-color: #fefbeb;
+`;
+
 export default function NavigationMenu() {
   return (
-    <div>
+    <MenuItemContainer>
       <MenuItem
         textHeading="Text Settings"
         messageOverView="Modify text settings"
@@ -35,6 +39,11 @@ export default function NavigationMenu() {
         messageOverView="Creates a line overlay for focus"
         icon={faWindowMaximize}
       />
-    </div>
+      <MenuItem
+        textHeading="Hide Images"
+        messageOverView="Hides images and gifs from the page"
+        icon={faImage}
+      />
+    </MenuItemContainer>
   );
 }
