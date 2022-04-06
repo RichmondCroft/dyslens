@@ -1,12 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  FontawesomeObject,
-  IconLookup,
-  IconDefinition,
-  findIconDefinition,
-} from "@fortawesome/fontawesome-svg-core";
 
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
