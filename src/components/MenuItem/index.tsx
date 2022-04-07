@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import COLORS from "../../constants/Colors";
 
 const MenuItemInfoWrapper = styled.div`
   display: flex;
@@ -11,15 +11,10 @@ const MenuItemInfoWrapper = styled.div`
   padding: 10px 0;
 `;
 
-const StyledMainContainerItems = styled.div`
-  background-color: rgb(196, 196, 196, 0.2);
-  justify-content: center;
-`;
-
 const MenuItemBox = styled.div`
   display: flex;
   flex-direction: row;
-  background: rgb(196, 196, 196, 0.2);
+  background: ${COLORS.LIGHT_YELLOW};
   border-radius: 11px;
   margin-top: 8px;
   margin-bottom: 10px;
