@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import COLORS from "../../constants/Colors";
+import SIZE from "../../constants/Size";
 
 const MenuItemInfoWrapper = styled.div`
   display: flex;
@@ -21,7 +22,7 @@ const MenuItemBox = styled.div`
   align-items: center;
 `;
 const StyledTextHeading = styled.div`
-  font-size: 20px;
+  font-size: ${SIZE.FONT_SIZE_SMALL}px;
   font-weight: bold;
 `;
 
