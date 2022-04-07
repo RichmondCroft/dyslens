@@ -2,6 +2,7 @@ import react from "react";
 import styled from "styled-components";
 import MenuItem from "./../MenuItem";
 import { faImage } from "@fortawesome/free-solid-svg-icons";
+import COLORS from "../../constants/Colors";
 
 import {
   faClone,
@@ -12,7 +13,7 @@ import {
 
 const MenuItemContainer = styled.div`
   padding: 4px 12px;
-  background-color: #fefbeb;
+  background-color: ${COLORS.WARM_WHITE};
 `;
 
 export default function NavigationMenu() {

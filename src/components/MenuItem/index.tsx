@@ -29,13 +29,13 @@ const StyledTextHeading = styled.div`
 const StyledImageIcon = styled.div`
   padding: 2px;
   font-weight: bold;
-  font-size: x-large;
+  font-size: ${SIZE.FONT_SIZE_X_LARGE};
   width: 54px;
   text-align: center;
 `;
 const StyledArrowIcon = styled.div`
   padding: 15px;
-  font-size: x-large;
+  font-size: ${SIZE.FONT_SIZE_X_LARGE};
 `;
 
 type MenuItemProps = {
