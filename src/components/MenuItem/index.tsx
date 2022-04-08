@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import COLORS from "../../constants/Colors";
 import SIZE from "../../constants/Size";
+import { Link } from "react-router-dom";
 
 const MenuItemInfoWrapper = styled.div`
   display: flex;
@@ -42,27 +43,36 @@ type MenuItemProps = {
   textHeading: string;
   messageOverView: string;
   icon?: any;
+  to: string;
+  element: any;
 };
 
 export default function MenuItem({
   textHeading,
   messageOverView,
   icon,
+  to,
+  element,
 }: MenuItemProps) {
+  console.log(element);
   return (
-    <MenuItemBox>
-      <StyledImageIcon>
-        <FontAwesomeIcon icon={icon} />
-      </StyledImageIcon>
+    <>
+      <Link to={to}>
+        <MenuItemBox>
+          <StyledImageIcon>
+            <FontAwesomeIcon icon={icon} />
+          </StyledImageIcon>
 
-      <MenuItemInfoWrapper>
-        <StyledTextHeading>{textHeading}</StyledTextHeading>
-        <div>{messageOverView}</div>
-      </MenuItemInfoWrapper>
+          <MenuItemInfoWrapper>
+            <StyledTextHeading>{textHeading}</StyledTextHeading>
+            <div>{messageOverView}</div>
+          </MenuItemInfoWrapper>
 
-      <StyledArrowIcon>
-        <FontAwesomeIcon icon={faAngleRight} />
-      </StyledArrowIcon>
-    </MenuItemBox>
+          <StyledArrowIcon>
+            <FontAwesomeIcon icon={faAngleRight} />
+          </StyledArrowIcon>
+        </MenuItemBox>
+      </Link>
+    </>
   );
 }
