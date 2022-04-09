@@ -10,9 +10,10 @@ import {
   faHighlighter,
   faWindowMaximize,
 } from "@fortawesome/free-solid-svg-icons";
+import SIZE from "../../constants/Size";
 
 const MenuItemContainer = styled.div`
-  padding: 4px 12px;
+  padding: ${SIZE.XX_SMALL}px ${SIZE.SMALL}px;
   background-color: ${COLORS.WARM_WHITE};
 `;
 
