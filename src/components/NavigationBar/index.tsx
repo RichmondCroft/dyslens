@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import COLORS from "../../constants/Colors";
+import SIZE from "../../constants/Size";
 
 const NavBarContainer = styled.div`
   display: flex;
@@ -8,11 +9,11 @@ const NavBarContainer = styled.div`
   flex-wrap: wrap;
   background-color: ${COLORS.DARK_BLUE};
   align-items: center;
-  padding: 15px;
+  padding: ${SIZE.MEDIUM}px;
 `;
 
 const StyledDysLensImage = styled.div`
-  border-radius: 15px;
+  border-radius: ${SIZE.MEDIUM}px;
 `;
 
 const StyledDysLensTextBox = styled.div`

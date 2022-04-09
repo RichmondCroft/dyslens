@@ -10,33 +10,33 @@ const MenuItemInfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding: 10px 0;
+  padding: ${SIZE.X_SMALL}px ${SIZE.ZERO};
 `;
 
 const MenuItemBox = styled.div`
   display: flex;
   flex-direction: row;
   background: ${COLORS.LIGHT_YELLOW};
-  border-radius: 11px;
-  margin-top: 8px;
-  margin-bottom: 10px;
+  border-radius: ${SIZE.SMALL}px;
+  margin-top: ${SIZE.X_SMALL}px;
+  margin-bottom: ${SIZE.SMALL}px;
   align-items: center;
 `;
 const StyledTextHeading = styled.div`
-  font-size: ${SIZE.FONT_SIZE_SMALL}px;
+  font-size: ${SIZE.LARGE}px;
   font-weight: bold;
 `;
 
 const StyledImageIcon = styled.div`
-  padding: 2px;
+  padding: ${SIZE.MEDIUM}px;
   font-weight: bold;
-  font-size: ${SIZE.FONT_SIZE_X_LARGE};
-  width: 54px;
+  font-size: ${SIZE.XX_LARGE}px;
+  width: ${SIZE.XXX_LARGE}px;
   text-align: center;
 `;
 const StyledArrowIcon = styled.div`
-  padding: 15px;
-  font-size: ${SIZE.FONT_SIZE_X_LARGE};
+  padding: ${SIZE.MEDIUM}px;
+  font-size: ${SIZE.XX_LARGE}px;
 `;
 
 type MenuItemProps = {
