@@ -1,8 +1,7 @@
-import React from "react";
 import styled from "styled-components";
+
 import COLORS from "../constants/Colors";
 import SIZE from "../constants/Size";
-
 import NavigationMenu from "../components/NavigationMenu";
 import NavigationBar from "../components/NavigationBar";
 
