@@ -1,15 +1,14 @@
-import react from "react";
 import styled from "styled-components";
-import MenuItem from "./../MenuItem";
 import { faImage } from "@fortawesome/free-solid-svg-icons";
-import COLORS from "../../constants/Colors";
-
 import {
   faClone,
   faA,
   faHighlighter,
   faWindowMaximize,
 } from "@fortawesome/free-solid-svg-icons";
+
+import MenuItem from "./../MenuItem";
+import COLORS from "../../constants/Colors";
 import SIZE from "../../constants/Size";
 
 const MenuItemContainer = styled.div`
@@ -24,27 +23,32 @@ export default function NavigationMenu() {
         textHeading="Text Settings"
         messageOverView="Modify text settings"
         icon={faA}
+        to="/text-settings"
       />
       <MenuItem
         textHeading="Overlay Tint"
         messageOverView="Display an overlay to 
         make the Text readable"
         icon={faClone}
+        to="/overlay-tint"
       />
       <MenuItem
         textHeading="Highlighter"
         messageOverView="Highlight the hovered box"
         icon={faHighlighter}
+        to="/highlighter"
       />
       <MenuItem
         textHeading="LineFocus"
         messageOverView="Creates a line overlay for focus"
         icon={faWindowMaximize}
+        to="/line-focus"
       />
       <MenuItem
         textHeading="Hide Images"
         messageOverView="Hides images and gifs from the page"
         icon={faImage}
+        to="/hide-images"
       />
     </MenuItemContainer>
   );

@@ -1,26 +1,25 @@
 import React from "react";
-import styled from "styled-components";
-import COLORS from "./constants/Colors";
-import SIZE from "./constants/Size";
+import { MemoryRouter, Route, Routes } from "react-router-dom";
 
-import NavigationMenu from "./components/NavigationMenu";
-import NavigationBar from "./components/NavigationBar";
-
-const StyledContainer = styled.div`
-  width: fit-content;
-  margin: auto;
-  background: ${COLORS.WARM_WHITE};
-  border: 1px solid ${COLORS.GRAY};
-  box-shadow: ${SIZE.ZERO}px ${SIZE.XX_SMALL}px ${SIZE.XX_SMALL}px
-    ${COLORS.SPECIAL};
-`;
+import Home from "./pages/Home";
+import TextSettings from "./pages/TextSettings";
+import OverlayTint from "./pages/OverlayTint";
+import LineFocus from "./pages/LineFocus";
+import Highlighter from "./pages/Highlighter";
+import HideImages from "./pages/HideImages";
 
 function App() {
   return (
-    <StyledContainer>
-      <NavigationBar />
-      <NavigationMenu />
-    </StyledContainer>
+    <MemoryRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/text-settings" element={<TextSettings />}></Route>
+        <Route path="/overlay-tint" element={<OverlayTint />}></Route>
+        <Route path="/line-focus" element={<LineFocus />}></Route>
+        <Route path="/highlighter" element={<Highlighter />}></Route>
+        <Route path="/hide-images" element={<HideImages />}></Route>
+      </Routes>
+    </MemoryRouter>
   );
 }
 

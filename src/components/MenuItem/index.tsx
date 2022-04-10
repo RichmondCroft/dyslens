@@ -1,7 +1,8 @@
-import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
+
 import COLORS from "../../constants/Colors";
 import SIZE from "../../constants/Size";
 
@@ -42,27 +43,31 @@ type MenuItemProps = {
   textHeading: string;
   messageOverView: string;
   icon?: any;
+  to: string;
 };
 
 export default function MenuItem({
   textHeading,
   messageOverView,
   icon,
+  to,
 }: MenuItemProps) {
   return (
-    <MenuItemBox>
-      <StyledImageIcon>
-        <FontAwesomeIcon icon={icon} />
-      </StyledImageIcon>
+    <Link to={to}>
+      <MenuItemBox>
+        <StyledImageIcon>
+          <FontAwesomeIcon icon={icon} />
+        </StyledImageIcon>
 
-      <MenuItemInfoWrapper>
-        <StyledTextHeading>{textHeading}</StyledTextHeading>
-        <div>{messageOverView}</div>
-      </MenuItemInfoWrapper>
+        <MenuItemInfoWrapper>
+          <StyledTextHeading>{textHeading}</StyledTextHeading>
+          <div>{messageOverView}</div>
+        </MenuItemInfoWrapper>
 
-      <StyledArrowIcon>
-        <FontAwesomeIcon icon={faAngleRight} />
-      </StyledArrowIcon>
-    </MenuItemBox>
+        <StyledArrowIcon>
+          <FontAwesomeIcon icon={faAngleRight} />
+        </StyledArrowIcon>
+      </MenuItemBox>
+    </Link>
   );
 }
