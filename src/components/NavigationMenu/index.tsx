@@ -23,32 +23,32 @@ export default function NavigationMenu() {
         textHeading="Text Settings"
         messageOverView="Modify text settings"
         icon={faA}
-        to="./text-settings"
+        to="/text-settings"
       />
       <MenuItem
         textHeading="Overlay Tint"
         messageOverView="Display an overlay to 
         make the Text readable"
         icon={faClone}
-        to="./overlay-tint"
+        to="/overlay-tint"
       />
       <MenuItem
         textHeading="Highlighter"
         messageOverView="Highlight the hovered box"
         icon={faHighlighter}
-        to="./highlighter"
+        to="/highlighter"
       />
       <MenuItem
         textHeading="LineFocus"
         messageOverView="Creates a line overlay for focus"
         icon={faWindowMaximize}
-        to="./line-focus"
+        to="/line-focus"
       />
       <MenuItem
         textHeading="Hide Images"
         messageOverView="Hides images and gifs from the page"
         icon={faImage}
-        to="./hide-images"
+        to="/hide-images"
       />
     </MenuItemContainer>
   );
