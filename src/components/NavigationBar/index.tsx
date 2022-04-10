@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import COLORS from "../../constants/Colors";
 import SIZE from "../../constants/Size";
+import imageLogo from "./../../images/icon-16.png";
 
 const NavBarContainer = styled.div`
   display: flex;
@@ -14,19 +15,22 @@ const NavBarContainer = styled.div`
 
 const StyledDysLensImage = styled.div`
   border-radius: ${SIZE.MEDIUM}px;
+  display: flex;
+  justify-content: center;
 `;
 
 const StyledDysLensTextBox = styled.div`
   color: ${COLORS.WHITE};
   font-weight: bold;
+  padding: ${SIZE.ZERO}px ${SIZE.X_SMALL}px;
 `;
-
-const StyledSwitch = styled.div``;
 
 export default function NavigationBar() {
   return (
     <NavBarContainer>
-      <StyledDysLensImage></StyledDysLensImage>
+      <StyledDysLensImage>
+        <img src={imageLogo} alt="dyslensLogo" />
+      </StyledDysLensImage>
       <StyledDysLensTextBox>Dyslens</StyledDysLensTextBox>
     </NavBarContainer>
   );

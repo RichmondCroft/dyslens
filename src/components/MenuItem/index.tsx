@@ -52,9 +52,7 @@ export default function MenuItem({
   messageOverView,
   icon,
   to,
-  element,
 }: MenuItemProps) {
-  console.log(element);
   return (
     <>
       <Link to={to}>

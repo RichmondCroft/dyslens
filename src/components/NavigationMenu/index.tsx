@@ -4,6 +4,10 @@ import MenuItem from "./../MenuItem";
 import { faImage } from "@fortawesome/free-solid-svg-icons";
 import COLORS from "../../constants/Colors";
 import TextSettings from "../../pages/TextSettings";
+import OverlayTint from "../../pages/OverlayTint";
+import LineFocus from "../../pages/LineFocus";
+import Highlighter from "../../pages/Highlighter";
+import HideImages from "../../pages/HideImages";
 
 import {
   faClone,
@@ -34,28 +38,28 @@ export default function NavigationMenu() {
         make the Text readable"
         icon={faClone}
         to="./overlay-tint"
-        element={<TextSettings />}
+        element={<OverlayTint />}
       />
       <MenuItem
         textHeading="Highlighter"
         messageOverView="Highlight the hovered box"
         icon={faHighlighter}
         to="./highlighter"
-        element={<TextSettings />}
+        element={<Highlighter />}
       />
       <MenuItem
         textHeading="LineFocus"
         messageOverView="Creates a line overlay for focus"
         icon={faWindowMaximize}
         to="./line-focus"
-        element={<TextSettings />}
+        element={<LineFocus />}
       />
       <MenuItem
         textHeading="Hide Images"
         messageOverView="Hides images and gifs from the page"
         icon={faImage}
         to="./hide-images"
-        element={<TextSettings />}
+        element={<HideImages />}
       />
     </MenuItemContainer>
   );
