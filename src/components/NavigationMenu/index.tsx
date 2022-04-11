@@ -18,7 +18,7 @@ const MenuItemContainer = styled.div`
 
 export default function NavigationMenu() {
   return (
-    <MenuItemContainer>
+    <MenuItemContainer data-testid="menuItemContainer">
       <MenuItem
         textHeading="Text Settings"
         messageOverView="Modify text settings"

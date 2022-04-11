@@ -54,7 +54,7 @@ export default function MenuItem({
 }: MenuItemProps) {
   return (
     <Link to={to}>
-      <MenuItemBox>
+      <MenuItemBox data-testid="menuItemBox">
         <StyledImageIcon>
           <FontAwesomeIcon icon={icon} />
         </StyledImageIcon>

@@ -26,11 +26,13 @@ const StyledDysLensTextBox = styled.div`
 
 export default function NavigationBar() {
   return (
-    <NavBarContainer>
+    <NavBarContainer data-testid="navBarContainer">
       <StyledDysLensImage>
-        <img src={imageLogo} alt="dyslensLogo" />
+        <img data-testid="imageLogo" src={imageLogo} alt="dyslensLogo" />
       </StyledDysLensImage>
-      <StyledDysLensTextBox>Dyslens</StyledDysLensTextBox>
+      <StyledDysLensTextBox data-testid="dyslensText">
+        Dyslens
+      </StyledDysLensTextBox>
     </NavBarContainer>
   );
 }
