@@ -1,12 +1,5 @@
-import React, { ReactNode } from "react";
-import {
-  render,
-  screen,
-  fireEvent,
-  getNodeText,
-  within,
-  getByText,
-} from "@testing-library/react";
+import { ReactNode } from "react";
+import { render, screen } from "@testing-library/react";
 import { expect } from "@jest/globals";
 
 import MenuItem from ".";
