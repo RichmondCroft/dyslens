@@ -1,9 +1,5 @@
-import { ReactNode } from "react";
 import { render, screen } from "@testing-library/react";
 import { expect } from "@jest/globals";
-
-import MenuItem from ".";
-import { MemoryRouter } from "react-router-dom";
 import {
   faA,
   faClone,
@@ -12,13 +8,11 @@ import {
   faWindowMaximize,
 } from "@fortawesome/free-solid-svg-icons";
 
-type Props = {
-  children: ReactNode;
-};
+import MenuItem from ".";
+import TestWrapper from "../../test-utils/TestWrapper";
 
-function TestWrapper({ children }: Props) {
-  return <MemoryRouter>{children}</MemoryRouter>;
-}
+
+
 
 describe("testing menuItem component", () => {
   it("should render the <menuItem/>with Text Settings ", () => {
