@@ -5,7 +5,7 @@ import TestWrapper from "../../test-utils/TestWrapper";
 import HighLighter from ".";
 
 describe("testing HighLighter component", () => {
-  it.only("should render <HighLighter/>", () => {
+  it("should render <HighLighter/>", () => {
     render(
       <TestWrapper>
         <HighLighter />

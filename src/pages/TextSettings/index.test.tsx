@@ -5,7 +5,7 @@ import TestWrapper from "../../test-utils/TestWrapper";
 import TextSettings from ".";
 
 describe("testing TextSettings component", () => {
-  it.only("should render <TextSettings/>", () => {
+  it("should render <TextSettings/>", () => {
     render(
       <TestWrapper>
         <TextSettings />

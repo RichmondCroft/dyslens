@@ -8,15 +8,17 @@ import { store } from "./app/store";
 import * as serviceWorker from "./serviceWorker";
 
 const rootElement = document.getElementById("root");
-const root: any = createRoot(rootElement);
 
-root.render(
-  <StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </StrictMode>
-);
+if (rootElement != null) {
+  const root = createRoot(rootElement);
+  root.render(
+    <StrictMode>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </StrictMode>
+  );
+}
 
 // ReactDOM.render(
 //   <React.StrictMode>

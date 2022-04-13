@@ -5,7 +5,7 @@ import TestWrapper from "../../test-utils/TestWrapper";
 import HideImages from ".";
 
 describe("testing HideImage component", () => {
-  it.only("should render <HideImage/>", () => {
+  it("should render <HideImage/>", () => {
     render(
       <TestWrapper>
         <HideImages />

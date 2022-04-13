@@ -5,7 +5,7 @@ import TestWrapper from "../../test-utils/TestWrapper";
 import OverLayTint from ".";
 
 describe("testing OverLayTint component", () => {
-  it.only("should render <OverLayTint/>", () => {
+  it("should render <OverLayTint/>", () => {
     render(
       <TestWrapper>
         <OverLayTint />

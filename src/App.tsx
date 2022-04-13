@@ -1,12 +1,12 @@
 import React from "react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 
-import Home from "./pages/Home/index";
-import TextSettings from "./pages/TextSettings/index";
-import OverlayTint from "./pages/OverlayTint/index";
-import LineFocus from "./pages/LineFocus/index";
-import HighLighter from "./pages/HighLighter/index";
-import HideImages from "./pages/HideImages/index";
+import Home from "./pages/Home";
+import TextSettings from "./pages/TextSettings";
+import OverlayTint from "./pages/OverlayTint";
+import LineFocus from "./pages/LineFocus";
+import HighLighter from "./pages/HighLighter";
+import HideImages from "./pages/HideImages";
 
 function App() {
   return (
