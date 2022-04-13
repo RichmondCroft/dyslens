@@ -6,6 +6,10 @@ import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import COLORS from "../../constants/Colors";
 import SIZE from "../../constants/Size";
 
+const MenuItemStyledLink = styled(Link)`
+  text-decoration: none;
+`;
+
 const MenuItemInfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -53,7 +57,7 @@ export default function MenuItem({
   to,
 }: MenuItemProps) {
   return (
-    <Link to={to}>
+    <MenuItemStyledLink to={to}>
       <MenuItemBox data-testid="menuItemBox">
         <StyledImageIcon>
           <FontAwesomeIcon icon={icon} />
@@ -68,6 +72,6 @@ export default function MenuItem({
           <FontAwesomeIcon icon={faAngleRight} />
         </StyledArrowIcon>
       </MenuItemBox>
-    </Link>
+    </MenuItemStyledLink>
   );
 }
