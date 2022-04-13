@@ -15,6 +15,6 @@ describe("testing navigation bar component", () => {
     expect(element.childNodes.length).toBe(2);
 
     const containDyslensText = screen.getByTestId("dyslensText");
-    expect(containDyslensText).toHaveTextContent("Dyslens");
+    (expect(containDyslensText) as any).toHaveTextContent("Dyslens");
   });
 });
