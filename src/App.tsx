@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import TextSettings from "./pages/TextSettings";
 import OverlayTint from "./pages/OverlayTint";
 import LineFocus from "./pages/LineFocus";
-import Highlighter from "./pages/Highlighter";
+import HighLighter from "./pages/HighLighter";
 import HideImages from "./pages/HideImages";
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
         <Route path="/text-settings" element={<TextSettings />}></Route>
         <Route path="/overlay-tint" element={<OverlayTint />}></Route>
         <Route path="/line-focus" element={<LineFocus />}></Route>
-        <Route path="/highlighter" element={<Highlighter />}></Route>
+        <Route path="/highlighter" element={<HighLighter />}></Route>
         <Route path="/hide-images" element={<HideImages />}></Route>
       </Routes>
     </MemoryRouter>

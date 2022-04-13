@@ -6,13 +6,15 @@ import TestWrapper from "../../test-utils/TestWrapper";
 
 describe("testing navigation bar component", () => {
   it("should render <navigationBar/>", () => {
-    render(<TestWrapper>
-      <NavigationBar />
-    </TestWrapper>);
+    render(
+      <TestWrapper>
+        <NavigationBar />
+      </TestWrapper>
+    );
     const element = screen.getByTestId("navBarContainer");
     expect(element.childNodes.length).toBe(2);
 
     const containDyslensText = screen.getByTestId("dyslensText");
-    expect(containDyslensText).toHaveTextContent("Dyslens");
+    (expect(containDyslensText) as any).toHaveTextContent("Dyslens");
   });
 });
