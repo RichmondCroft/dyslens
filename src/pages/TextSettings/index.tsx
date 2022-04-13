@@ -1,3 +1,10 @@
+import styled from "styled-components";
+const StyledTextSettingsContainer = styled.div``;
+
 export default function TextSettings() {
-  return <div>this is the text settings</div>;
+  return (
+    <StyledTextSettingsContainer data-testid="textSettingsContainer">
+      this is the text settings
+    </StyledTextSettingsContainer>
+  );
 }

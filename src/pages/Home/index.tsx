@@ -15,7 +15,7 @@ const StyledContainer = styled.div`
 `;
 export default function Home() {
   return (
-    <StyledContainer data-testid="StyledContainerHomePage">
+    <StyledContainer data-testid="homePageContainer">
       <NavigationBar />
       <NavigationMenu />
     </StyledContainer>

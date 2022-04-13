@@ -1,3 +1,11 @@
+import styled from "styled-components";
+
+const StyledHideImageContainer = styled.div``;
+
 export default function HideImages() {
-  return <div>this is the hide images</div>;
+  return (
+    <StyledHideImageContainer data-testid="hideImageContainer">
+      this is the hide images
+    </StyledHideImageContainer>
+  );
 }

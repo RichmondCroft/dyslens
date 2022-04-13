@@ -1,3 +1,10 @@
+import styled from "styled-components";
+const StyledOverLayTintContainer = styled.div``;
+
 export default function OverlayTint() {
-  return <div>this is the overlay tint</div>;
+  return (
+    <StyledOverLayTintContainer data-testid="overLayTintContainer">
+      this is the overlay tint
+    </StyledOverLayTintContainer>
+  );
 }

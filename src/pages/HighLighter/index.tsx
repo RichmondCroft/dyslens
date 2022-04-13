@@ -1,3 +1,10 @@
+import styled from "styled-components";
+const StyledHighLighterContainer = styled.div``;
+
 export default function HighLighter() {
-  return <div>this is the highlighter</div>;
+  return (
+    <StyledHighLighterContainer data-testid="highLighterContainer">
+      this is the highlighter
+    </StyledHighLighterContainer>
+  );
 }
