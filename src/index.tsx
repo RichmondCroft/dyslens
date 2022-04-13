@@ -8,7 +8,7 @@ import { store } from "./app/store";
 import * as serviceWorker from "./serviceWorker";
 
 const rootElement = document.getElementById("root");
-const root = createRoot(rootElement);
+const root: any = createRoot(rootElement);
 
 root.render(
   <StrictMode>

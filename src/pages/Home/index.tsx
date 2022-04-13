@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-import COLORS from "../constants/Colors";
-import SIZE from "../constants/Size";
-import NavigationMenu from "../components/NavigationMenu";
-import NavigationBar from "../components/NavigationBar";
+import COLORS from "../../constants/Colors";
+import SIZE from "../../constants/Size";
+import NavigationMenu from "../../components/NavigationMenu";
+import NavigationBar from "../../components/NavigationBar";
 
 const StyledContainer = styled.div`
   width: fit-content;
@@ -15,7 +15,7 @@ const StyledContainer = styled.div`
 `;
 export default function Home() {
   return (
-    <StyledContainer>
+    <StyledContainer data-testid="StyledContainerHomePage">
       <NavigationBar />
       <NavigationMenu />
     </StyledContainer>

@@ -1,12 +1,12 @@
 import React from "react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 
-import Home from "./pages/Home";
-import TextSettings from "./pages/TextSettings";
-import OverlayTint from "./pages/OverlayTint";
-import LineFocus from "./pages/LineFocus";
-import Highlighter from "./pages/Highlighter";
-import HideImages from "./pages/HideImages";
+import Home from "./pages/Home/index";
+import TextSettings from "./pages/TextSettings/index";
+import OverlayTint from "./pages/OverlayTint/index";
+import LineFocus from "./pages/LineFocus/index";
+import HighLighter from "./pages/HighLighter/index";
+import HideImages from "./pages/HideImages/index";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
         <Route path="/text-settings" element={<TextSettings />}></Route>
         <Route path="/overlay-tint" element={<OverlayTint />}></Route>
         <Route path="/line-focus" element={<LineFocus />}></Route>
-        <Route path="/highlighter" element={<Highlighter />}></Route>
+        <Route path="/highlighter" element={<HighLighter />}></Route>
         <Route path="/hide-images" element={<HideImages />}></Route>
       </Routes>
     </MemoryRouter>
