@@ -1,4 +1,4 @@
-##About Dyslens
+## About Dyslens
 
 DysLens is an open source chrome extension built and designed to make web more accessible for people who have different reading needs, such as dyslexia or color vision deficiency.
 
