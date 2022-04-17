@@ -8,9 +8,6 @@ import SIZE from "../../constants/Size";
 
 const MenuItemStyledLink = styled(Link)`
   text-decoration: none;
-  /* color: #1f4070; */
-  /* color: inherit; */
-
   color: ${COLORS.DARK_BLUE};
 `;
 
