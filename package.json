@@ -10,6 +10,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "@types/chrome": "^0.0.181",
     "@types/jest": "^24.9.1",
     "@types/node": "^12.20.47",
     "@types/react-redux": "^7.1.23",

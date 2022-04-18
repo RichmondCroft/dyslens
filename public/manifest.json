@@ -12,4 +12,8 @@
     "48": "img/logo-64.png",
     "128": "img/logo-128.png"
   }
+  ,
+  "permissions": [
+    "tabs","scripting","storage", "activeTab"
+  ]
 }
