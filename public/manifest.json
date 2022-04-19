@@ -11,5 +11,10 @@
     "16": "img/icon-16.png",
     "48": "img/logo-64.png",
     "128": "img/logo-128.png"
-  }
+  },
+  "permissions": ["tabs", "scripting", "storage", "activeTab"],
+
+  "web_accessible_resources": [
+    { "resources": ["*"], "matches": ["<all_urls>"] }
+  ]
 }

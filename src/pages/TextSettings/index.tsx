@@ -1,10 +1,19 @@
 import styled from "styled-components";
-const StyledTextSettingsContainer = styled.div``;
+import changeText from "../../chrome-utils/changeText";
+
+const StyledTextSettingsContainer = styled.div`
+  max-width: 150px;
+  height: 150px;
+`;
+function handleTextChange() {
+  console.log("inside function button clicked");
+  changeText();
+}
 
 export default function TextSettings() {
   return (
     <StyledTextSettingsContainer data-testid="textSettingsContainer">
-      this is the text settings
+      <button onClick={handleTextChange}>change text</button>
     </StyledTextSettingsContainer>
   );
 }
