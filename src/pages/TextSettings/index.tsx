@@ -14,6 +14,7 @@ export default function TextSettings() {
   return (
     <StyledTextSettingsContainer data-testid="textSettingsContainer">
       <button onClick={handleTextChange}>change text</button>
+      <input type="range"></input>
     </StyledTextSettingsContainer>
   );
 }
