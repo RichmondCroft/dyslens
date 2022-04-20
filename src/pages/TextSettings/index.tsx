@@ -6,7 +6,6 @@ const StyledTextSettingsContainer = styled.div`
   height: 150px;
 `;
 function handleTextChange() {
-  console.log("inside function button clicked");
   changeText();
 }
 

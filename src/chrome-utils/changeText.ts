@@ -1,7 +1,5 @@
 export default async function changeText() {
-  console.log("inside async fn");
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-  console.log("tab.id", tab.id);
   chrome.scripting.executeScript({
     target: { tabId: tab.id ? tab.id : 1111 },
     func: getTextFont,
