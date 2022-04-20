@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "OpenSans-Regular";
+  src: url("OpenSans-Regular.ttf");
+}
+
+* {
+  font-family: "OpenSans-Regular" !important;
+  letter-spacing: 1px;
+}
