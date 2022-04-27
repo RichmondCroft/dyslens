@@ -8,6 +8,7 @@ import SIZE from "../../constants/Size";
 
 const MenuItemStyledLink = styled(Link)`
   text-decoration: none;
+  color: ${COLORS.DARK_BLUE};
 `;
 
 const MenuItemInfoWrapper = styled.div`
