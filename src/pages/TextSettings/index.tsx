@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useState, ChangeEvent } from "react";
 import changeText from "../../chrome-utils/changeText";
 import COLORS from "../../constants/Colors";
 import SIZE from "../../constants/Size";
@@ -23,22 +24,23 @@ const StyledSliderContainer = styled.div`
   height: 97px;
 `;
 
-function handleTextChange() {
-  console.log("inside function button clicked");
-  changeText();
-}
-
 export default function TextSettings() {
+  const [font, setFont] = useState("Open Sans");
+  function handleTextChange(e: ChangeEvent<HTMLSelectElement>) {
+    console.log("inside function button clicked");
+    setFont(e.target.value);
+    changeText(e.target.value);
+  }
   return (
     <StyledTextSettingsContainer data-testid="textSettingsContainer">
       <p>The quick brown fox jumps over the lazy dog</p>
       <div>
-        <select onChange={handleTextChange}>
-          <option value="0">Select Font:</option>
-          <option value="1">Open Sans</option>
+        <select value={font} onChange={handleTextChange}>
+          <option value="Select Font">Select Font:</option>
+          <option value="OpenSans">Open Sans</option>
+          <option value="ComicSans">Comic Sans</option>
         </select>
       </div>
-      {/* <button onClick={handleTextChange}>change text</button> */}
       <StyledSliderContainer>
         <label htmlFor="sizePx">Size:</label>
         <input type="range" id="sizePx" name="sizePx" min="0" max="100" />
