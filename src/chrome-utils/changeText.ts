@@ -18,53 +18,5 @@ export default async function changeText(value: string) {
   chrome.scripting.insertCSS({
     target: { tabId: tab.id ? tab.id : 1111 },
     css: insertCss(value),
-    // [insertCss(value), colorTextChange(item)],
   });
 }
-
-// function colorTextChange(color: string) {
-//   let css = `
-//   @font-face {
-//     color:${color}
-//   }
-
-//   * {
-//     color: ${color} !important;
-//   }
-// `;
-//   return css;
-// }
-
-// export default async function changeText() {
-//   console.log("inside async fn");
-//   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-//   console.log("tab.id", tab.id);
-//   chrome.scripting.executeScript({
-//     target: { tabId: tab.id ? tab.id : 1111 },
-//     func: getTextFont,
-//   });
-// }
-
-// function getTextFont() {
-//   var style = document.createElement("style");
-//   const cssStyle = `
-//     @font-face {
-//         font-family: "OpenSans-Regular";
-//         src: url("${chrome.runtime.getURL("OpenSans-Regular.ttf")}");
-//     }
-//   `;
-//   const styling = `
-//   *{
-//     font-Family:"OpenSans-Regular" !important;
-//     letter-spacing:1px;
-//   }
-//   p{
-//     font-weight: 400 !important;
-//   }
-
-//   `;
-//   style.appendChild(document.createTextNode(cssStyle));
-//   style.appendChild(document.createTextNode(styling));
-
-//   document.getElementsByTagName("head")[0].appendChild(style);
-// }
