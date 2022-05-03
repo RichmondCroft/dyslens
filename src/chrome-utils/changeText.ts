@@ -15,7 +15,6 @@ function insertCss(fontName: string) {
 }
 
 export default async function changeText(value: string) {
-  console.log(value);
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
   chrome.scripting.insertCSS({
     target: { tabId: tab.id ? tab.id : 1111 },

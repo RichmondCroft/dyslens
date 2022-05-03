@@ -1,8 +1,11 @@
 import styled from "styled-components";
-import { useState, ChangeEvent } from "react";
-import changeText from "../../chrome-utils/changeText";
+
+import ChangeSize from "../../components/InnerTextSettingPage/ChangeSize";
+import DropDownFontText from "../../components/InnerTextSettingPage/DropDownFontText";
 import COLORS from "../../constants/Colors";
 import SIZE from "../../constants/Size";
+import ColorPicker from "../../components/ColorPicker";
+
 const StyledTextSettingsContainer = styled.div`
   display: flex;
   flex-flow: column;
@@ -15,36 +18,21 @@ const StyledTextSettingsContainer = styled.div`
     ${COLORS.SPECIAL};
 `;
 
-const StyledSliderContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  margin-top: 10px;
-
-  width: 350px;
-  height: 97px;
-`;
+// const StyledTextColorContainer = styled.div`
+//   display: flex;
+//   flex-direction: row;
+//   width: 350px;
+//   height: 97px;
+//   align-items: center;
+// `;
 
 export default function TextSettings() {
-  const [font, setFont] = useState("Open Sans");
-  function handleTextChange(e: ChangeEvent<HTMLSelectElement>) {
-    console.log("inside function button clicked");
-    setFont(e.target.value);
-    changeText(e.target.value);
-  }
   return (
     <StyledTextSettingsContainer data-testid="textSettingsContainer">
       <p>The quick brown fox jumps over the lazy dog</p>
-      <div>
-        <select value={font} onChange={handleTextChange}>
-          <option value="Select Font">Select Font:</option>
-          <option value="OpenSans">Open Sans</option>
-          <option value="ComicSans">Comic Sans</option>
-        </select>
-      </div>
-      <StyledSliderContainer>
-        <label htmlFor="sizePx">Size:</label>
-        <input type="range" id="sizePx" name="sizePx" min="0" max="100" />
-      </StyledSliderContainer>
+      <DropDownFontText />
+      <ChangeSize />
+      <ColorPicker />
     </StyledTextSettingsContainer>
   );
 }
