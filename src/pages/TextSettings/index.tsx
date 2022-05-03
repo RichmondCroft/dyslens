@@ -1,10 +1,13 @@
-import styled from "styled-components";
-const StyledTextSettingsContainer = styled.div``;
+import changeText from "../../chrome-utils/changeText";
+
+function handleTextChange() {
+  changeText();
+}
 
 export default function TextSettings() {
   return (
-    <StyledTextSettingsContainer data-testid="textSettingsContainer">
-      this is the text settings
-    </StyledTextSettingsContainer>
+    <div data-testid="textSettingsContainer">
+      <button onClick={handleTextChange}>change text</button>
+    </div>
   );
 }
