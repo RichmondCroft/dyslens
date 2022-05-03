@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { Context } from "../../pages/Home";
 import changeTextColor from "../../chrome-utils/changeTextColor";
 import SIZE from "../../constants/Size";
+import ColorsList from "../../constants/ColorsList";
 
 const ColoredBox = styled.li<{ backgroundColor: string }>`
   border-radius: ${SIZE.LARGE}px;
@@ -23,14 +24,13 @@ const StyledTextColorContainer = styled.ul`
 `;
 
 export default function ColorPicker() {
-  const color = useContext(Context);
-
   function handleOnColoredBox(color: string) {
     changeTextColor(color);
   }
+
   return (
     <StyledTextColorContainer>
-      {color.map((item) => {
+      {ColorsList.map((item) => {
         return (
           <ColoredBox
             backgroundColor={item}
