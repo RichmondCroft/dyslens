@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
-import COLORS from "../../constants/Colors";
-import SIZE from "../../constants/Size";
+import COLORS from "../../constants/colors";
+import SIZE from "../../constants/size";
 
 const MenuItemStyledLink = styled(Link)`
   text-decoration: none;

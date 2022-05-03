@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 import ChangeSize from "../../components/InnerTextSettingPage/ChangeSize";
 import DropDownFontText from "../../components/InnerTextSettingPage/DropDownFontText";
-import COLORS from "../../constants/Colors";
-import SIZE from "../../constants/Size";
+import COLORS from "../../constants/colors";
+import SIZE from "../../constants/size";
 import ColorPicker from "../../components/ColorPicker";
 
 const StyledTextSettingsContainer = styled.div`

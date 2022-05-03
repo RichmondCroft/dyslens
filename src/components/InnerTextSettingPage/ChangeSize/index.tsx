@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
 
-import SIZE from "../../../constants/Size";
+import SIZE from "../../../constants/size";
 
 const StyledSliderContainer = styled.div`
   display: flex;

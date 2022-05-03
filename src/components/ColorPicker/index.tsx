@@ -1,10 +1,8 @@
 import styled from "styled-components";
-import { useContext } from "react";
 
-import { Context } from "../../pages/Home";
 import changeTextColor from "../../chrome-utils/changeTextColor";
-import SIZE from "../../constants/Size";
-import ColorsList from "../../constants/ColorsList";
+import SIZE from "../../constants/size";
+import ColorsList from "../../constants/colorsList";
 
 const ColoredBox = styled.li<{ backgroundColor: string }>`
   border-radius: ${SIZE.LARGE}px;

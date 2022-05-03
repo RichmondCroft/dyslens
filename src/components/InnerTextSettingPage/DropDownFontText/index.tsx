@@ -2,8 +2,8 @@ import { useState, ChangeEvent } from "react";
 import styled from "styled-components";
 
 import changeText from "../../../chrome-utils/changeText";
-import SIZE from "../../../constants/Size";
-import { FONTS } from "../../../constants/Fonts";
+import SIZE from "../../../constants/size";
+import { FONTS } from "../../../constants/fonts";
 
 const StyledDropMenu = styled.div`
   padding: ${SIZE.X_SMALL}px ${SIZE.XX_SMALL}px;

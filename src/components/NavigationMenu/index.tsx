@@ -8,8 +8,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import MenuItem from "./../MenuItem";
-import COLORS from "../../constants/Colors";
-import SIZE from "../../constants/Size";
+import COLORS from "../../constants/colors";
+import SIZE from "../../constants/size";
 
 const MenuItemContainer = styled.div`
   padding: ${SIZE.XX_SMALL}px ${SIZE.SMALL}px;
