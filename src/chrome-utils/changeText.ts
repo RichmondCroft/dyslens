@@ -1,5 +1,5 @@
 function insertCss(fontName: string) {
-  let url = chrome.runtime.getURL(`${fontName}-Regular.ttf`);
+  let url = chrome.runtime.getURL(`fonts/${fontName}-Regular.ttf`);
   return `
     @font-face {
       font-family: ${fontName};
