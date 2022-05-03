@@ -3,10 +3,18 @@ import styled from "styled-components";
 
 import changeText from "../../../chrome-utils/changeText";
 import SIZE from "../../../constants/Size";
+import { FONTS } from "../../../constants/Fonts";
 
 const StyledDropMenu = styled.div`
   padding: ${SIZE.X_SMALL}px ${SIZE.XX_SMALL}px;
 `;
+
+const fontList = [{
+    name: 'selectFont',
+    displayName: 'Select Font'
+  },
+  ...Object.values(FONTS)
+];
 
 export default function DropDownFontText() {
   const [font, setFont] = useState("Open Sans");
@@ -17,9 +25,11 @@ export default function DropDownFontText() {
   return (
     <StyledDropMenu>
       <select value={font} onChange={handleTextChange}>
-        <option value="Select Font">Select Font:</option>
-        <option value="OpenSans">Open Sans</option>
-        <option value="ComicSans">Comic Sans</option>
+        {
+          fontList.map((fontItem) =>  
+            <option key={fontItem.name} value={fontItem.name}>{fontItem.displayName}</option>
+          )
+        }
       </select>
     </StyledDropMenu>
   );

@@ -6,10 +6,10 @@ import changeTextColor from "../../chrome-utils/changeTextColor";
 import SIZE from "../../constants/Size";
 
 const ColoredBox = styled.li<{ backgroundColor: string }>`
-  border-radius: 25px;
+  border-radius: ${SIZE.LARGE}px;
   margin-left: 2px;
-  width: 28px;
-  height: 28px;
+  width: ${SIZE.LARGE}px;
+  height: ${SIZE.LARGE}px;
   background-color: ${(props) => props.backgroundColor};
   text-decoration: none;
   cursor: pointer;
