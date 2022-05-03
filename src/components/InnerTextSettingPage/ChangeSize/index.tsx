@@ -1,12 +1,15 @@
 import styled from "styled-components";
 import { useState } from "react";
 
+import SIZE from "../../../constants/Size";
+
 const StyledSliderContainer = styled.div`
   display: flex;
   flex-direction: row;
-  margin-top: 10px;
-  width: 350px;
-  height: 97px;
+  flex-wrap: wrap;
+  align-content: center;
+  margin-top: ${SIZE.X_SMALL}px;
+  padding: ${SIZE.X_SMALL}px ${SIZE.XX_SMALL}px;
 `;
 export default function ChangeSize() {
   const [size, setSize] = useState(0);

@@ -2,7 +2,8 @@ import styled from "styled-components";
 import { useContext } from "react";
 
 import { Context } from "../../pages/Home";
-// import ColorsLists from "../../constants/ColorsList";
+import changeTextColor from "../../chrome-utils/changeTextColor";
+import SIZE from "../../constants/Size";
 
 const ColoredBox = styled.li<{ backgroundColor: string }>`
   border-radius: 25px;
@@ -14,10 +15,9 @@ const ColoredBox = styled.li<{ backgroundColor: string }>`
   cursor: pointer;
 `;
 const StyledTextColorContainer = styled.ul`
+  padding: ${SIZE.X_SMALL}px ${SIZE.XX_SMALL}px;
   display: flex;
   flex-direction: row;
-  width: 350px;
-  height: 97px;
   align-items: center;
   list-style-type: none;
 `;
@@ -25,8 +25,9 @@ const StyledTextColorContainer = styled.ul`
 export default function ColorPicker() {
   const color = useContext(Context);
 
-  function handleOnColoredBox(item: string) {
-    console.log("item of colorbox", item);
+  function handleOnColoredBox(color: string) {
+    console.log("item of colorbox", color);
+    changeTextColor(color);
   }
   return (
     <StyledTextColorContainer>

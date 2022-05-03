@@ -10,21 +10,12 @@ const StyledTextSettingsContainer = styled.div`
   display: flex;
   flex-flow: column;
   padding: ${SIZE.XX_SMALL}px ${SIZE.SMALL}px;
-  width: fit-content;
   margin: auto;
   background: ${COLORS.WARM_WHITE};
   border: 1px solid ${COLORS.GRAY};
   box-shadow: ${SIZE.ZERO}px ${SIZE.XX_SMALL}px ${SIZE.XX_SMALL}px
     ${COLORS.SPECIAL};
 `;
-
-// const StyledTextColorContainer = styled.div`
-//   display: flex;
-//   flex-direction: row;
-//   width: 350px;
-//   height: 97px;
-//   align-items: center;
-// `;
 
 export default function TextSettings() {
   return (

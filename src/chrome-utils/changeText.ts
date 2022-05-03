@@ -1,6 +1,5 @@
 function insertCss(fontName: string) {
   let url = chrome.runtime.getURL(`${fontName}-Regular.ttf`);
-  console.log(url);
   let css = `
   @font-face {
     font-family: ${fontName};
@@ -19,8 +18,22 @@ export default async function changeText(value: string) {
   chrome.scripting.insertCSS({
     target: { tabId: tab.id ? tab.id : 1111 },
     css: insertCss(value),
+    // [insertCss(value), colorTextChange(item)],
   });
 }
+
+// function colorTextChange(color: string) {
+//   let css = `
+//   @font-face {
+//     color:${color}
+//   }
+
+//   * {
+//     color: ${color} !important;
+//   }
+// `;
+//   return css;
+// }
 
 // export default async function changeText() {
 //   console.log("inside async fn");
