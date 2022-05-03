@@ -26,7 +26,6 @@ export default function ColorPicker() {
   const color = useContext(Context);
 
   function handleOnColoredBox(color: string) {
-    console.log("item of colorbox", color);
     changeTextColor(color);
   }
   return (
