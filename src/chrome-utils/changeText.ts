@@ -1,21 +1,26 @@
-function insertCss() {
+function insertCss(fontName: string) {
+  let url = chrome.runtime.getURL(`fonts/${fontName}-Regular.ttf`);
   return `
     @font-face {
-      font-family: "OpenSans-Regular";
-      src: url("${chrome.runtime.getURL("OpenSans-Regular.ttf")}");
+      font-family: ${fontName};
+      src: url("${url}");
     }
 
     * {
-      font-Family:"OpenSans-Regular" !important;
-      letter-spacing:1px;
+      font-family: ${fontName} !important;
     }
   `;
 }
 
-export default async function changeText() {
+export default async function changeText(value: string) {
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-  chrome.scripting.insertCSS({
-    target: { tabId: tab.id ? tab.id : 1111 },
-    css: insertCss(),
-  });
+  if (tab.id) {
+    chrome.scripting.insertCSS({
+      target: { tabId: tab.id },
+      css: insertCss(value),
+    });
+  }
+  else {
+    throw "Current tab id was not found";
+  }
 }

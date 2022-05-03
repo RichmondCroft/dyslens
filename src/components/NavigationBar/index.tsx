@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import COLORS from "../../constants/Colors";
-import SIZE from "../../constants/Size";
+import COLORS from "../../constants/colors";
+import SIZE from "../../constants/size";
 import imageLogo from "./../../images/icon-16.png";
 
 const NavBarContainer = styled.div`
