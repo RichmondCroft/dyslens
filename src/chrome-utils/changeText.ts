@@ -1,10 +1,15 @@
 function insertCss() {
-  let css = `@font-face {font-family: "OpenSans-Regular";
- src: url("${chrome.runtime.getURL("OpenSans-Regular.ttf")}");}
-*{font-Family:"OpenSans-Regular" !important;
-letter-spacing:1px;}
-`;
-  return css;
+  return `
+    @font-face {
+      font-family: "OpenSans-Regular";
+      src: url("${chrome.runtime.getURL("OpenSans-Regular.ttf")}");
+    }
+
+    * {
+      font-Family:"OpenSans-Regular" !important;
+      letter-spacing:1px;
+    }
+  `;
 }
 
 export default async function changeText() {
