@@ -10,9 +10,15 @@ describe('/src/components/Toggle', () => {
   });
 
   it('should properly display enabled status', () => {
+    render(<Toggle on={true} />);
+    const toggle = screen.getByTestId('toggle') as HTMLInputElement;
+    expect(toggle.checked).toBe(true);
   });
   
   it('should properly display disabled status', () => {
+    render(<Toggle on={false} />);
+    const toggle = screen.getByTestId('toggle') as HTMLInputElement;
+    expect(toggle.checked).toBe(false);
   });
   
   it('should properly trigger on state change event', () => {

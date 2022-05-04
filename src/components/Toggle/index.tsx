@@ -7,14 +7,14 @@ type Props = {
 function Toggle (props: Props){
   const [on, setOn] = useState(props.on);
   
-  function handleOnClick(){
+  function handleOnChange(){
     setOn(!on);
     if(props.onStateChange){
       props.onStateChange(!on);
     }
   }
   
-  return <div data-testid='toggle' onClick={handleOnClick}>{on}</div>
+  return <input type='checkbox' checked={on} data-testid='toggle' onChange={handleOnChange} />
 }
 
 export default Toggle;
