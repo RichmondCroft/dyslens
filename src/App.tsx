@@ -1,5 +1,6 @@
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 import styled from "styled-components";
+import "./App";
 
 import Home from "./pages/Home";
 import TextSettings from "./pages/TextSettings";
@@ -10,12 +11,13 @@ import HideImages from "./pages/HideImages";
 
 const StyledAppContainer = styled.div`
   margin: 0px;
+  padding: 0px;
   width: 370px;
 `;
 
 function App() {
   return (
-    <StyledAppContainer className="App">
+    <StyledAppContainer>
       <MemoryRouter>
         <Routes>
           <Route path="/" element={<Home />} />
