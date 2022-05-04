@@ -11,17 +11,19 @@ type Props = {
 const PanelContainer = styled.div`
   background-color: ${COLORS.LIGHT_YELLOW};
   border-radius: ${SIZE.MEDIUM}px;
+  padding: ${SIZE.MEDIUM}px;
 ` 
 
 const Label = styled.div`
   color: ${COLORS.DARK_BLUE};
+  font-weight: bold;
 `
 
-function Panel(props: Props) {
+function ComponentContainer(props: Props) {
   return <PanelContainer data-testid="panel">
     <Label data-testid="panel-label">{props.label}</Label>
     <div data-testid="panel-content">{props.children}</div>
   </PanelContainer>
 }
 
-export default Panel;
+export default ComponentContainer;

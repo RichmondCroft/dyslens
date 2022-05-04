@@ -1,16 +1,16 @@
 import styled from "styled-components";
 
 import ColorPicker from "../../components/ColorPicker";
-import Panel from '../../components/Panel';
+import ComponentContainer from '../../components/ComponentContainer';
 
 const StyledOverLayTintContainer = styled.div``;
 
 export default function OverlayTint() {
   return (
     <StyledOverLayTintContainer data-testid="overLayTintContainer">
-      <Panel label="color">
+      <ComponentContainer label="Color">
         <ColorPicker />
-      </Panel>
+      </ComponentContainer>
     </StyledOverLayTintContainer>
   );
 }

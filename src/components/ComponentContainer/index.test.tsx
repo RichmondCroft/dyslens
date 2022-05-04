@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/react';
 
-import Panel from '.';
+import ComponentContainer from '.';
 
 describe('src/components/Panel', () => {
   it('should render any components within', async () => {
     let contentText = 'some random content';
-    render(<Panel label='display-label'>{contentText}</Panel>)
+    render(<ComponentContainer label='display-label'>{contentText}</ComponentContainer>)
     
     const panel = await screen.getByTestId('panel');
     expect(panel).toBeTruthy();
