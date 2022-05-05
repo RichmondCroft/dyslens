@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import ColorPicker from "../../components/ColorPicker";
-import ComponentContainer from '../../components/ComponentContainer';
+import ComponentContainer from "../../components/ComponentContainer";
 import Toggle from "../../components/Toggle";
 import SIZE from "../../constants/size";
 
@@ -11,11 +11,11 @@ const StyledOverLayTintContainer = styled.div`
 
 const Spacer = styled.div`
   height: ${SIZE.SMALL}px;
-`
+`;
 
 export default function OverlayTint() {
-  function handleOnToggleStateChange() {
-    console.log('changed');
+  function handleOnToggleStateChange(checked: boolean) {
+    console.log("changed", checked);
   }
 
   return (
