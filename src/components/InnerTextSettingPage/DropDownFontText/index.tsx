@@ -28,7 +28,7 @@ export default function DropDownFontText() {
       <select
         value={font}
         onChange={handleTextChange}
-        data-testid="dropDownFontText"
+        data-testid="drop-down-font-text"
       >
         {fontList.map((fontItem) => (
           <option key={fontItem.name} value={fontItem.name}>
