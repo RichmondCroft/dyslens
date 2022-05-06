@@ -9,11 +9,12 @@ const StyledDropMenu = styled.div`
   padding: ${SIZE.X_SMALL}px ${SIZE.XX_SMALL}px;
 `;
 
-const fontList = [{
-    name: 'selectFont',
-    displayName: 'Select Font'
+const fontList = [
+  {
+    name: "selectFont",
+    displayName: "Select Font",
   },
-  ...Object.values(FONTS)
+  ...Object.values(FONTS),
 ];
 
 export default function DropDownFontText() {
@@ -24,12 +25,16 @@ export default function DropDownFontText() {
   }
   return (
     <StyledDropMenu>
-      <select value={font} onChange={handleTextChange}>
-        {
-          fontList.map((fontItem) =>  
-            <option key={fontItem.name} value={fontItem.name}>{fontItem.displayName}</option>
-          )
-        }
+      <select
+        value={font}
+        onChange={handleTextChange}
+        data-testid="dropDownFontText"
+      >
+        {fontList.map((fontItem) => (
+          <option key={fontItem.name} value={fontItem.name}>
+            {fontItem.displayName}
+          </option>
+        ))}
       </select>
     </StyledDropMenu>
   );
