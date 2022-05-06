@@ -8,10 +8,11 @@ jest.mock("../../../chrome-utils/changeText", () => {
 });
 
 describe("test drop down font text function", () => {
-  it.only("handleTextChange fn should call changeText fn properly", () => {
+  it("handleTextChange fn should call changeText fn properly", () => {
     render(<DropDownFontText />);
     const dropDownmenu = screen.getByTestId("drop-down-font-text");
     fireEvent.change(dropDownmenu, { target: { value: "OpenSans" } });
     expect(changeText).toHaveBeenCalled();
+    expect(changeText).toHaveBeenCalledWith("OpenSans");
   });
 });
