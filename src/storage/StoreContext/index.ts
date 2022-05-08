@@ -9,8 +9,13 @@ type StorageData = {
   },
   overlay: {
     enabled: boolean,
-    color:  string
+    color: string
   }
+}
+
+type AppState = {
+  appState: StorageData,
+  setAppState: (updatedData: StorageData) => void
 }
 
 const initialState: StorageData = {
@@ -23,5 +28,8 @@ const initialState: StorageData = {
   }
 }
 
-const StoreContext = React.createContext<StorageData>(initialState);
+const StoreContext = React.createContext<AppState>({
+  appState: initialState, 
+  setAppState: (_store) => {}
+});
 export default StoreContext;
