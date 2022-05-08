@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import React from 'react';
 
-import COLORS from '../constants/colors';
-import StoreContext from './StoreContext';
+import COLORS from '../../constants/colors';
+import StoreContext from '.';
 
 describe('src/storage/StoreContext.ts', () => {
   it('should propagate initialised values', () => {

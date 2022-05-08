@@ -1,5 +1,5 @@
 import React from "react";
-import COLORS from "../constants/colors";
+import COLORS from "../../constants/colors";
 
 type StorageData = {
   enabled: boolean,
