@@ -1,5 +1,7 @@
+import { useEffect, useState } from "react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 import styled from "styled-components";
+
 import "./App";
 
 import Home from "./pages/Home";
@@ -8,9 +10,9 @@ import OverlayTint from "./pages/OverlayTint";
 import LineFocus from "./pages/LineFocus";
 import HighLighter from "./pages/HighLighter";
 import HideImages from "./pages/HideImages";
-import StoreContext from "./storage/StoreContext";
-import { useEffect, useState } from "react";
+import StoreContext, { StorageData } from "./storage/StoreContext";
 import COLORS from "./constants/colors";
+import { fetchAppStateFromStorage } from "./storage/chrome-storage.ts";
 
 const StyledAppContainer = styled.div`
   margin: 0px;
@@ -29,17 +31,16 @@ const initialState = {
 }
 
 function App() {
-  const [storeLoaded, setStoreLoaded] = useState(false);
-  const [appState, setAppState] = useState(initialState);
+  const [appState, setAppState] = useState<StorageData | null>(null);
 
   useEffect(() => {
-    setTimeout(() => {
-      setStoreLoaded(true)
-    }, 1000);
+    fetchAppStateFromStorage().then((state: StorageData) => {
+      setAppState(state);
+    });
   }, [])
 
   return (
-    storeLoaded === false ?
+    appState === null ?
       <div>Loading...</div> :
       <StoreContext.Provider value={{ appState, setAppState }}>
         <StyledAppContainer>

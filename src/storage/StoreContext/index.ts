@@ -1,7 +1,7 @@
 import React from "react";
 import COLORS from "../../constants/colors";
 
-type StorageData = {
+export type StorageData = {
   enabled: boolean,
   text: {
     fontFamily?: string,
