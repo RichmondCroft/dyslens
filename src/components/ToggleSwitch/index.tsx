@@ -5,9 +5,12 @@ import COLORS from "../../constants/colors";
 const ToggleContainer = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
+`;
+const TextContent = styled.div`
+  flex: 1;
 `;
 
-const StyledInput = styled.input``;
 const StyledLabel = styled.label<{ checked: boolean }>`
   cursor: pointer;
   text-indent: -9999px;
@@ -34,13 +37,17 @@ const StyledLabel = styled.label<{ checked: boolean }>`
 export default function ToggleSwitch() {
   const [switchState, setSwitchState] = useState(true);
   function handleOnChange(e: ChangeEvent<HTMLInputElement>) {
-    console.log("---", e.target.checked);
     setSwitchState(!switchState);
   }
+  let enabled = "Enabled";
+  let disabled = "Disabled";
   return (
     <ToggleContainer>
+      <TextContent>
+        {switchState === true ? `${enabled}` : `${disabled}`}
+      </TextContent>
       <StyledLabel htmlFor="checkbox" checked={switchState}>
-        <StyledInput
+        <input
           type="checkBox"
           id="checkbox"
           checked={switchState}
