@@ -5,6 +5,7 @@ const COLORS = {
   WARM_WHITE: "#fefbeb",
   GRAY: "#adadad",
   SPECIAL: "rgba(0, 0, 0, 0.25)",
+  GREEN: "#34c759",
 };
 
 export default COLORS;

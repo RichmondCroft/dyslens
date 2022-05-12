@@ -5,6 +5,7 @@ import DropDownFontText from "../../components/InnerTextSettingPage/DropDownFont
 import COLORS from "../../constants/colors";
 import SIZE from "../../constants/size";
 import ColorPicker from "../../components/ColorPicker";
+import ToggleSwitch from "../../components/ToggleSwitch";
 
 const StyledTextSettingsContainer = styled.div`
   display: flex;
@@ -20,6 +21,7 @@ const StyledTextSettingsContainer = styled.div`
 export default function TextSettings() {
   return (
     <StyledTextSettingsContainer data-testid="textSettingsContainer">
+      <ToggleSwitch />
       <p>The quick brown fox jumps over the lazy dog</p>
       <DropDownFontText />
       <ChangeSize />
