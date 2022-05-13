@@ -21,7 +21,6 @@ describe('src/App.tsx', () => {
       global.chrome = {
         storage: {
           sync: {
-            // set: async (items: any) => { },
             get: () => (Promise.resolve({
               enabled: false,
               text: {},
