@@ -36,17 +36,16 @@ describe('src/App.tsx', () => {
     });
   });
 
-  it("renders dyslens app without any problem", () => {
-    act(() => {
-      render(<App />);
+  it("renders dyslens app without any problem", async () => {
+    await act(async () => {
+      await render(<App />);
+      expect(screen.getByText(/Loading.../i)).toBeInTheDocument();
     });
-
-    expect(screen.getByText(/Loading.../i)).toBeInTheDocument();
   });
 
   it('should be able to render the app once the memory is read', async () => {
-    act(() => {
-      render(<App />);
+    await act(async () => {
+      await render(<App />);
     });
     await new Promise(process.nextTick);
     expect(screen.getByTestId('dyslensText')).toBeInTheDocument();
