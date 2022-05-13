@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import Toggle from ".";
 
-describe.only("should render Toggle component", () => {
+describe("should render Toggle component", () => {
   it("renders toggle switch component", () => {
     render(<Toggle on={true} />);
     const labelElement = screen.getByTestId("toggle");
