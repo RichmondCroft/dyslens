@@ -31,7 +31,7 @@ export default function OverlayTint() {
   return (
     <StyledOverLayTintContainer data-testid="overLayTintContainer">
       <ComponentContainer label="Enabled">
-        <Toggle on={appState.enabled} onStateChange={handleOnToggleStateChange} />
+        <Toggle on={appState.overlay.enabled} onStateChange={handleOnToggleStateChange} />
       </ComponentContainer>
       <Spacer />
       <ComponentContainer label="Color">

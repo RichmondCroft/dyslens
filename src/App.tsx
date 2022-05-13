@@ -11,24 +11,13 @@ import LineFocus from "./pages/LineFocus";
 import HighLighter from "./pages/HighLighter";
 import HideImages from "./pages/HideImages";
 import StoreContext, { StorageData } from "./storage/StoreContext";
-import COLORS from "./constants/colors";
-import { fetchAppStateFromStorage } from "./storage/chrome-storage.ts";
+import { fetchAppStateFromStorage, saveAppState } from "./storage/chrome-storage.ts";
 
 const StyledAppContainer = styled.div`
   margin: 0px;
   padding: 0px;
   width: 370px;
 `;
-
-const initialState = {
-  enabled: false,
-  text: {
-  },
-  overlay: {
-    enabled: false,
-    color: COLORS.LIGHT_YELLOW
-  }
-}
 
 function App() {
   const [appState, setAppState] = useState<StorageData | null>(null);
@@ -39,10 +28,15 @@ function App() {
     });
   }, [])
 
+  function setAppStateWrapper(state: StorageData) {
+    saveAppState(state);
+    setAppState(state);
+  }
+
   return (
     appState === null ?
       <div>Loading...</div> :
-      <StoreContext.Provider value={{ appState, setAppState }}>
+      <StoreContext.Provider value={{ appState, setAppState: setAppStateWrapper }}>
         <StyledAppContainer>
           <MemoryRouter>
             <Routes>
