@@ -6,8 +6,6 @@ describe('src/storage/chrome-storage.ts/index.ts', () => {
     global.chrome = {
       storage: {
         sync: {
-          // set: async (items: any) => { },
-          // get: () => { }
         } as any
       } as any
     } as any
