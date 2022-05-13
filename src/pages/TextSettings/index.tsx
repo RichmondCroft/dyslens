@@ -21,7 +21,7 @@ const StyledTextSettingsContainer = styled.div`
 export default function TextSettings() {
   return (
     <StyledTextSettingsContainer data-testid="textSettingsContainer">
-      <ToggleSwitch />
+      <ToggleSwitch on={true} />
       <p>The quick brown fox jumps over the lazy dog</p>
       <DropDownFontText />
       <ChangeSize />

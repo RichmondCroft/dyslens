@@ -2,6 +2,11 @@ import { useState, ChangeEvent } from "react";
 import styled from "styled-components";
 import COLORS from "../../constants/colors";
 
+type Props = {
+  on: boolean;
+  onStateChange?: (updatedState: boolean) => void;
+};
+
 const ToggleContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -34,10 +39,13 @@ const StyledLabel = styled.label<{ checked: boolean }>`
   }
 `;
 
-export default function ToggleSwitch() {
-  const [switchState, setSwitchState] = useState(true);
+export default function ToggleSwitch(props: Props) {
+  const [switchState, setSwitchState] = useState(props.on);
   function handleOnChange(e: ChangeEvent<HTMLInputElement>) {
     setSwitchState(!switchState);
+    if (props.onStateChange) {
+      props.onStateChange(!switchState);
+    }
   }
   let enabled = "Enabled";
   let disabled = "Disabled";
@@ -46,7 +54,11 @@ export default function ToggleSwitch() {
       <TextContent>
         {switchState === true ? `${enabled}` : `${disabled}`}
       </TextContent>
-      <StyledLabel htmlFor="checkbox" checked={switchState}>
+      <StyledLabel
+        htmlFor="checkbox"
+        checked={switchState}
+        data-testid="label-input"
+      >
         <input
           type="checkBox"
           id="checkbox"
