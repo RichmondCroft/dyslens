@@ -45,7 +45,7 @@ function handleOnStorageChange(changes, areaName) {
 
   if (newState.overlay.enabled !== oldState.overlay.enabled) {
     // change in state
-    newState.overlay.enabled ? renderFloatingOverlay() : removeFloatingOverlay();
+    newState.overlay.enabled ? renderFloatingOverlay(newState.overlay) : removeFloatingOverlay();
   }
 
   if (newState.overlay.color !== oldState.overlay.color) {

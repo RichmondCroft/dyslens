@@ -4,8 +4,7 @@
   position: fixed;
   height: 100px;
   width: 100%;
-  border: 1px solid blue;
-  opacity: 0.2;
+  opacity: 0.25;
   z-index: 1000000;
   cursor: grab;
 } 
