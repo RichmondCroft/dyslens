@@ -29,9 +29,9 @@ describe('src/App.tsx', () => {
                 color: COLORS.LIGHT_YELLOW
               }
             }))
-          } as any
-        } as any
-      } as any
+          } as unknown as typeof chrome.storage.sync // need to convert to unknown
+        } as typeof chrome.storage
+      } as typeof chrome
     });
   });
 

@@ -6,9 +6,9 @@ describe('src/storage/chrome-storage.ts/index.ts', () => {
     global.chrome = {
       storage: {
         sync: {
-        } as any
-      } as any
-    } as any
+        } as unknown as typeof chrome.storage.sync // need to convert to unknown
+      } as typeof chrome.storage
+    } as typeof chrome
   })
 
   it('should set the store value in the chrome app', () => {
