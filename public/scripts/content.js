@@ -1,11 +1,3 @@
-// This is the content file run on each page
-
-// Trigger the changes for the tab and send message to background script
-
-// chrome.runtime.sendMessage({greeting: "hello"}, function(response) {
-//   console.log(response.farewell);
-// });
-
 const FLOATING_DIV_ID = 'floating-overlay';
 
 function renderFloatingOverlay() {
@@ -49,8 +41,8 @@ function removeFloatingOverlay() {
 function handleOnStorageChange(changes, areaName) {
   const newState = changes.appState.newValue;
   const oldState = changes.appState.oldValue;
-  
-  if(newState.overlay.enabled !== oldState.overlay.enabled){
+
+  if (newState.overlay.enabled !== oldState.overlay.enabled) {
     // change in state
     newState.overlay.enabled ? renderFloatingOverlay() : removeFloatingOverlay();
   }
@@ -59,7 +51,7 @@ function handleOnStorageChange(changes, areaName) {
 (async function () {
   chrome.storage.onChanged.addListener(handleOnStorageChange)
 
-  const {appState} = await chrome.storage.sync.get('appState');
+  const { appState } = await chrome.storage.sync.get('appState');
   if (!appState) {
     throw 'storage data not found';
   }
