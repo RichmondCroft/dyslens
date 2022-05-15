@@ -35,7 +35,7 @@ export default function OverlayTint() {
       </ComponentContainer>
       <Spacer />
       <ComponentContainer label="Color">
-        <ColorPicker />
+        <ColorPicker onChange={() => {}} />
       </ComponentContainer>
     </StyledOverLayTintContainer>
   );

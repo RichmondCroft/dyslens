@@ -1,7 +1,7 @@
 import { saveAppState, fetchAppStateFromStorage } from '.';
 import COLORS from '../../constants/colors';
 
-describe('src/storage/chrome-storage.ts/index.ts', () => {
+describe('src/storage/chrome-storage/index.ts', () => {
   beforeAll(() => {
     global.chrome = {
       storage: {

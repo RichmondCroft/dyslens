@@ -11,7 +11,7 @@ import LineFocus from "./pages/LineFocus";
 import HighLighter from "./pages/HighLighter";
 import HideImages from "./pages/HideImages";
 import StoreContext, { AppData } from "./storage/StoreContext";
-import { fetchAppStateFromStorage, saveAppState } from "./storage/chrome-storage.ts";
+import { fetchAppStateFromStorage, saveAppState } from "./storage/chrome-storage";
 
 const StyledAppContainer = styled.div`
   margin: 0px;
