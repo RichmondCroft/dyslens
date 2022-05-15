@@ -16,13 +16,13 @@ const Spacer = styled.div`
 `;
 
 export default function OverlayTint() {
-  const { appState, setAppState } = useContext(StoreContext)
+  const { appData, setAppState } = useContext(StoreContext)
 
   function handleOnToggleStateChange(checked: boolean) {
     setAppState({
-      ...appState,
+      ...appData,
       overlay: {
-        ...appState.overlay,
+        ...appData.overlay,
         enabled: checked
       }
     })
@@ -31,7 +31,7 @@ export default function OverlayTint() {
   return (
     <StyledOverLayTintContainer data-testid="overLayTintContainer">
       <ComponentContainer label="Enabled">
-        <Toggle on={appState.overlay.enabled} onStateChange={handleOnToggleStateChange} />
+        <Toggle on={appData.overlay.enabled} onStateChange={handleOnToggleStateChange} />
       </ComponentContainer>
       <Spacer />
       <ComponentContainer label="Color">

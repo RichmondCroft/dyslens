@@ -1,5 +1,5 @@
 import COLORS from "../../constants/colors";
-import { StorageData } from "../StoreContext";
+import { AppData } from "../StoreContext";
 
 const initialState = {
   enabled: false,
@@ -11,15 +11,15 @@ const initialState = {
   }
 }
 
-export function saveAppState(appState: StorageData) {
+export function saveAppState(appState: AppData) {
   return chrome.storage.sync.set({ appState });
 }
 
-export async function fetchAppStateFromStorage(): Promise<StorageData> {
+export async function fetchAppStateFromStorage(): Promise<AppData> {
   return new Promise(async (resolve) => {
     const data = await chrome.storage.sync.get('appState');
     if (data && data.appState) {
-      resolve(data.appState as StorageData)
+      resolve(data.appState as AppData)
       return;
     }
     else {

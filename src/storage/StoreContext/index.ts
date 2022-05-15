@@ -1,7 +1,7 @@
 import React from "react";
 import COLORS from "../../constants/colors";
 
-export type StorageData = {
+export type AppData = {
   enabled: boolean,
   text: {
     fontFamily?: string,
@@ -14,11 +14,11 @@ export type StorageData = {
 }
 
 type AppState = {
-  appState: StorageData,
-  setAppState: (updatedData: StorageData) => void
+  appData: AppData,
+  setAppState: (updatedData: AppData) => void
 }
 
-const initialState: StorageData = {
+const initialState: AppData = {
   enabled: false,
   text: {
   },
@@ -29,7 +29,7 @@ const initialState: StorageData = {
 }
 
 const StoreContext = React.createContext<AppState>({
-  appState: initialState, 
+  appData: initialState, 
   setAppState: (_store) => {}
 });
 export default StoreContext;

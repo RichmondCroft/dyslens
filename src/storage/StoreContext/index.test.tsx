@@ -17,13 +17,13 @@ describe('src/storage/StoreContext.ts', () => {
     };
 
     const ContextConsumer = () => {
-      const {appState} = React.useContext(StoreContext);
-      return <div data-testid='store-value'>{JSON.stringify(appState)}</div>
+      const {appData} = React.useContext(StoreContext);
+      return <div data-testid='store-value'>{JSON.stringify(appData)}</div>
     }
 
     render(
       <StoreContext.Provider value={{
-        appState: mockValue, 
+        appData: mockValue, 
         setAppState: (_store) => {}
       }}>
         <ContextConsumer />

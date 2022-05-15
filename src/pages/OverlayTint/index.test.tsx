@@ -15,7 +15,7 @@ describe("testing OverLayTint component", () => {
   });
   
   it("should print console log when clicked on the toggle", () => {
-    const appState = {
+    const appData = {
       enabled: false,
       text: {},
       overlay: {
@@ -25,7 +25,7 @@ describe("testing OverLayTint component", () => {
     };;
     const setAppState = jest.fn();
     render(
-      <StoreContext.Provider value={{appState, setAppState}} >
+      <StoreContext.Provider value={{appData, setAppState}} >
         <OverLayTint />
       </StoreContext.Provider>
     );
@@ -33,9 +33,9 @@ describe("testing OverLayTint component", () => {
     let toggle = screen.getByTestId("toggle");
     fireEvent.click(toggle)
     expect(setAppState).toHaveBeenCalledWith({
-      ...appState,
+      ...appData,
       overlay: {
-        ...appState.overlay,
+        ...appData.overlay,
         enabled: true
       }
     });
