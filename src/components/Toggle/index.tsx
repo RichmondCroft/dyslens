@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from "react";
+import { useState, useEffect, ChangeEvent } from "react";
 import styled from "styled-components";
 import COLORS from "../../constants/colors";
 
@@ -32,6 +32,9 @@ const StyledLabel = styled.label<{ checked: boolean }>`
 
 export default function Toggle(props: Props) {
   const [switchState, setSwitchState] = useState(props.on);
+
+  useEffect(() => { setSwitchState(props.on) }, [props.on])
+
   function handleOnChange(e: ChangeEvent<HTMLInputElement>) {
     setSwitchState(!switchState);
     if (props.onStateChange) {
