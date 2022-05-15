@@ -1,22 +1,55 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect, ChangeEvent } from "react";
+import styled from "styled-components";
+import COLORS from "../../constants/colors";
 
 type Props = {
-  on: boolean,
-  onStateChange?: (updatedState: boolean) => void
-}
-function Toggle(props: Props) {
-  const [on, setOn] = useState(props.on);
+  on: boolean;
+  onStateChange?: (updatedState: boolean) => void;
+};
 
-  useEffect(() => { setOn(props.on) }, [props.on])
+const StyledLabel = styled.label<{ checked: boolean }>`
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 50px;
+  height: 30px;
+  background: ${({ checked }) => (checked ? COLORS.GREEN : COLORS.GRAY)};
+  display: block;
+  border-radius: 100px;
+  position: relative;
 
-  function handleOnChange() {
-    setOn(!on);
+  &:after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: ${({ checked }) => (checked ? "24px" : "calc(10% - 5px)")};
+    width: 26px;
+    height: 26px;
+    background: #fff;
+    border-radius: 90px;
+    transition: 0.3s;
+  }
+`;
+
+export default function Toggle(props: Props) {
+  const [switchState, setSwitchState] = useState(props.on);
+
+  useEffect(() => { setSwitchState(props.on) }, [props.on])
+
+  function handleOnChange(e: ChangeEvent<HTMLInputElement>) {
+    setSwitchState(!switchState);
     if (props.onStateChange) {
-      props.onStateChange(!on);
+      props.onStateChange(!switchState);
     }
   }
 
-  return <input type='checkbox' checked={on} data-testid='toggle' onChange={handleOnChange} />
+  return (
+    <StyledLabel htmlFor="checkbox" checked={switchState} data-testid="toggle">
+      <input
+        type="checkBox"
+        id="checkbox"
+        checked={switchState}
+        onChange={handleOnChange}
+      />
+    </StyledLabel>
+  );
 }
-
-export default Toggle;
