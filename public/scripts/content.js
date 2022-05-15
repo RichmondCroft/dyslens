@@ -41,16 +41,30 @@ function renderFloatingOverlay() {
   }
 }
 
-console.log('hi there');
+function removeFloatingOverlay() {
+  const overlay = document.getElementById(FLOATING_DIV_ID);
+  overlay.remove();
+}
+
+function handleOnStorageChange(changes, areaName) {
+  const newState = changes.appState.newValue;
+  const oldState = changes.appState.oldValue;
+  
+  if(newState.overlay.enabled !== oldState.overlay.enabled){
+    // change in state
+    newState.overlay.enabled ? renderFloatingOverlay() : removeFloatingOverlay();
+  }
+}
 
 (async function () {
-  const data = await chrome.storage.sync.get('appState');
-  if (!data) {
+  chrome.storage.onChanged.addListener(handleOnStorageChange)
+
+  const {appState} = await chrome.storage.sync.get('appState');
+  if (!appState) {
     throw 'storage data not found';
   }
 
-  // if(data.enabled){}
-  // if(data.overlay.enabled){
-  renderFloatingOverlay();
-  // }
+  if (appState.overlay.enabled) {
+    renderFloatingOverlay();
+  }
 })()
