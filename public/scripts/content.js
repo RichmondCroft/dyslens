@@ -6,6 +6,42 @@
 //   console.log(response.farewell);
 // });
 
+const FLOATING_DIV_ID = 'floating-overlay';
+
+function renderFloatingOverlay() {
+  const floatingDiv = document.createElement('div');
+  floatingDiv.id = FLOATING_DIV_ID;
+  floatingDiv.classList.add('floating-overlay');
+  document.body.appendChild(floatingDiv);
+
+  floatingDiv.addEventListener('mousedown', mouseDown, false);
+  window.addEventListener('mouseup', mouseUp, false);
+
+  let offset = [0, 0];
+
+  function mouseUp(e) {
+    offset = [
+      floatingDiv.offsetLeft - e.clientX,
+      floatingDiv.offsetTop - e.clientY
+    ];
+    window.removeEventListener('mousemove', handleOnOverlayMove, true);
+  }
+
+  function mouseDown(e) {
+    offset = [
+      floatingDiv.offsetLeft - e.clientX,
+      floatingDiv.offsetTop - e.clientY
+    ];
+    window.addEventListener('mousemove', handleOnOverlayMove, true);
+  }
+
+  function handleOnOverlayMove(e) {
+    floatingDiv.style.position = 'fixed';
+    floatingDiv.style.top = e.clientY + offset[1] + 'px';
+  }
+}
+
+console.log('hi there');
 
 (async function () {
   const data = await chrome.storage.sync.get('appState');
@@ -15,25 +51,6 @@
 
   // if(data.enabled){}
   // if(data.overlay.enabled){
-  const floatingDiv = document.createElement('div');
-  floatingDiv.classList.add('floating-overlay');
-  document.body.appendChild(floatingDiv);
+  renderFloatingOverlay();
   // }
-
-  floatingDiv.addEventListener('mousedown', mouseDown, false);
-  window.addEventListener('mouseup', mouseUp, false);
-
-  function mouseUp() {
-    window.removeEventListener('mousemove', divMove, true);
-  }
-
-  function mouseDown(e) {
-    window.addEventListener('mousemove', divMove, true);
-  }
-
-  function divMove(e) {
-    floatingDiv.style.position = 'fixed';
-    floatingDiv.style.top = e.clientY + 'px';
-    // floatingDiv.style.left = e.clientX + 'px';
-  }
 })()
