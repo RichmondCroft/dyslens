@@ -1,10 +1,16 @@
+import { useState } from "react";
 import styled from "styled-components";
+import COLORS from "../../constants/colors";
 
-import changeTextColor from "../../chrome-utils/changeTextColor";
-import SIZE from "../../constants/size";
 import ColorsList from "../../constants/colorsList";
+import SIZE from "../../constants/size";
 
-const ColoredBox = styled.li<{ backgroundColor: string }>`
+type Props = {
+  color?: string,
+  onChange: (color: string) => void
+}
+
+const ColoredBox = styled.li<{ backgroundColor: string, isSelected: boolean }>`
   border-radius: ${SIZE.LARGE}px;
   margin-left: 2px;
   width: ${SIZE.LARGE}px;
@@ -12,7 +18,12 @@ const ColoredBox = styled.li<{ backgroundColor: string }>`
   background-color: ${(props) => props.backgroundColor};
   text-decoration: none;
   cursor: pointer;
+  ${({ isSelected }) => `
+    border: ${isSelected ? `3px solid ${COLORS.DARK_BLUE}` : 'none'}
+  `}
 `;
+
+
 const StyledTextColorContainer = styled.ul`
   padding: ${SIZE.X_SMALL}px ${SIZE.XX_SMALL}px;
   display: flex;
@@ -21,20 +32,25 @@ const StyledTextColorContainer = styled.ul`
   list-style-type: none;
 `;
 
-export default function ColorPicker() {
+export default function ColorPicker({ color, onChange }: Props) {
+  const [stateColor, setStateColor] = useState(color);
+
   function handleOnColoredBox(color: string) {
-    changeTextColor(color);
+    setStateColor(color);
+    onChange(color);
   }
 
   return (
-    <StyledTextColorContainer>
+    <StyledTextColorContainer data-testid='color-picker'>
       {ColorsList.map((item) => {
         return (
           <ColoredBox
             backgroundColor={item}
+            data-testid={item}
+            isSelected={stateColor === item}
             key={item}
             onClick={() => handleOnColoredBox(item)}
-          ></ColoredBox>
+          />
         );
       })}
     </StyledTextColorContainer>

@@ -4,7 +4,7 @@ import { act } from "react-dom/test-utils";
 import App from "./App";
 import COLORS from "./constants/colors";
 
-jest.mock('./storage/chrome-storage.ts', () => ({
+jest.mock('./storage/chrome-storage', () => ({
   fetchAppStateFromStorage: () => Promise.resolve({
     enabled: false,
     text: {},
