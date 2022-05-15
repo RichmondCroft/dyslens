@@ -45,7 +45,7 @@ export default function OverlayTint() {
       </ComponentContainer>
       <Spacer />
       <ComponentContainer label="Color">
-        <ColorPicker onChange={handleOnColorChange} />
+        <ColorPicker color={appData.overlay.color} onChange={handleOnColorChange} />
       </ComponentContainer>
     </StyledOverLayTintContainer>
   );
