@@ -1,9 +1,10 @@
 const FLOATING_DIV_ID = 'floating-overlay';
 
-function renderFloatingOverlay() {
+function renderFloatingOverlay({ color }) {
   const floatingDiv = document.createElement('div');
   floatingDiv.id = FLOATING_DIV_ID;
   floatingDiv.classList.add('floating-overlay');
+  floatingDiv.style.background = color;
   document.body.appendChild(floatingDiv);
 
   floatingDiv.addEventListener('mousedown', mouseDown, false);
@@ -44,7 +45,14 @@ function handleOnStorageChange(changes, areaName) {
 
   if (newState.overlay.enabled !== oldState.overlay.enabled) {
     // change in state
-    newState.overlay.enabled ? renderFloatingOverlay() : removeFloatingOverlay();
+    newState.overlay.enabled ? renderFloatingOverlay(newState.overlay) : removeFloatingOverlay();
+  }
+
+  if (newState.overlay.color !== oldState.overlay.color) {
+    const overlay = document.getElementById(FLOATING_DIV_ID);
+    if (overlay) {
+      overlay.style.background = newState.overlay.color;
+    }
   }
 }
 
@@ -57,6 +65,6 @@ function handleOnStorageChange(changes, areaName) {
   }
 
   if (appState.overlay.enabled) {
-    renderFloatingOverlay();
+    renderFloatingOverlay(appState.overlay);
   }
 })()

@@ -2,14 +2,13 @@
   top: 0;
   left: 0;
   position: fixed;
-  background-color: red;
   height: 100px;
   width: 100%;
-  border: 1px solid blue;
-  opacity: 0.2;
+  opacity: 0.25;
   z-index: 1000000;
-}
+  cursor: grab;
+} 
 
 .floating-overlay:hover {
-  border-width: 2px;
+  border-width: 5px;
 }

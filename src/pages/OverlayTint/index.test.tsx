@@ -14,7 +14,7 @@ describe("testing OverLayTint component", () => {
     expect(toggle).toBeInTheDocument();
   });
   
-  it("should print console log when clicked on the toggle", () => {
+  it("should update app state when the toggle is clicked", () => {
     const appData = {
       enabled: false,
       text: {},
@@ -37,6 +37,33 @@ describe("testing OverLayTint component", () => {
       overlay: {
         ...appData.overlay,
         enabled: true
+      }
+    });
+  });
+
+  it("should update app state when color is selected", () => {
+    const appData = {
+      enabled: false,
+      text: {},
+      overlay: {
+        enabled: false,
+        color: COLORS.LIGHT_YELLOW
+      }
+    };;
+    const setAppState = jest.fn();
+    render(
+      <StoreContext.Provider value={{appData, setAppState}} >
+        <OverLayTint />
+      </StoreContext.Provider>
+    );
+
+    let colorElement = screen.getByTestId(COLORS.GRAY);
+    fireEvent.click(colorElement)
+    expect(setAppState).toHaveBeenCalledWith({
+      ...appData,
+      overlay: {
+        ...appData.overlay,
+        color: COLORS.GRAY
       }
     });
   });

@@ -28,6 +28,16 @@ export default function OverlayTint() {
     })
   }
 
+  function handleOnColorChange(newColor: string) {
+    setAppState({
+      ...appData,
+      overlay: {
+        ...appData.overlay,
+        color: newColor
+      }
+    })
+  }
+
   return (
     <StyledOverLayTintContainer data-testid="overLayTintContainer">
       <ComponentContainer label="Enabled">
@@ -35,7 +45,7 @@ export default function OverlayTint() {
       </ComponentContainer>
       <Spacer />
       <ComponentContainer label="Color">
-        <ColorPicker onChange={() => {}} />
+        <ColorPicker color={appData.overlay.color} onChange={handleOnColorChange} />
       </ComponentContainer>
     </StyledOverLayTintContainer>
   );
