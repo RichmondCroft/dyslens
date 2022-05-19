@@ -14,7 +14,9 @@ describe('src/storage/chrome-storage/index.ts', () => {
   it('should set the store value in the chrome app', () => {
     const appState = {
       enabled: false,
-      text: {},
+      text: {
+        enabled: false
+      },
       overlay: {
         enabled: false,
         color: COLORS.LIGHT_YELLOW
@@ -31,7 +33,9 @@ describe('src/storage/chrome-storage/index.ts', () => {
   it('should be able to fetch data from local storage when data exists', async () => {
     const appState = {
       enabled: false,
-      text: {},
+      text: {
+        enabled: false
+      },
       overlay: {
         enabled: false,
         color: COLORS.LIGHT_YELLOW
@@ -49,7 +53,9 @@ describe('src/storage/chrome-storage/index.ts', () => {
   it('should be able to return initial data when data does not exists in storage', async () => {
     const appState = {
       enabled: false,
-      text: {},
+      text: {
+        enabled: false
+      },
       overlay: {
         enabled: false,
         color: COLORS.LIGHT_YELLOW

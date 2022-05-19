@@ -17,7 +17,9 @@ describe("testing OverLayTint component", () => {
   it("should update app state when the toggle is clicked", () => {
     const appData = {
       enabled: false,
-      text: {},
+      text: {
+        enabled: false
+      },
       overlay: {
         enabled: false,
         color: COLORS.LIGHT_YELLOW
@@ -44,7 +46,9 @@ describe("testing OverLayTint component", () => {
   it("should update app state when color is selected", () => {
     const appData = {
       enabled: false,
-      text: {},
+      text: {
+        enabled: false
+      },
       overlay: {
         enabled: false,
         color: COLORS.LIGHT_YELLOW
