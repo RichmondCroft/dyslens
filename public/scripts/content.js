@@ -45,9 +45,21 @@ function addTextStyles(textSettings) {
     return;
   }
 
+  let url = chrome.runtime.getURL(`fonts/${textSettings.fontFamily}-Regular.ttf`);
   const css = `
+    ${textSettings.fontFamily ? `
+      @font-face {
+        font-family: ${textSettings.fontFamily};
+        src: url("${url}");
+      }
+      `
+      :
+      ''
+    }
+
     * {
-      color: ${textSettings.textColor} !important;
+      ${textSettings.textColor ? `color: ${textSettings.textColor} !important;` : ''} 
+      ${textSettings.fontFamily ? `font-family: ${textSettings.fontFamily} !important;` : ''} 
     }
   `;
   const head = document.head || document.getElementsByTagName('head')[0];

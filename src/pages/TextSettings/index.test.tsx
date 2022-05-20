@@ -74,4 +74,33 @@ describe("testing TextSettings component", () => {
       }
     });
   });
+
+  it("should update font family enable in the memory", () => {
+    const appData = {
+      enabled: false,
+      text: {
+        enabled: false
+      },
+      overlay: {
+        enabled: false,
+        color: COLORS.LIGHT_YELLOW
+      }
+    };
+    const setAppState = jest.fn();
+    render(
+      <StoreContext.Provider value={{appData, setAppState}} >
+        <TextSettings />
+      </StoreContext.Provider>
+    );
+
+    fireEvent.change(screen.getByTestId('drop-down'), { target: { value: 'OpenSans' } });
+
+    expect(setAppState).toHaveBeenCalledWith({
+      ...appData,
+      text: {
+        ...appData.text,
+        fontFamily: 'OpenSans'
+      }
+    });
+  });
 });
