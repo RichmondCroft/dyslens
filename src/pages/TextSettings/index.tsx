@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
-import ChangeSize from "../../components/InnerTextSettingPage/ChangeSize";
-import DropDownFontText from "../../components/InnerTextSettingPage/DropDownFontText";
 import COLORS from "../../constants/colors";
 import SIZE from "../../constants/size";
 import ColorPicker from "../../components/ColorPicker";
 import Toggle from "../../components/Toggle";
 import { useContext } from "react";
 import StoreContext from "../../storage/StoreContext";
+import DropDown from "../../components/DropDown";
+import { FONTS } from "../../constants/fonts";
+import ComponentContainer from "../../components/ComponentContainer";
 
 const StyledTextSettingsContainer = styled.div`
   background: ${COLORS.WARM_WHITE};
@@ -44,6 +45,16 @@ export default function TextSettings() {
       text: {
         ...appData.text,
         textColor: color
+      }
+    })
+  }
+
+  function handleOnFontChange(fontFamily?: string) {
+    setAppState({
+      ...appData,
+      text: {
+        ...appData.text,
+        fontFamily
       }
     })
   }
