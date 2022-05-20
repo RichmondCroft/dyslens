@@ -18,8 +18,12 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
-    "types": ["chrome","jest", "node"]
+    "jsx": "preserve",
+    "types": [
+      "chrome",
+      "jest",
+      "node"
+    ]
   },
   "include": [
     "src",

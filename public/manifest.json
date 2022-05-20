@@ -13,6 +13,7 @@
     "128": "img/logo-128.png"
   },
   "permissions": ["tabs", "scripting", "storage", "activeTab"],
+  
 
   "web_accessible_resources": [
     { "resources": ["*"], "matches": ["<all_urls>"] }
