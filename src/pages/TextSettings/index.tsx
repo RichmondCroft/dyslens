@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-import ChangeSize from "../../components/InnerTextSettingPage/ChangeSize";
-import DropDownFontText from "../../components/InnerTextSettingPage/DropDownFontText";
 import COLORS from "../../constants/colors";
 import SIZE from "../../constants/size";
 import ColorPicker from "../../components/ColorPicker";
@@ -10,6 +8,7 @@ import { useContext } from "react";
 import StoreContext from "../../storage/StoreContext";
 import DropDown from "../../components/DropDown";
 import { FONTS } from "../../constants/fonts";
+import ComponentContainer from "../../components/ComponentContainer";
 
 const StyledTextSettingsContainer = styled.div`
   display: flex;
@@ -20,6 +19,10 @@ const StyledTextSettingsContainer = styled.div`
   border: 1px solid ${COLORS.GRAY};
   box-shadow: ${SIZE.ZERO}px ${SIZE.XX_SMALL}px ${SIZE.XX_SMALL}px
     ${COLORS.SPECIAL};
+`;
+
+const Spacer = styled.div`
+  padding: ${SIZE.XX_SMALL}px 0;
 `;
 
 const fontList = Object.values(FONTS).map((font) => ({
@@ -62,15 +65,22 @@ export default function TextSettings() {
 
   return (
     <StyledTextSettingsContainer data-testid="textSettingsContainer">
-      <Toggle on={appData.text.enabled} onStateChange={handleOnEnableChange} />
-      <p>The quick brown fox jumps over the lazy dog</p>
-      <DropDown items={fontList}
-        onChange={handleOnFontChange}
-        noSelectionItem={{ displayValue: 'Select a font', value: 'no-selection' }}
-        value={appData.text.fontFamily}
-      />
-      <ChangeSize />
-      <ColorPicker color={appData.text.textColor} onChange={handleOnColorChange} />
+      <Spacer />
+      <ComponentContainer label="Enable">
+        <Toggle on={appData.text.enabled} onStateChange={handleOnEnableChange} />
+      </ComponentContainer>
+      <Spacer />
+      <ComponentContainer label="Font Family">
+        <DropDown items={fontList}
+          onChange={handleOnFontChange}
+          noSelectionItem={{ displayValue: 'Select a font', value: 'no-selection' }}
+          value={appData.text.fontFamily}
+        />
+      </ComponentContainer>
+      <Spacer />
+      <ComponentContainer label="Text Color">
+        <ColorPicker color={appData.text.textColor} onChange={handleOnColorChange} />
+      </ComponentContainer>
     </StyledTextSettingsContainer>
   );
 }
