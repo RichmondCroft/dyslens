@@ -4,6 +4,7 @@ import COLORS from "../../constants/colors";
 export type AppData = {
   enabled: boolean,
   text: {
+    enabled: boolean,
     fontFamily?: string,
     textColor?: string
   },
@@ -21,6 +22,7 @@ type AppState = {
 const initialState: AppData = {
   enabled: false,
   text: {
+    enabled: false
   },
   overlay: {
     enabled: false,

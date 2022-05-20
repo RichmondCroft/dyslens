@@ -4,6 +4,7 @@ import { AppData } from "../StoreContext";
 const initialState = {
   enabled: false,
   text: {
+    enabled: false
   },
   overlay: {
     enabled: false,

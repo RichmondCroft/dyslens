@@ -6,6 +6,8 @@ import COLORS from "../../constants/colors";
 import SIZE from "../../constants/size";
 import ColorPicker from "../../components/ColorPicker";
 import Toggle from "../../components/Toggle";
+import { useContext } from "react";
+import StoreContext from "../../storage/StoreContext";
 
 const StyledTextSettingsContainer = styled.div`
   display: flex;
@@ -19,13 +21,35 @@ const StyledTextSettingsContainer = styled.div`
 `;
 
 export default function TextSettings() {
+  const { appData, setAppState } = useContext(StoreContext);
+
+  function handleOnEnableChange(val: boolean) {
+    setAppState({
+      ...appData,
+      text: {
+        ...appData.text,
+        enabled: val
+      }
+    })
+  }
+
+  function handleOnColorChange(color: string) {
+    setAppState({
+      ...appData,
+      text: {
+        ...appData.text,
+        textColor: color
+      }
+    })
+  }
+
   return (
     <StyledTextSettingsContainer data-testid="textSettingsContainer">
-      <Toggle on={true} />
+      <Toggle on={appData.text.enabled} onStateChange={handleOnEnableChange} />
       <p>The quick brown fox jumps over the lazy dog</p>
       <DropDownFontText />
       <ChangeSize />
-      <ColorPicker onChange={() => {}} />
+      <ColorPicker color={appData.text.textColor} onChange={handleOnColorChange} />
     </StyledTextSettingsContainer>
   );
 }

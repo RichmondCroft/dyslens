@@ -9,6 +9,7 @@ describe('src/storage/StoreContext.ts', () => {
     const mockValue = {
       enabled: false,
       text: {
+        enabled: false
       },
       overlay: {
         enabled: false,
