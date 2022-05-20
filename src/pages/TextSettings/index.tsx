@@ -10,15 +10,20 @@ import { useContext } from "react";
 import StoreContext from "../../storage/StoreContext";
 
 const StyledTextSettingsContainer = styled.div`
-  display: flex;
-  flex-flow: column;
-  padding: ${SIZE.XX_SMALL}px ${SIZE.SMALL}px;
-  margin: auto;
   background: ${COLORS.WARM_WHITE};
   border: 1px solid ${COLORS.GRAY};
   box-shadow: ${SIZE.ZERO}px ${SIZE.XX_SMALL}px ${SIZE.XX_SMALL}px
     ${COLORS.SPECIAL};
 `;
+
+const DropDownContainer = styled.div`
+  margin-top: ${SIZE.X_SMALL}px;
+`;
+
+const fontList = Object.values(FONTS).map((font) => ({
+  displayValue: font.displayName,
+  value: font.name
+}))
 
 export default function TextSettings() {
   const { appData, setAppState } = useContext(StoreContext);
@@ -45,11 +50,21 @@ export default function TextSettings() {
 
   return (
     <StyledTextSettingsContainer data-testid="textSettingsContainer">
-      <Toggle on={appData.text.enabled} onStateChange={handleOnEnableChange} />
-      <p>The quick brown fox jumps over the lazy dog</p>
-      <DropDownFontText />
-      <ChangeSize />
-      <ColorPicker color={appData.text.textColor} onChange={handleOnColorChange} />
+      <ComponentContainer label="Enable" horizontal>
+        <Toggle on={appData.text.enabled} onStateChange={handleOnEnableChange} />
+      </ComponentContainer>
+      <ComponentContainer label="Font Family">
+        <DropDownContainer>
+          <DropDown items={fontList}
+            onChange={handleOnFontChange}
+            noSelectionItem={{ displayValue: 'Select a font', value: 'no-selection' }}
+            value={appData.text.fontFamily}
+          />
+        </DropDownContainer>
+      </ComponentContainer>
+      <ComponentContainer label="Text Color">
+        <ColorPicker color={appData.text.textColor} onChange={handleOnColorChange} />
+      </ComponentContainer>
     </StyledTextSettingsContainer>
   );
 }

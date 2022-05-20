@@ -26,6 +26,10 @@ const MenuItemBox = styled.div`
   margin-top: ${SIZE.X_SMALL}px;
   margin-bottom: ${SIZE.SMALL}px;
   align-items: center;
+
+  &:hover {
+    background-color: ${COLORS.LIGHT_YELLOW_HOVER};
+  }
 `;
 const StyledTextHeading = styled.div`
   font-size: ${SIZE.LARGE}px;

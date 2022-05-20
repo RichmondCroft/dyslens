@@ -7,9 +7,9 @@ import "./App";
 import Home from "./pages/Home";
 import TextSettings from "./pages/TextSettings";
 import OverlayTint from "./pages/OverlayTint";
-import LineFocus from "./pages/LineFocus";
-import HighLighter from "./pages/HighLighter";
-import HideImages from "./pages/HideImages";
+// import LineFocus from "./pages/LineFocus";
+// import HighLighter from "./pages/HighLighter";
+// import HideImages from "./pages/HideImages";
 import StoreContext, { AppData } from "./storage/StoreContext";
 import { fetchAppStateFromStorage, saveAppState } from "./storage/chrome-storage";
 
@@ -43,9 +43,9 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/text-settings" element={<TextSettings />}></Route>
               <Route path="/overlay-tint" element={<OverlayTint />}></Route>
-              <Route path="/line-focus" element={<LineFocus />}></Route>
+              {/* <Route path="/line-focus" element={<LineFocus />}></Route>
               <Route path="/highlighter" element={<HighLighter />}></Route>
-              <Route path="/hide-images" element={<HideImages />}></Route>
+              <Route path="/hide-images" element={<HideImages />}></Route> */}
             </Routes>
           </MemoryRouter>
         </StyledAppContainer>
