@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import { faImage } from "@fortawesome/free-solid-svg-icons";
+// import { faImage } from "@fortawesome/free-solid-svg-icons";
 import {
   faClone,
   faA,
-  faHighlighter,
-  faWindowMaximize,
+  // faHighlighter,
+  // faWindowMaximize,
 } from "@fortawesome/free-solid-svg-icons";
 
 import MenuItem from "./../MenuItem";
@@ -32,7 +32,7 @@ export default function NavigationMenu() {
         icon={faClone}
         to="/overlay-tint"
       />
-      <MenuItem
+      {/* <MenuItem
         textHeading="Highlighter"
         messageOverView="Highlight the hovered box"
         icon={faHighlighter}
@@ -49,7 +49,7 @@ export default function NavigationMenu() {
         messageOverView="Hides images and gifs from the page"
         icon={faImage}
         to="/hide-images"
-      />
+      /> */}
     </MenuItemContainer>
   );
 }

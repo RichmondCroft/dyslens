@@ -11,18 +11,14 @@ import { FONTS } from "../../constants/fonts";
 import ComponentContainer from "../../components/ComponentContainer";
 
 const StyledTextSettingsContainer = styled.div`
-  display: flex;
-  flex-flow: column;
-  padding: ${SIZE.XX_SMALL}px ${SIZE.SMALL}px;
-  margin: auto;
   background: ${COLORS.WARM_WHITE};
   border: 1px solid ${COLORS.GRAY};
   box-shadow: ${SIZE.ZERO}px ${SIZE.XX_SMALL}px ${SIZE.XX_SMALL}px
     ${COLORS.SPECIAL};
 `;
 
-const Spacer = styled.div`
-  padding: ${SIZE.XX_SMALL}px 0;
+const DropDownContainer = styled.div`
+  margin-top: ${SIZE.X_SMALL}px;
 `;
 
 const fontList = Object.values(FONTS).map((font) => ({
@@ -65,19 +61,18 @@ export default function TextSettings() {
 
   return (
     <StyledTextSettingsContainer data-testid="textSettingsContainer">
-      <Spacer />
-      <ComponentContainer label="Enable">
+      <ComponentContainer label="Enable" horizontal>
         <Toggle on={appData.text.enabled} onStateChange={handleOnEnableChange} />
       </ComponentContainer>
-      <Spacer />
       <ComponentContainer label="Font Family">
-        <DropDown items={fontList}
-          onChange={handleOnFontChange}
-          noSelectionItem={{ displayValue: 'Select a font', value: 'no-selection' }}
-          value={appData.text.fontFamily}
-        />
+        <DropDownContainer>
+          <DropDown items={fontList}
+            onChange={handleOnFontChange}
+            noSelectionItem={{ displayValue: 'Select a font', value: 'no-selection' }}
+            value={appData.text.fontFamily}
+          />
+        </DropDownContainer>
       </ComponentContainer>
-      <Spacer />
       <ComponentContainer label="Text Color">
         <ColorPicker color={appData.text.textColor} onChange={handleOnColorChange} />
       </ComponentContainer>
