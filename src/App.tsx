@@ -4,14 +4,14 @@ import styled from "styled-components";
 
 import "./App";
 
+import { fetchAppStateFromStorage, saveAppState } from "./storage/chrome-storage";
+import HideImages from "./pages/HideImages";
+import HighLighter from "./pages/HighLighter";
 import Home from "./pages/Home";
-import TextSettings from "./pages/TextSettings";
+import LineFocus from "./pages/LineFocus";
 import OverlayTint from "./pages/OverlayTint";
 import StoreContext, { AppData } from "./storage/StoreContext";
-import { fetchAppStateFromStorage, saveAppState } from "./storage/chrome-storage";
-import LineFocus from "./pages/LineFocus";
-import HighLighter from "./pages/HighLighter";
-import HideImages from "./pages/HideImages";
+import TextSettings from "./pages/TextSettings";
 
 const StyledAppContainer = styled.div`
   margin: 0px;
