@@ -8,6 +8,6 @@ describe("test navigationMenu component", () => {
   it("should render navigationMenu component", () => {
     render(<TestWrapper><NavigationMenu /></TestWrapper>);
     const element = screen.getByTestId("menuItemContainer");
-    expect(element.childNodes.length).toBe(5);
+    expect(element.childNodes.length).toBe(2);
   });
 });
