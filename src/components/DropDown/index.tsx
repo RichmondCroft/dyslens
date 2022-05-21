@@ -13,10 +13,10 @@ type Props = {
 };
 
 export default function DropDown({ items, onChange, noSelectionItem, value }: Props) {
-  const [font, setFont] = useState(value);
+  const [dropdownValue, setDropdownValue] = useState(value);
 
-  function handleTextChange(e: ChangeEvent<HTMLSelectElement>) {
-    setFont(e.target.value);
+  function handleOnSelectionChange(e: ChangeEvent<HTMLSelectElement>) {
+    setDropdownValue(e.target.value);
     if(e.target.value === noSelectionItem?.value){
       onChange()
     }
@@ -27,8 +27,8 @@ export default function DropDown({ items, onChange, noSelectionItem, value }: Pr
 
   return (
       <select
-        value={font}
-        onChange={handleTextChange}
+        value={dropdownValue}
+        onChange={handleOnSelectionChange}
         data-testid="drop-down"
       >
         {noSelectionItem &&
