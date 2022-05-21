@@ -1,11 +1,4 @@
 import { useState, ChangeEvent } from "react";
-import styled from "styled-components";
-
-import SIZE from "../../constants/size";
-
-const StyledDropMenu = styled.div`
-  padding: ${SIZE.X_SMALL}px ${SIZE.XX_SMALL}px;
-`;
 
 type Item = {
   displayValue: string,
@@ -33,7 +26,6 @@ export default function DropDown({ items, onChange, noSelectionItem, value }: Pr
   }
 
   return (
-    <StyledDropMenu>
       <select
         value={dropdownValue}
         onChange={handleOnSelectionChange}
@@ -58,6 +50,5 @@ export default function DropDown({ items, onChange, noSelectionItem, value }: Pr
           </option>
         ))}
       </select>
-    </StyledDropMenu>
   );
 }
