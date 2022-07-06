@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import COLORS from "../../constants/colors";
 import SIZE from "../../constants/size";
-import imageLogo from "./../../images/icon-16.png";
+// import imageLogo from "./../../images/icon-16.png";
 
 const NavBarContainer = styled.div`
   display: flex;
@@ -24,11 +24,15 @@ const StyledDysLensTextBox = styled.div`
   padding: ${SIZE.ZERO}px ${SIZE.X_SMALL}px;
 `;
 
-export default function NavigationBar() {
+type Props = {
+  children: React.ReactNode
+}
+
+export default function NavigationBar(props:Props) {
   return (
     <NavBarContainer data-testid="navBarContainer">
       <StyledDysLensImage>
-        <img data-testid="imageLogo" src={imageLogo} alt="dyslensLogo" />
+      {props.children}
       </StyledDysLensImage>
       <StyledDysLensTextBox data-testid="dyslensText">
         Dyslens

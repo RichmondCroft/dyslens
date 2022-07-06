@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import styled from "styled-components";
+import BackButton from "../../components/BackButton";
 
 import ColorPicker from "../../components/ColorPicker";
 import ComponentContainer from "../../components/ComponentContainer";
+import NavigationBar from "../../components/NavigationBar";
 import Toggle from "../../components/Toggle";
 import StoreContext from "../../storage/StoreContext";
 
@@ -31,6 +33,9 @@ export default function OverlayTint() {
 
   return (
     <div data-testid="overLayTintContainer">
+      <NavigationBar>
+        <BackButton/>
+      </NavigationBar>
       <ComponentContainer label="Enabled" horizontal>
         <Toggle on={appData.overlay.enabled} onStateChange={handleOnToggleStateChange} />
       </ComponentContainer>
