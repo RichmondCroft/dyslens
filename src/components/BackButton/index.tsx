@@ -10,10 +10,7 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
 
 
 export default function BackButton(){
-    function handleOnClick(){
-        
-    }
-    return <div>
-        <StyledFontAwesomeIcon icon={faArrowLeft} onClick={handleOnClick}/> 
+    return <div >
+        <StyledFontAwesomeIcon icon={faArrowLeft} data-testid="button-icon" /> 
     </div>
 }
