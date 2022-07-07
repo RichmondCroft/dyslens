@@ -9,6 +9,8 @@ import StoreContext from "../../storage/StoreContext";
 import DropDown from "../../components/DropDown";
 import { FONTS } from "../../constants/fonts";
 import ComponentContainer from "../../components/ComponentContainer";
+import NavigationBar from "../../components/NavigationBar";
+import BackButton from "../../components/BackButton";
 
 const StyledTextSettingsContainer = styled.div`
   background: ${COLORS.WARM_WHITE};
@@ -61,6 +63,9 @@ export default function TextSettings() {
 
   return (
     <StyledTextSettingsContainer data-testid="textSettingsContainer">
+<NavigationBar>
+  <BackButton/>
+</NavigationBar>
       <ComponentContainer label="Enable" horizontal>
         <Toggle on={appData.text.enabled} onStateChange={handleOnEnableChange} />
       </ComponentContainer>

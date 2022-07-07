@@ -6,7 +6,7 @@ type Props = {
   children: ReactNode;
 };
 
-export default function TestWrapper({ children }: Props) {
+export default function ({ children }: Props) {
   return <MemoryRouter>
     {children}
   </MemoryRouter>;

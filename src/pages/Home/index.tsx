@@ -4,6 +4,8 @@ import COLORS from "../../constants/colors";
 import SIZE from "../../constants/size";
 import NavigationMenu from "../../components/NavigationMenu";
 import NavigationBar from "../../components/NavigationBar";
+import imageLogo from "./../../images/icon-16.png";
+
 
 const StyledContainer = styled.div`
   width: fit-content;
@@ -16,7 +18,9 @@ const StyledContainer = styled.div`
 export default function Home() {
   return (
     <StyledContainer data-testid="homePageContainer">
-      <NavigationBar />
+      <NavigationBar>
+<img data-testid="imageLogo" src={imageLogo} alt="dyslensLogo"/>
+      </NavigationBar>
       <NavigationMenu />
     </StyledContainer>
   );
