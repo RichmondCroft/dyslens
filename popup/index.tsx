@@ -1,4 +1,4 @@
-import App from "./popup/App"
+import App from "./App"
 
 function IndexPopup() {
   return <App />
