@@ -1,3 +1,5 @@
+import cssText from "data-text:~/contents/index.css"
+
 const FLOATING_DIV_ID = 'floating-overlay';
 const TEXT_STYLE_ID = 'text-style-id';
 
@@ -118,5 +120,12 @@ function handleOnStorageChange(changes, areaName) {
     addTextStyles(appState.text);
   }
 })()
+
+
+export const getStyle = () => {
+  const style = document.createElement("style")
+  style.textContent = cssText
+  return style
+}
 
 export default {};
