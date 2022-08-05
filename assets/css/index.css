@@ -1,0 +1,14 @@
+.floating-overlay {
+  top: 0;
+  left: 0;
+  position: fixed;
+  height: 100px;
+  width: 100%;
+  opacity: 0.25;
+  z-index: 1000000;
+  cursor: grab;
+} 
+
+.floating-overlay:hover {
+  border-width: 5px;
+}

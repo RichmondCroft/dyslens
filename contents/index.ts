@@ -45,7 +45,7 @@ function addTextStyles(textSettings) {
     return;
   }
 
-  let url = chrome.runtime.getURL(`fonts/${textSettings.fontFamily}-Regular.ttf`);
+  let url = chrome.runtime.getURL(`assets/fonts/${textSettings.fontFamily}-Regular.ttf`);
   const css = `
     ${textSettings.fontFamily ? `
       @font-face {

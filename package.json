@@ -28,6 +28,16 @@
     "typescript": "4.7.4"
   },
   "manifest": {
+    "web_accessible_resources": [
+      {
+        "resources": [
+          "assets/**"
+        ],
+        "matches": [
+          "<all_urls>"
+        ]
+      }
+    ],
     "host_permissions": [
       "https://*/*"
     ],
