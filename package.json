@@ -1,49 +1,41 @@
 {
-  "name": "my-app",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.1.1",
-    "@fortawesome/free-solid-svg-icons": "^6.1.1",
-    "@fortawesome/react-fontawesome": "^0.1.18",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "@types/node": "^12.20.47",
-    "@types/react-router-dom": "^5.3.3",
-    "@types/styled-components": "^5.1.24",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-router-dom": "^6.3.0",
-    "react-scripts": "5.0.0",
-    "styled-components": "^5.3.5",
-    "typescript": "~4.1.5"
-  },
+  "name": "dyslens",
+  "displayName": "Dyslens",
+  "version": "1.0.0",
+  "description": "A basic Plasmo extension.",
+  "author": "digvijay.upadhyay",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "plasmo dev",
+    "build": "plasmo build"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.1.2",
+    "@fortawesome/free-solid-svg-icons": "^6.1.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "plasmo": "0.46.3",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-router-dom": "^6.3.0",
+    "styled-components": "^5.3.5"
   },
   "devDependencies": {
-    "@types/chrome": "^0.0.182",
-    "@types/jest": "^27.4.1",
-    "@types/react": "^18.0.1",
-    "@types/react-dom": "^18.0.0"
+    "@plasmohq/prettier-plugin-sort-imports": "1.1.1",
+    "@types/chrome": "0.0.193",
+    "@types/node": "18.0.3",
+    "@types/react": "18.0.15",
+    "@types/react-dom": "18.0.6",
+    "prettier": "2.7.1",
+    "typescript": "4.7.4"
+  },
+  "manifest": {
+    "host_permissions": [
+      "https://*/*"
+    ],
+    "permissions": [
+      "tabs",
+      "scripting",
+      "storage",
+      "activeTab"
+    ]
   }
 }
