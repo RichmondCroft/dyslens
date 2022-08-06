@@ -1,7 +1,10 @@
+import cssText from "data-text:~/contents/index.css"
+
 const FLOATING_DIV_ID = 'floating-overlay';
 const TEXT_STYLE_ID = 'text-style-id';
 
 function renderFloatingOverlay({ color }) {
+  console.log('here')
   const floatingDiv = document.createElement('div');
   floatingDiv.id = FLOATING_DIV_ID;
   floatingDiv.classList.add('floating-overlay');
@@ -45,7 +48,7 @@ function addTextStyles(textSettings) {
     return;
   }
 
-  let url = chrome.runtime.getURL(`fonts/${textSettings.fontFamily}-Regular.ttf`);
+  let url = chrome.runtime.getURL(`assets/fonts/${textSettings.fontFamily}-Regular.ttf`);
   const css = `
     ${textSettings.fontFamily ? `
       @font-face {
@@ -110,6 +113,7 @@ function handleOnStorageChange(changes, areaName) {
     throw 'storage data not found';
   }
 
+  console.log('appState', appState);
   if (appState.overlay.enabled) {
     renderFloatingOverlay(appState.overlay);
   }
@@ -118,3 +122,12 @@ function handleOnStorageChange(changes, areaName) {
     addTextStyles(appState.text);
   }
 })()
+
+
+export const getStyle = () => {
+  const style = document.createElement("style")
+  style.textContent = cssText
+  return style
+}
+
+export default {};
