@@ -4,6 +4,7 @@ const FLOATING_DIV_ID = 'floating-overlay';
 const TEXT_STYLE_ID = 'text-style-id';
 
 function renderFloatingOverlay({ color }) {
+  console.log('here')
   const floatingDiv = document.createElement('div');
   floatingDiv.id = FLOATING_DIV_ID;
   floatingDiv.classList.add('floating-overlay');
@@ -112,6 +113,7 @@ function handleOnStorageChange(changes, areaName) {
     throw 'storage data not found';
   }
 
+  console.log('appState', appState);
   if (appState.overlay.enabled) {
     renderFloatingOverlay(appState.overlay);
   }
