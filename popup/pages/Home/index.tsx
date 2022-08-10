@@ -3,7 +3,6 @@ import styled from "styled-components";
 import COLORS from "../../constants/colors";
 import SIZE from "../../constants/size";
 import NavigationMenu from "../../components/NavigationMenu";
-import NavigationBar from "../../components/NavigationBar";
 
 const StyledContainer = styled.div`
   width: fit-content;
@@ -16,7 +15,6 @@ const StyledContainer = styled.div`
 export default function Home() {
   return (
     <StyledContainer data-testid="homePageContainer">
-      <NavigationBar />
       <NavigationMenu />
     </StyledContainer>
   );

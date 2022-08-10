@@ -12,6 +12,7 @@ import LineFocus from "./pages/LineFocus";
 import OverlayTint from "./pages/OverlayTint";
 import StoreContext, { AppData } from "./storage/StoreContext";
 import TextSettings from "./pages/TextSettings";
+import NavigationBar from "./components/NavigationBar";
 
 const StyledAppContainer = styled.div`
   margin: 0px;
@@ -39,6 +40,7 @@ function App() {
       <StoreContext.Provider value={{ appData, setAppState: setAppStateWrapper }}>
         <StyledAppContainer>
           <MemoryRouter>
+            <NavigationBar />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/text-settings" element={<TextSettings />}></Route>
