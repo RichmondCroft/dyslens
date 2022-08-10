@@ -1,4 +1,8 @@
 import styled from "styled-components";
+import { useLocation, useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+
 import COLORS from "../../constants/colors";
 import SIZE from "../../constants/size";
 import imageLogo from "./../../images/icon-16.png";
@@ -24,12 +28,28 @@ const StyledDysLensTextBox = styled.div`
   padding: ${SIZE.ZERO}px ${SIZE.X_SMALL}px;
 `;
 
+const StyledBackButton = styled(FontAwesomeIcon)`
+  color: ${COLORS.WHITE};
+  font-size: ${SIZE.LARGE}px;
+  cursor: pointer; 
+`;
+
 export default function NavigationBar() {
+  const location = useLocation();
+  let navigate = useNavigate();
+
+  function handleOnBackClick() {
+    navigate(-1);
+  } 
+
   return (
     <NavBarContainer data-testid="navBarContainer">
-      <StyledDysLensImage>
-        <img data-testid="imageLogo" src={imageLogo} alt="dyslensLogo" />
-      </StyledDysLensImage>
+      {location.pathname === '/' ?
+        <StyledDysLensImage>
+          <img data-testid="imageLogo" src={imageLogo} alt="dyslensLogo" />
+        </StyledDysLensImage>
+        : <StyledBackButton icon={faArrowLeft} onClick={handleOnBackClick} />
+      }
       <StyledDysLensTextBox data-testid="dyslensText">
         Dyslens
       </StyledDysLensTextBox>
