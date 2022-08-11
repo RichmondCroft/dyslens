@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import type { PlasmoContentScript } from "plasmo";
-import cssText from "data-text:~/contents/Overlay/styles.css";
+import cssText from "data-text:~/contents/css/overlay.css";
 
 export const config: PlasmoContentScript = {
   matches: ["<all_urls>"]
