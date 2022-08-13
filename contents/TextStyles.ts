@@ -1,5 +1,3 @@
-import cssText from "data-text:~/contents/FontChange/index.css"
-
 const TEXT_STYLE_ID = 'text-style-id';
 
 function addTextStyles(textSettings) {
@@ -65,9 +63,4 @@ function handleOnStorageChange(changes, areaName) {
   }
 })()
 
-
-export const getStyle = () => {
-  const style = document.createElement("style")
-  style.textContent = cssText
-  return style
-}
+export default {};

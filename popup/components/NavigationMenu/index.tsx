@@ -4,7 +4,7 @@ import {
   faClone,
   faA,
   // faHighlighter,
-  // faWindowMaximize,
+  faWindowMaximize,
 } from "@fortawesome/free-solid-svg-icons";
 
 import MenuItem from "./../MenuItem";
@@ -32,17 +32,17 @@ export default function NavigationMenu() {
         icon={faClone}
         to="/overlay-tint"
       />
-      {/* <MenuItem
-        textHeading="Highlighter"
-        messageOverView="Highlight the hovered box"
-        icon={faHighlighter}
-        to="/highlighter"
-      />
       <MenuItem
         textHeading="LineFocus"
         messageOverView="Creates a line overlay for focus"
         icon={faWindowMaximize}
         to="/line-focus"
+      />
+      {/* <MenuItem
+        textHeading="Highlighter"
+        messageOverView="Highlight the hovered box"
+        icon={faHighlighter}
+        to="/highlighter"
       />
       <MenuItem
         textHeading="Hide Images"

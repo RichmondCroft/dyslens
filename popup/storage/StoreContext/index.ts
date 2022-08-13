@@ -11,6 +11,11 @@ export type AppData = {
   overlay: {
     enabled: boolean,
     color: string
+  },
+  lineFocus: {
+    enabled: boolean,
+    color: string,
+    height: number
   }
 }
 
@@ -27,6 +32,11 @@ const initialState: AppData = {
   overlay: {
     enabled: false,
     color: COLORS.LIGHT_YELLOW
+  },
+  lineFocus: {
+    enabled: false,
+    color: COLORS.LIGHT_YELLOW,
+    height: 200
   }
 }
 
