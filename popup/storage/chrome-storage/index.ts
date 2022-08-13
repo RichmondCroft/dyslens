@@ -9,6 +9,11 @@ const initialState = {
   overlay: {
     enabled: false,
     color: COLORS.LIGHT_YELLOW
+  },
+  lineFocus: {
+    enabled: false,
+    color: COLORS.LIGHT_YELLOW,
+    height: 200
   }
 }
 
