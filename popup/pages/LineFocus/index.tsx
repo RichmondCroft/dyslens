@@ -29,12 +29,12 @@ export default function LineFocus() {
   }
 
   return (
-    <div data-testid="overLayTintContainer">
+    <div data-testid="lineFocusContainer">
       <ComponentContainer label="Enabled" horizontal>
-        <Toggle on={appData.overlay.enabled} onStateChange={handleOnToggleStateChange} />
+        <Toggle on={appData.lineFocus.enabled} onStateChange={handleOnToggleStateChange} />
       </ComponentContainer>
       <ComponentContainer label="Color">
-        <ColorPicker color={appData.overlay.color} onChange={handleOnColorChange} />
+        <ColorPicker color={appData.lineFocus.color} onChange={handleOnColorChange} />
       </ComponentContainer>
     </div>
   );

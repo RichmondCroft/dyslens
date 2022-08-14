@@ -10,12 +10,14 @@ export type AppData = {
   },
   overlay: {
     enabled: boolean,
-    color: string
+    color: string,
+    opacity: 0.5
   },
   lineFocus: {
     enabled: boolean,
     color: string,
-    height: number
+    height: number,
+    opacity: 0.5
   }
 }
 

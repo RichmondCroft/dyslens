@@ -1,4 +1,4 @@
-.floating-overlay {
+.line-focus {
   top: 0;
   left: 0;
   position: fixed;
@@ -9,10 +9,6 @@
   cursor: grab;
 } 
 
-.floating-overlay:hover {
+.line-focus:hover {
   border-width: 5px;
-}
-
-#plasmo-shadow-container {
-  z-index: 99999 !important; 
 }
