@@ -24,6 +24,7 @@ export function saveAppState(appState: AppData) {
 export async function fetchAppStateFromStorage(): Promise<AppData> {
   return new Promise(async (resolve) => {
     const data = await chrome.storage.sync.get('appState');
+    console.log('data', data);
     if (data && data.appState) {
       resolve(data.appState as AppData)
       return;

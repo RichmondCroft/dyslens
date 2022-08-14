@@ -54,11 +54,7 @@ function handleOnStorageChange(changes, areaName) {
   chrome.storage.onChanged.addListener(handleOnStorageChange)
 
   const { appState } = await chrome.storage.sync.get('appState');
-  if (!appState) {
-    throw 'storage data not found';
-  }
-
-  if (appState.text.enabled) {
+  if (appState && appState.text && appState.text.enabled) {
     addTextStyles(appState.text);
   }
 })()

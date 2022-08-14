@@ -22,6 +22,7 @@ const Overlay = () => {
 
   useEffect(() => {
     chrome.storage.sync.get('appState').then(({ appState }) => {
+      if (!appState) return;
       setOverlaySettings(appState.overlay);
     });
 
