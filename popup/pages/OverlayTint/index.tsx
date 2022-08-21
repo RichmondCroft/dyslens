@@ -1,15 +1,15 @@
-import { useContext } from "react";
+import { Switch } from "@mui/material";
+import { ChangeEvent, useContext } from "react";
 import styled from "styled-components";
 
 import ColorPicker from "../../components/ColorPicker";
 import ComponentContainer from "../../components/ComponentContainer";
-import Toggle from "../../components/Toggle";
 import StoreContext from "../../storage/StoreContext";
 
 export default function OverlayTint() {
   const { appData, setAppState } = useContext(StoreContext)
 
-  function handleOnToggleStateChange(checked: boolean) {
+  function handleOnToggleStateChange(_event: ChangeEvent<HTMLInputElement>, checked: boolean) {
     setAppState({
       ...appData,
       overlay: {
@@ -32,7 +32,7 @@ export default function OverlayTint() {
   return (
     <div data-testid="overLayTintContainer">
       <ComponentContainer label="Enabled" horizontal>
-        <Toggle on={appData.overlay.enabled} onStateChange={handleOnToggleStateChange} />
+        <Switch checked={appData.overlay.enabled} onChange={handleOnToggleStateChange} />
       </ComponentContainer>
       <ComponentContainer label="Color">
         <ColorPicker color={appData.overlay.color} onChange={handleOnColorChange} />
