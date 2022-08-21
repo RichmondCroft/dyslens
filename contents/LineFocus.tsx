@@ -12,14 +12,6 @@ export const getStyle = () => {
   return style;
 }
 
-const quickAndDirtyStyle: CSSProperties = {
-  width: "100%",
-  height: "200px",
-  background: "#FF9900",
-  color: "#FFFFFF",
-  position: "fixed"
-}
-
 const DraggableComponent = () => {
   const [pressed, setPressed] = useState(false)
   const [position, setPosition] = useState({ x: 0, y: 0 })

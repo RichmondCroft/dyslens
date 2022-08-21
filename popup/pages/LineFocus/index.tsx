@@ -1,14 +1,14 @@
-import { useContext } from "react";
+import { Switch } from "@mui/material";
+import { ChangeEvent, useContext } from "react";
 
 import ColorPicker from "../../components/ColorPicker";
 import ComponentContainer from "../../components/ComponentContainer";
-import Toggle from "../../components/Toggle";
 import StoreContext from "../../storage/StoreContext";
 
 export default function LineFocus() {
   const { appData, setAppState } = useContext(StoreContext)
 
-  function handleOnToggleStateChange(checked: boolean) {
+  function handleOnToggleStateChange(_event: ChangeEvent<HTMLInputElement>, checked: boolean) {
     setAppState({
       ...appData,
       lineFocus: {
@@ -31,7 +31,7 @@ export default function LineFocus() {
   return (
     <div data-testid="lineFocusContainer">
       <ComponentContainer label="Enabled" horizontal>
-        <Toggle on={appData.lineFocus.enabled} onStateChange={handleOnToggleStateChange} />
+        <Switch checked={appData.lineFocus.enabled} onChange={handleOnToggleStateChange} />
       </ComponentContainer>
       <ComponentContainer label="Color">
         <ColorPicker color={appData.lineFocus.color} onChange={handleOnColorChange} />

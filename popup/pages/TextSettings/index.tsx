@@ -3,12 +3,12 @@ import styled from "styled-components";
 import COLORS from "../../constants/colors";
 import SIZE from "../../constants/size";
 import ColorPicker from "../../components/ColorPicker";
-import Toggle from "../../components/Toggle";
-import { useContext } from "react";
+import { ChangeEvent, useContext } from "react";
 import StoreContext from "../../storage/StoreContext";
 import DropDown from "../../components/DropDown";
 import { FONTS } from "../../constants/fonts";
 import ComponentContainer from "../../components/ComponentContainer";
+import { Switch } from "@mui/material";
 
 const StyledTextSettingsContainer = styled.div`
   background: ${COLORS.WARM_WHITE};
@@ -29,12 +29,12 @@ const fontList = Object.values(FONTS).map((font) => ({
 export default function TextSettings() {
   const { appData, setAppState } = useContext(StoreContext);
 
-  function handleOnEnableChange(val: boolean) {
+  function handleOnEnableChange(_event: ChangeEvent<HTMLInputElement>, checked: boolean) {
     setAppState({
       ...appData,
       text: {
         ...appData.text,
-        enabled: val
+        enabled: checked
       }
     })
   }
@@ -62,7 +62,7 @@ export default function TextSettings() {
   return (
     <StyledTextSettingsContainer data-testid="textSettingsContainer">
       <ComponentContainer label="Enable" horizontal>
-        <Toggle on={appData.text.enabled} onStateChange={handleOnEnableChange} />
+        <Switch checked={appData.text.enabled} onChange={handleOnEnableChange} />
       </ComponentContainer>
       <ComponentContainer label="Font Family">
         <DropDownContainer>

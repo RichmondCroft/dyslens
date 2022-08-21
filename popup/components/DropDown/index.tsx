@@ -1,4 +1,5 @@
-import { useState, ChangeEvent } from "react";
+import { FormControl, Select, MenuItem, SelectChangeEvent } from "@mui/material";
+import { useState } from "react";
 
 type Item = {
   displayValue: string,
@@ -15,10 +16,10 @@ type Props = {
 export default function DropDown({ items, onChange, noSelectionItem, value }: Props) {
   const [dropdownValue, setDropdownValue] = useState(value);
 
-  function handleOnSelectionChange(e: ChangeEvent<HTMLSelectElement>) {
+  function handleOnSelectionChange(e: SelectChangeEvent<string>) {
     setDropdownValue(e.target.value);
-    if(e.target.value === noSelectionItem?.value){
-      onChange()
+    if (e.target.value === noSelectionItem?.value) {
+      onChange();
     }
     else {
       onChange(e.target.value);
@@ -26,29 +27,23 @@ export default function DropDown({ items, onChange, noSelectionItem, value }: Pr
   }
 
   return (
-      <select
+    <FormControl fullWidth>
+      <Select
+        labelId="demo-simple-select-label"
+        id="demo-simple-select"
         value={dropdownValue}
         onChange={handleOnSelectionChange}
-        data-testid="drop-down"
       >
-        {noSelectionItem &&
-          <option
-            key={noSelectionItem.value}
-            value={noSelectionItem.value}
-            data-testid={noSelectionItem.value}
-          >
-            {noSelectionItem.displayValue}
-          </option>
-        }
         {items.map((item) => (
-          <option 
-            key={item.value} 
+          <MenuItem
+            key={item.value}
             value={item.value}
             data-testid={item.value}
           >
             {item.displayValue}
-          </option>
+          </MenuItem>
         ))}
-      </select>
+      </Select>
+    </FormControl>
   );
 }
