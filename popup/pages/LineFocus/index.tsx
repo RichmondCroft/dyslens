@@ -31,7 +31,7 @@ export default function LineFocus() {
   return (
     <div data-testid="lineFocusContainer">
       <ComponentContainer label="Enabled" horizontal>
-        <Switch checked={appData.overlay.enabled} onChange={handleOnToggleStateChange} />
+        <Switch checked={appData.lineFocus.enabled} onChange={handleOnToggleStateChange} />
       </ComponentContainer>
       <ComponentContainer label="Color">
         <ColorPicker color={appData.lineFocus.color} onChange={handleOnColorChange} />
