@@ -48,4 +48,5 @@ const StoreContext = React.createContext<AppState>({
   appData: initialState, 
   setAppState: (_store) => {}
 });
+
 export default StoreContext;

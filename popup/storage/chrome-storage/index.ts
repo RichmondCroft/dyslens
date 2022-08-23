@@ -1,5 +1,5 @@
 import COLORS from "../../constants/colors";
-import { AppData } from "../StoreContext";
+import type { AppData } from "../StoreContext";
 
 const initialState = {
   enabled: false,
@@ -8,11 +8,13 @@ const initialState = {
   },
   overlay: {
     enabled: false,
-    color: COLORS.LIGHT_YELLOW
+    color: COLORS.LIGHT_YELLOW,
+    opacity: 0.5
   },
   lineFocus: {
     enabled: false,
     color: COLORS.LIGHT_YELLOW,
+    opacity: 0.5,
     height: 200
   }
 }
