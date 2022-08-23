@@ -7,7 +7,7 @@ import ComponentContainer from "../../components/ComponentContainer";
 import StoreContext from "../../storage/StoreContext";
 
 export default function LineFocus() {
-  const { appData, setAppState } = useContext(StoreContext)
+  const { appData, setAppState } = useContext(StoreContext);
 
   function handleOnToggleStateChange(_event: ChangeEvent<HTMLInputElement>, checked: boolean) {
     setAppState({
@@ -38,7 +38,7 @@ export default function LineFocus() {
       }
     })
   }
-  const throttledHandleOnOpacityChange = useMemo(() => throttle(handleOnOpacityChange, 100), []);
+  const throttledHandleOnOpacityChange = useMemo(() => throttle(handleOnOpacityChange, 100), [appData]);
 
   function handleOnHeightChange(e: ChangeEvent<HTMLInputElement>) {
     setAppState({
@@ -49,7 +49,7 @@ export default function LineFocus() {
       }
     })
   }
-  const throttledHandleOnHeightChange = useMemo(() => throttle(handleOnHeightChange, 100), []);
+  const throttledHandleOnHeightChange = useMemo(() => throttle(handleOnHeightChange, 100), [appData]);
 
 
   return (
