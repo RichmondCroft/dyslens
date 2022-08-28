@@ -7,7 +7,8 @@ import SIZE from "../../constants/size";
 
 type Props = {
   color?: string,
-  onChange: (color: string) => void
+  onChange: (color: string) => void,
+  testId: string
 }
 
 const ColoredBox = styled.li<{ backgroundColor: string, isSelected: boolean }>`
@@ -32,7 +33,7 @@ const StyledTextColorContainer = styled.ul`
   list-style-type: none;
 `;
 
-export default function ColorPicker({ color, onChange }: Props) {
+export default function ColorPicker({ color, onChange, testId }: Props) {
   const [stateColor, setStateColor] = useState(color);
 
   function handleOnColoredBox(color: string) {
@@ -41,7 +42,7 @@ export default function ColorPicker({ color, onChange }: Props) {
   }
 
   return (
-    <StyledTextColorContainer data-testid='color-picker'>
+    <StyledTextColorContainer data-testid={testId}>
       {ColorsList.map((item) => {
         return (
           <ColoredBox
@@ -50,6 +51,7 @@ export default function ColorPicker({ color, onChange }: Props) {
             isSelected={stateColor === item}
             key={item}
             onClick={() => handleOnColoredBox(item)}
+            data-testId={item}
           />
         );
       })}

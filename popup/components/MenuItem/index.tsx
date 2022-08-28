@@ -53,6 +53,7 @@ type MenuItemProps = {
   messageOverView: string;
   icon?: any;
   to: string;
+  testId: string;
 };
 
 export default function MenuItem({
@@ -60,10 +61,11 @@ export default function MenuItem({
   messageOverView,
   icon,
   to,
+  testId
 }: MenuItemProps) {
   return (
     <MenuItemStyledLink to={to}>
-      <MenuItemBox data-testid="menuItemBox">
+      <MenuItemBox data-testid={testId}>
         <StyledImageIcon>
           <FontAwesomeIcon icon={icon} />
         </StyledImageIcon>
