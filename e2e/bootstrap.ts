@@ -25,12 +25,12 @@ export async function bootstrap(options: {devtools ?: boolean, slowMo ?: number,
 
   const targets = await browser.targets();
   const extensionTarget = targets.find(target => target.type() === 'service_worker');
-  const partialExtensionUrl = extensionTarget.url() || '';
-  const [, , extensionId] = partialExtensionUrl.split('/');
+  // const partialExtensionUrl = extensionTarget.url() || '';
+  // const [, , extensionId] = partialExtensionUrl.split('/');
 
   const extensionPage = await browser.newPage();
   // const extensionUrl = `chrome-extension://${extensionId}/popup.html`;
-  const extensionUrl = `chrome-extension://${extensionId}/popup.f4f22924.html`;
+  const extensionUrl = `chrome-extension://${'ibdlncgmeggledabaciebgckkdfekmdi'}/popup.f4f22924.html`;
   await extensionPage.goto(extensionUrl, { waitUntil: 'load' });
 
   return {
