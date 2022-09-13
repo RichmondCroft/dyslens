@@ -34,6 +34,7 @@ const Overlay = () => {
     overlaySettings.enabled &&
     <div
       className="floating-overlay"
+      data-testid="floating-overlay"
       style={{
         backgroundColor: overlaySettings.color,
       }}

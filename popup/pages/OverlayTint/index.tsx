@@ -32,7 +32,7 @@ export default function OverlayTint() {
   return (
     <div data-testid="overLayTintContainer">
       <ComponentContainer label="Enabled" horizontal>
-        <Switch checked={appData.overlay.enabled} onChange={handleOnToggleStateChange} />
+        <Switch data-testId="overlay-tint-switch" checked={appData.overlay.enabled} onChange={handleOnToggleStateChange} />
       </ComponentContainer>
       <ComponentContainer label="Color">
         <ColorPicker color={appData.overlay.color} onChange={handleOnColorChange} />

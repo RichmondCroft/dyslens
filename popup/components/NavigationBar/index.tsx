@@ -48,7 +48,7 @@ export default function NavigationBar() {
         <StyledDysLensImage>
           <img data-testid="imageLogo" src={imageLogo} alt="dyslensLogo" />
         </StyledDysLensImage>
-        : <StyledBackButton icon={faArrowLeft} onClick={handleOnBackClick} />
+        : <StyledBackButton data-testid="nav-back-button" icon={faArrowLeft} onClick={handleOnBackClick} />
       }
       <StyledDysLensTextBox data-testid="dyslensText">
         Dyslens
