@@ -36,6 +36,8 @@ describe('Verify Text Changes', () => {
     const dropDownForm = await extensionPage.$('[data-testid="text-settings-switch-form"]');
     await dropDownForm.click();
 
+    await wait(500);
+
     const comicSansListItem = await extensionPage.$('[data-testid="ComicSans"]');
     await comicSansListItem.click();
 
@@ -92,10 +94,8 @@ describe('Verify Text Changes', () => {
     pages[0].bringToFront();
 
     await wait(2000);
-    
+
     const overlayComputedStyles = await appPage.evaluate(() => {
-      // TODO: The element exists in shadow dom figure out a way to query it
-      // once queried process the remaining script
       const pageOverlay = document.querySelector('[data-testid="floating-overlay"]');
       const computedStyles = window.getComputedStyle(pageOverlay);
       return {
@@ -111,6 +111,6 @@ describe('Verify Text Changes', () => {
   });
 
   afterAll(async () => {
-    // await browser.close();
+    await browser.close();
   });
 });
