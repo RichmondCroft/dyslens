@@ -6,10 +6,17 @@ export const config: PlasmoContentScript = {
   matches: ["<all_urls>"]
 }
 
-export const getStyle = () => {
+const getStyle = () => {
   const style = document.createElement("style");
   style.textContent = cssText;
-  return style;
+  document.head.appendChild(style);
+}
+
+export const getRootContainer = () => {
+  getStyle();
+  const rootContainer = document.createElement('div');
+  document.body.appendChild(rootContainer);
+  return rootContainer;
 }
 
 const Overlay = () => {
@@ -34,6 +41,7 @@ const Overlay = () => {
     overlaySettings.enabled &&
     <div
       className="floating-overlay"
+      data-testid="floating-overlay"
       style={{
         backgroundColor: overlaySettings.color,
       }}

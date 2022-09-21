@@ -62,7 +62,11 @@ export default function TextSettings() {
   return (
     <StyledTextSettingsContainer data-testid="textSettingsContainer">
       <ComponentContainer label="Enable" horizontal>
-        <Switch checked={appData.text.enabled} onChange={handleOnEnableChange} />
+        <Switch
+          checked={appData.text.enabled}
+          onChange={handleOnEnableChange}
+          data-testId="text-settings-switch"
+        />
       </ComponentContainer>
       <ComponentContainer label="Font Family">
         <DropDownContainer>
@@ -70,11 +74,16 @@ export default function TextSettings() {
             onChange={handleOnFontChange}
             noSelectionItem={{ displayValue: 'Select a font', value: 'no-selection' }}
             value={appData.text.fontFamily}
+            testId="text-settings-switch"
           />
         </DropDownContainer>
       </ComponentContainer>
       <ComponentContainer label="Text Color">
-        <ColorPicker color={appData.text.textColor} onChange={handleOnColorChange} />
+        <ColorPicker
+          color={appData.text.textColor}
+          onChange={handleOnColorChange}
+          testId="text-settings-color-picker"
+        />
       </ComponentContainer>
     </StyledTextSettingsContainer>
   );

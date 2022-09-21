@@ -10,10 +10,11 @@ type Props = {
   items: Item[],
   onChange: (selectedValue?: string) => void,
   noSelectionItem?: Item,
-  value?: string
+  value?: string,
+  testId: string
 };
 
-export default function DropDown({ items, onChange, noSelectionItem, value }: Props) {
+export default function DropDown({ items, onChange, noSelectionItem, value, testId }: Props) {
   const [dropdownValue, setDropdownValue] = useState(value);
 
   function handleOnSelectionChange(e: SelectChangeEvent<string>) {
@@ -27,10 +28,10 @@ export default function DropDown({ items, onChange, noSelectionItem, value }: Pr
   }
 
   return (
-    <FormControl fullWidth>
+    <FormControl fullWidth data-testid={`${testId}-form`}>
       <Select
-        labelId="demo-simple-select-label"
-        id="demo-simple-select"
+        labelId={`${testId}-label`}
+        id={testId}
         value={dropdownValue}
         onChange={handleOnSelectionChange}
       >

@@ -24,6 +24,7 @@ export default function NavigationMenu() {
         messageOverView="Modify text settings"
         icon={faA}
         to="/text-settings"
+        testId="text-settings"
       />
       <MenuItem
         textHeading="Overlay Tint"
@@ -31,12 +32,14 @@ export default function NavigationMenu() {
         make the Text readable"
         icon={faClone}
         to="/overlay-tint"
+        testId="overlay-tint"
       />
       <MenuItem
         textHeading="LineFocus"
         messageOverView="Creates a line overlay for focus"
         icon={faWindowMaximize}
         to="/line-focus"
+        testId="line-focus"
       />
       {/* <MenuItem
         textHeading="Highlighter"
