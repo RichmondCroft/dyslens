@@ -1,141 +1,84 @@
 import path from "path";
-import type { Browser, Page } from "puppeteer";
 import { bootstrap } from "./bootstrap";
-import { hexToRgb } from "./utils";
+import { HomePageTesters } from "./testers/HomePageTesters";
+import { LineFocusPageTesters } from "./testers/LineFocusPageTesters";
+import { OverlayPageTesters } from "./testers/OverlayPageTesters";
+import { TextSettingsTester } from "./testers/TextSettingsTesters";
+import { hexToRgb, wait } from "./utils";
 
 jest.setTimeout(10 * 60 * 1000);
 
-function wait(duration: number) {
-  return new Promise<void>((res) => setTimeout(() => { res() }, duration))
-}
-
 describe('Verify Text Changes', () => {
-  let extensionPage: Page, appPage: Page, browser: Browser;
-  beforeAll(async () => {
+  test('text changes are applied', async () => {
     const url = path.join('file://', __dirname, `./test-pages/basic-page.html`);
     const context = await bootstrap({ appUrl: url });
-    extensionPage = context.extensionPage;
-    appPage = context.appPage;
-    browser = context.browser;
-  });
+    const { appPage, browser, extensionPage } = context;
 
-  test('text changes are applied', async () => {
-    // 1. When a user opens the React application
-    extensionPage.bringToFront();
+    try {
+      const textSettingsTester = new TextSettingsTester(context);
+      const homePageTesters = new HomePageTesters(context);
+      const overlayPageTesters = new OverlayPageTesters(context);
+      const lineFocusPageTesters = new LineFocusPageTesters(context);
 
-    await wait(500);
+      extensionPage.bringToFront();
+      await homePageTesters.goToTextSettingsPage();
+      await textSettingsTester.enableSwitch();
+      await textSettingsTester.selectFont('ComicSans');
+      await textSettingsTester.selectColor('#ff4d2b');
 
-    const textSettings = await extensionPage.$('[data-testid="text-settings"]');
-    await textSettings.click();
+      appPage.bringToFront();
+      await wait(2000);
 
-    await wait(500);
+      const headerProps = await appPage.evaluate(() => {
+        const header = document.querySelector('[data-testid="header"]');
+        const computedStyles = window.getComputedStyle(header);
+        return {
+          color: computedStyles.color,
+          fontFamily: computedStyles.fontFamily,
+        }
+      });
 
-    const enableSwitch = await extensionPage.$('[data-testid="text-settings-switch"]');
-    await enableSwitch.click();
+      expect(headerProps).toEqual({
+        color: hexToRgb('#ff4d2b'),
+        fontFamily: 'ComicSans'
+      });
 
-    const dropDownForm = await extensionPage.$('[data-testid="text-settings-switch-form"]');
-    await dropDownForm.click();
+      extensionPage.bringToFront();
 
-    await wait(500);
+      await textSettingsTester.disableSwitch();
+      await homePageTesters.goBack();
+      await homePageTesters.goToOverlayPage();
+      await overlayPageTesters.enableSwitch();
+      await overlayPageTesters.selectColor('#ff4d2b');
 
-    const comicSansListItem = await extensionPage.$('[data-testid="ComicSans"]');
-    await comicSansListItem.click();
+      await appPage.bringToFront();
+      await wait(2000);
 
-    await wait(2000);
+      const overlayComputedStyles = await appPage.evaluate(() => {
+        const pageOverlay = document.querySelector('[data-testid="floating-overlay"]');
+        const computedStyles = window.getComputedStyle(pageOverlay);
+        return {
+          backgroundColor: computedStyles.backgroundColor
+        }
+      });
 
-    const redColor = await extensionPage.$('[data-testid="#ff4d2b"]');
-    await redColor.click();
+      expect(overlayComputedStyles).toEqual({
+        backgroundColor: hexToRgb('#ff4d2b')
+      });
 
-    await wait(2000);
+      await extensionPage.bringToFront();
+      await wait(2000);
 
-    // appPage.bringToFront();
-    const pages = await browser.pages();
-    pages[0].bringToFront();
-    // verify on the website
-    await wait(2000);
+      await overlayPageTesters.disableSwitch();
+      await homePageTesters.goBack();
+      await homePageTesters.goToLineFocusPage();
+      await lineFocusPageTesters.enableSwitch();
+      await lineFocusPageTesters.selectColor('#ff4d2b');
 
-    const headerProps = await appPage.evaluate(() => {
-      const header = document.querySelector('[data-testid="header"]');
-      const computedStyles = window.getComputedStyle(header);
-      return {
-        color: computedStyles.color,
-        fontFamily: computedStyles.fontFamily,
-      }
-    });
-
-
-    expect(headerProps).toEqual({
-      color: hexToRgb('#ff4d2b'),
-      fontFamily: 'ComicSans'
-    });
-
-    extensionPage.bringToFront();
-
-    await wait(500);
-    enableSwitch.click();
-
-    await wait(500);
-    const backButton = await extensionPage.$('[data-testid="nav-back-button"]');
-    await backButton.click();
-
-    await wait(500);
-
-    const overlaySettings = await extensionPage.$('[data-testid="overlay-tint"]');
-    await overlaySettings.click();
-    await wait(500);
-
-    const overlayEnableSwitch = await extensionPage.$('[data-testid="overlay-tint-switch"]');
-    await overlayEnableSwitch.click();
-    await wait(500);
-
-    const overlayRedColor = await extensionPage.$('[data-testid="#ff4d2b"]');
-    await overlayRedColor.click();
-
-    pages[0].bringToFront();
-
-    await wait(2000);
-
-    const overlayComputedStyles = await appPage.evaluate(() => {
-      const pageOverlay = document.querySelector('[data-testid="floating-overlay"]');
-      const computedStyles = window.getComputedStyle(pageOverlay);
-      return {
-        backgroundColor: computedStyles.backgroundColor
-      }
-    });
-
-
-    expect(overlayComputedStyles).toEqual({
-      backgroundColor: hexToRgb('#ff4d2b')
-    });
-
-    extensionPage.bringToFront();
-
-    await wait(2000);
-    overlayEnableSwitch.click();
-
-    await wait(500);
-    const overlayBackButton = await extensionPage.$('[data-testid="nav-back-button"]');
-    await overlayBackButton.click();
-    await wait(500);
-
-    await wait(500);
-    const lineFocusSettings = await extensionPage.$('[data-testid="line-focus"]');
-    await lineFocusSettings.click();
-    await wait(500);
-
-    const lineFocusEnableSwitch = await extensionPage.$('[data-testid="line-focus-switch"]');
-    await lineFocusEnableSwitch.click();
-    await wait(500);
-
-    const lineFocusRedColor = await extensionPage.$('[data-testid="#ff4d2b"]');
-    await lineFocusRedColor.click();
-
-    pages[0].bringToFront();
-
-    await wait(2000);
-  });
-
-  afterAll(async () => {
-    await browser.close();
+      await appPage.bringToFront();
+      await wait(2000);
+    } finally {
+      await browser.close();
+    }
   });
 });

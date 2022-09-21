@@ -1,3 +1,7 @@
+export function wait(duration: number) {
+  return new Promise<void>((res) => setTimeout(() => { res() }, duration))
+}
+
 export function hexToRgb(hex: string) {
   var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   return result ?
