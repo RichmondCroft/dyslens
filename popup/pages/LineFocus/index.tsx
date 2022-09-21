@@ -56,12 +56,14 @@ export default function LineFocus() {
     <div data-testid="lineFocusContainer">
       <ComponentContainer label="Enabled" horizontal>
         <Switch
+          data-testId="line-focus-switch"
           checked={appData.lineFocus.enabled}
           onChange={handleOnToggleStateChange}
         />
       </ComponentContainer>
       <ComponentContainer label="Color">
         <ColorPicker
+          testId="line-focus-color-picker"
           color={appData.lineFocus.color}
           onChange={handleOnColorChange}
         />

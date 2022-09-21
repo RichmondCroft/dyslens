@@ -108,6 +108,31 @@ describe('Verify Text Changes', () => {
       backgroundColor: hexToRgb('#ff4d2b')
     });
 
+    extensionPage.bringToFront();
+
+    await wait(2000);
+    overlayEnableSwitch.click();
+
+    await wait(500);
+    const overlayBackButton = await extensionPage.$('[data-testid="nav-back-button"]');
+    await overlayBackButton.click();
+    await wait(500);
+
+    await wait(500);
+    const lineFocusSettings = await extensionPage.$('[data-testid="line-focus"]');
+    await lineFocusSettings.click();
+    await wait(500);
+
+    const lineFocusEnableSwitch = await extensionPage.$('[data-testid="line-focus-switch"]');
+    await lineFocusEnableSwitch.click();
+    await wait(500);
+
+    const lineFocusRedColor = await extensionPage.$('[data-testid="#ff4d2b"]');
+    await lineFocusRedColor.click();
+
+    pages[0].bringToFront();
+
+    await wait(2000);
   });
 
   afterAll(async () => {
