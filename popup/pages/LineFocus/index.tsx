@@ -38,7 +38,7 @@ export default function LineFocus() {
       }
     })
   }
-  const throttledHandleOnOpacityChange = useMemo(() => throttle(handleOnOpacityChange, 100), [appData]);
+  const throttledHandleOnOpacityChange = useMemo(() => throttle(handleOnOpacityChange, 500), [appData]);
 
   function handleOnHeightChange(e: ChangeEvent<HTMLInputElement>) {
     setAppState({
@@ -49,7 +49,7 @@ export default function LineFocus() {
       }
     })
   }
-  const throttledHandleOnHeightChange = useMemo(() => throttle(handleOnHeightChange, 100), [appData]);
+  const throttledHandleOnHeightChange = useMemo(() => throttle(handleOnHeightChange, 500), [appData]);
 
 
   return (
