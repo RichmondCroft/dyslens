@@ -1,19 +1,21 @@
-import COLORS from "../../constants/colors";
+import ColorsLists from "~popup/constants/colorsList";
 import type { AppData } from "../StoreContext";
 
-const initialState = {
+const initialState: AppData = {
   enabled: false,
   text: {
-    enabled: false
+    enabled: false,
+    textColor: ColorsLists[0],
+    fontFamily: 'ComicSans',
   },
   overlay: {
     enabled: false,
-    color: COLORS.LIGHT_YELLOW,
+    color: ColorsLists[0],
     opacity: 0.5
   },
   lineFocus: {
     enabled: false,
-    color: COLORS.LIGHT_YELLOW,
+    color: ColorsLists[0],
     opacity: 0.5,
     height: 200
   }
