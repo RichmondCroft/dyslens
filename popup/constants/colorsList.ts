@@ -1,6 +1,6 @@
 const ColorsLists = [
-  "#1e1e1e",
   "#d3322e",
+  "#1e1e1e",
   "#5d34aa",
   "#ffb92e",
   "#adadad",
