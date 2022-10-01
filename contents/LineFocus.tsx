@@ -48,9 +48,16 @@ const DraggableComponent = () => {
 
   const onMouseMove = (event) => {
     if (pressed) {
+      let y = position.y + event.movementY;
+      if ((position.y + event.movementY) < 0) {
+        y = 0;
+      }
+      if ((position.y + event.movementY) > (window.innerHeight - lineFocusSettings.height)) {
+        y = window.innerHeight - lineFocusSettings.height;
+      }
       setPosition({
         x: 0,
-        y: position.y + event.movementY
+        y
       })
     }
   }
@@ -69,7 +76,7 @@ const DraggableComponent = () => {
       onMouseDown={() => setPressed(true)}
       onMouseUp={() => setPressed(false)}
       className="line-focus"
-      />
+    />
   )
 }
 
