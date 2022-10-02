@@ -34,7 +34,15 @@ export default function DropDown({ items, onChange, noSelectionItem, value, test
         id={testId}
         value={dropdownValue}
         onChange={handleOnSelectionChange}
+        displayEmpty
       >
+        {noSelectionItem && <MenuItem
+          key='no-selection'
+          value={noSelectionItem.value}
+          data-testid='no-selection'
+        >
+          <em>{noSelectionItem.displayValue}</em>
+        </MenuItem>}
         {items.map((item) => (
           <MenuItem
             key={item.value}

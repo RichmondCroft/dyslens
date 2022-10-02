@@ -1,10 +1,17 @@
 export const FONTS = {
-  openSans: {
+  OpenSans: {
     name: 'OpenSans',
-    displayName: 'Open Sans'
+    displayName: 'Open Sans',
+    path: 'assets/fonts/OpenSans-Regular.ttf'
   },
-  comicSans: {
+  ComicSans: {
     name: 'ComicSans',
-    displayName: 'Comic Sans'
+    displayName: 'Comic Sans',
+    path: 'assets/fonts/ComicSans-Regular.ttf'
+  },
+  OpenDyslexic: {
+    name: 'OpenDyslexic',
+    displayName: 'Open Dyslexic',
+    path: 'assets/fonts/OpenDyslexic-Regular.woff'
   }
 }

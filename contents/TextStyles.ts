@@ -1,3 +1,5 @@
+import { FONTS } from "~popup/constants/fonts";
+
 const TEXT_STYLE_ID = 'text-style-id';
 
 function addTextStyles(textSettings) {
@@ -5,12 +7,11 @@ function addTextStyles(textSettings) {
     return;
   }
 
-  let url = chrome.runtime.getURL(`assets/fonts/${textSettings.fontFamily}-Regular.ttf`);
   const css = `
     ${textSettings.fontFamily ? `
       @font-face {
         font-family: ${textSettings.fontFamily};
-        src: url("${url}");
+        src: url("${chrome.runtime.getURL(FONTS[textSettings.fontFamily].path)}");
       }
       `
       :
@@ -19,7 +20,7 @@ function addTextStyles(textSettings) {
 
     * {
       ${textSettings.textColor ? `color: ${textSettings.textColor} !important;` : ''} 
-      ${textSettings.fontFamily ? `font-family: ${textSettings.fontFamily} !important;` : ''} 
+      ${textSettings.fontFamily ? `font-family: ${textSettings.fontFamily} !important;` : 'inherit'} 
     }
   `;
   const head = document.head || document.getElementsByTagName('head')[0];
