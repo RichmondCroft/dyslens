@@ -17,10 +17,11 @@ const DropDownContainer = styled.div`
   margin-top: ${SIZE.X_SMALL}px;
 `;
 
-const fontList = Object.values(FONTS).map((font) => ({
-  displayValue: font.displayName,
-  value: font.name
-}))
+const fontListOptions =
+  Object.values(FONTS).map((font) => ({
+    displayValue: font.displayName,
+    value: font.name
+  }));
 
 export default function TextSettings() {
   const { appData, setAppState } = useContext(StoreContext);
@@ -66,10 +67,10 @@ export default function TextSettings() {
       </ComponentContainer>
       <ComponentContainer label="Font Family">
         <DropDownContainer>
-          <DropDown items={fontList}
+          <DropDown items={fontListOptions}
             onChange={handleOnFontChange}
-            noSelectionItem={{ displayValue: 'Select a font', value: 'no-selection' }}
-            value={appData.text.fontFamily}
+            noSelectionItem={{ displayValue: 'default page font', value: "" }}
+            value={appData.text.fontFamily || ""}
             testId="text-settings-switch"
           />
         </DropDownContainer>
