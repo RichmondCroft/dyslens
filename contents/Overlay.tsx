@@ -44,6 +44,7 @@ const Overlay = () => {
       data-testid="floating-overlay"
       style={{
         backgroundColor: overlaySettings.color,
+        opacity: overlaySettings.opacity
       }}
     />
   )
