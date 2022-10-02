@@ -13,11 +13,13 @@ import OverlayTint from "./pages/OverlayTint";
 import StoreContext, { AppData } from "./storage/StoreContext";
 import TextSettings from "./pages/TextSettings";
 import NavigationBar from "./components/NavigationBar";
+import COLORS from "./constants/colors";
 
 const StyledAppContainer = styled.div`
   margin: 0px;
   padding: 0px;
   width: 370px;
+  background: ${COLORS.WARM_WHITE};
 `;
 
 function App() {

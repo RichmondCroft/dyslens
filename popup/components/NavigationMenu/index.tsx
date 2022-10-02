@@ -13,7 +13,6 @@ import SIZE from "../../constants/size";
 
 const MenuItemContainer = styled.div`
   padding: ${SIZE.XX_SMALL}px ${SIZE.SMALL}px;
-  background-color: ${COLORS.WARM_WHITE};
 `;
 
 export default function NavigationMenu() {

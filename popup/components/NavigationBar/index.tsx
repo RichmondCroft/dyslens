@@ -6,6 +6,7 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import COLORS from "../../constants/colors";
 import SIZE from "../../constants/size";
 import imageLogo from "./../../images/icon-16.png";
+import { refreshActiveTab } from "~popup/chrome-utils/tabs";
 
 const NavBarContainer = styled.div`
   display: flex;
@@ -34,25 +35,47 @@ const StyledBackButton = styled(FontAwesomeIcon)`
   cursor: pointer; 
 `;
 
+const InfoPanel = styled.div`
+  text-align: center;
+  font-size: ${SIZE.SMALL}px;
+  background: ${COLORS.WARM_WHITE};
+  padding-top: ${SIZE.SMALL}px;
+`;
+
+const RefreshAnchor = styled.span`
+  color: ${COLORS.DARK_BLUE};
+  cursor: pointer;
+  text-decoration: underline;
+`;
+
 export default function NavigationBar() {
   const location = useLocation();
   let navigate = useNavigate();
 
   function handleOnBackClick() {
     navigate(-1);
-  } 
+  }
+
+  function handleOnRefreshClick() {
+    refreshActiveTab();
+  }
 
   return (
-    <NavBarContainer data-testid="navBarContainer">
-      {location.pathname === '/' ?
-        <StyledDysLensImage>
-          <img data-testid="imageLogo" src={imageLogo} alt="dyslensLogo" />
-        </StyledDysLensImage>
-        : <StyledBackButton data-testid="nav-back-button" icon={faArrowLeft} onClick={handleOnBackClick} />
-      }
-      <StyledDysLensTextBox data-testid="dyslensText">
-        Dyslens
-      </StyledDysLensTextBox>
-    </NavBarContainer>
+    <>
+      <NavBarContainer data-testid="navBarContainer">
+        {location.pathname === '/' ?
+          <StyledDysLensImage>
+            <img data-testid="imageLogo" src={imageLogo} alt="dyslensLogo" />
+          </StyledDysLensImage>
+          : <StyledBackButton data-testid="nav-back-button" icon={faArrowLeft} onClick={handleOnBackClick} />
+        }
+        <StyledDysLensTextBox data-testid="dyslensText">
+          Dyslens
+        </StyledDysLensTextBox>
+      </NavBarContainer>
+      <InfoPanel>If the settings are not applied try to&nbsp;
+        <RefreshAnchor onClick={handleOnRefreshClick}>refresh</RefreshAnchor>&nbsp;the page.
+      </InfoPanel>
+    </>
   );
 }

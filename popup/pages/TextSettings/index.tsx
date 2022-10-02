@@ -11,10 +11,6 @@ import ComponentContainer from "../../components/ComponentContainer";
 import { Switch } from "@mui/material";
 
 const StyledTextSettingsContainer = styled.div`
-  background: ${COLORS.WARM_WHITE};
-  border: 1px solid ${COLORS.GRAY};
-  box-shadow: ${SIZE.ZERO}px ${SIZE.XX_SMALL}px ${SIZE.XX_SMALL}px
-    ${COLORS.SPECIAL};
 `;
 
 const DropDownContainer = styled.div`
