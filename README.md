@@ -1,5 +1,5 @@
 # Dyslens
-Dyslens is an open source tool for anyone struggling with dyslexia. 
+Dyslens is a open source chrome extension, built and designed to make web more accessible for people who have different reading needs and suffering with dyslexia.
 
 ## Features
 
