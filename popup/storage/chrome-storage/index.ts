@@ -1,11 +1,11 @@
 import ColorsLists from "~popup/constants/colorsList";
 import type { AppData } from "../StoreContext";
 
-const initialState: AppData = {
+export const initialState: AppData = {
   enabled: false,
   text: {
     enabled: false,
-    textColor: ColorsLists[0],
+    textColor: undefined,
     fontFamily: 'ComicSans',
   },
   overlay: {
