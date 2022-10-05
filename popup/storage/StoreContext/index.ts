@@ -1,5 +1,5 @@
 import React from "react";
-import COLORS from "../../constants/colors";
+import { initialState } from "../chrome-storage";
 
 export type AppData = {
   enabled: boolean,
@@ -26,27 +26,9 @@ type AppState = {
   setAppState: (updatedData: AppData) => void
 }
 
-const initialState: AppData = {
-  enabled: false,
-  text: {
-    enabled: false
-  },
-  overlay: {
-    enabled: false,
-    color: COLORS.LIGHT_YELLOW,
-    opacity: 0.5
-  },
-  lineFocus: {
-    enabled: false,
-    color: COLORS.LIGHT_YELLOW,
-    height: 200,
-    opacity: 0.5
-  }
-}
-
 const StoreContext = React.createContext<AppState>({
-  appData: initialState, 
-  setAppState: (_store) => {}
+  appData: initialState,
+  setAppState: (_store) => { }
 });
 
 export default StoreContext;

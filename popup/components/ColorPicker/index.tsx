@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import COLORS from "../../constants/colors";
 
 import ColorsList from "../../constants/colorsList";
@@ -8,10 +8,11 @@ import SIZE from "../../constants/size";
 type Props = {
   color?: string,
   onChange: (color: string) => void,
-  testId: string
+  testId: string,
+  displayDefaultColor?: boolean
 }
 
-const ColoredBox = styled.li<{ backgroundColor: string, isSelected: boolean }>`
+const commonColorBox = css`
   border-radius: ${SIZE.LARGE}px;
   margin-left: 2px;
   width: ${SIZE.LARGE}px;
@@ -20,7 +21,21 @@ const ColoredBox = styled.li<{ backgroundColor: string, isSelected: boolean }>`
   text-decoration: none;
   cursor: pointer;
   ${({ isSelected }) => `
-    border: ${isSelected ? `3px solid ${COLORS.DARK_BLUE}` : 'none'}
+    border: ${isSelected ? `3px solid ${COLORS.DARK_BLUE}` : 'none'};
+  `}
+`
+
+const ColoredBox = styled.li<{ backgroundColor: string, isSelected: boolean }>`
+  ${commonColorBox}
+`;
+
+const NoColorBox = styled.li<{ backgroundColor: string, isSelected: boolean }>`
+  ${commonColorBox}
+  ${({ isSelected }) => `
+    ${isSelected ? '' : `
+      box-sizing: border-box;
+      border: 1px solid ${COLORS.DARK_BLUE};
+    `};
   `}
 `;
 
@@ -33,21 +48,26 @@ const StyledTextColorContainer = styled.ul`
   list-style-type: none;
 `;
 
-export default function ColorPicker({ color, onChange, testId }: Props) {
+export default function ColorPicker({ color, onChange, testId, displayDefaultColor }: Props) {
   const [stateColor, setStateColor] = useState(color);
 
-  function handleOnColoredBox(color: string) {
+  function handleOnColoredBox(color?: string) {
     setStateColor(color);
     onChange(color);
   }
 
   return (
     <StyledTextColorContainer data-testid={testId}>
+      {displayDefaultColor && <NoColorBox
+        isSelected={!stateColor}
+        key='transparent'
+        onClick={() => handleOnColoredBox()}
+        data-testId='transparent'
+      />}
       {ColorsList.map((item) => {
         return (
           <ColoredBox
             backgroundColor={item}
-            data-testid={item}
             isSelected={stateColor === item}
             key={item}
             onClick={() => handleOnColoredBox(item)}

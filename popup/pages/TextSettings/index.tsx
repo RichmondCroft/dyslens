@@ -80,6 +80,7 @@ export default function TextSettings() {
           color={appData.text.textColor}
           onChange={handleOnColorChange}
           testId="text-settings-color-picker"
+          displayDefaultColor
         />
       </ComponentContainer>
     </StyledTextSettingsContainer>
