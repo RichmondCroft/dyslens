@@ -1,7 +1,8 @@
 import { useState } from "react";
 import styled, { css } from "styled-components";
-import COLORS from "../../constants/colors";
+import FormatColorResetIcon from '@mui/icons-material/FormatColorReset';
 
+import COLORS from "../../constants/colors";
 import ColorsList from "../../constants/colorsList";
 import SIZE from "../../constants/size";
 
@@ -63,7 +64,9 @@ export default function ColorPicker({ color, onChange, testId, displayDefaultCol
         key='transparent'
         onClick={() => handleOnColoredBox()}
         data-testId='transparent'
-      />}
+      >
+        <FormatColorResetIcon fontSize="small" />
+      </NoColorBox>}
       {ColorsList.map((item) => {
         return (
           <ColoredBox
