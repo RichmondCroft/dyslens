@@ -1,5 +1,5 @@
 import { Slider, Switch } from "@mui/material";
-import { ChangeEvent, useContext, useMemo } from "react";
+import { ChangeEvent, useContext, useMemo, useState } from "react";
 import { throttle } from 'lodash';
 
 import ColorPicker from "../../components/ColorPicker";
@@ -7,7 +7,8 @@ import ComponentContainer from "../../components/ComponentContainer";
 import StoreContext from "../../storage/StoreContext";
 
 export default function OverlayTint() {
-  const { appData, setAppState } = useContext(StoreContext)
+  const { appData, setAppState } = useContext(StoreContext);
+  const [opacity, setOpacity] = useState(appData.overlay.opacity)
 
   function handleOnToggleStateChange(_event: ChangeEvent<HTMLInputElement>, checked: boolean) {
     setAppState({
@@ -30,15 +31,18 @@ export default function OverlayTint() {
   }
 
   function handleOnOpacityChange(_event: Event, newValue: number) {
+    setOpacity(newValue);
+  }
+
+  function handleOnOpacityChangeCommitted(_event: Event, newValue: number) {
     setAppState({
       ...appData,
       overlay: {
         ...appData.overlay,
-        opacity: newValue
+        opacity: opacity
       }
     })
   }
-  const throttledHandleOnOpacityChange = useMemo(() => throttle(handleOnOpacityChange, 500), [appData]);
 
   return (
     <div data-testid="overLayTintContainer">
@@ -47,11 +51,12 @@ export default function OverlayTint() {
       </ComponentContainer>
       <ComponentContainer label="Opacity">
         <Slider
-          value={appData.overlay.opacity}
+          value={opacity}
           min={0}
           max={1}
           step={0.05}
-          onChange={throttledHandleOnOpacityChange}
+          onChange={handleOnOpacityChange}
+          onChangeCommitted={handleOnOpacityChangeCommitted}
         />
       </ComponentContainer>
       <ComponentContainer label="Color">
