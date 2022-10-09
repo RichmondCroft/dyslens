@@ -34,7 +34,7 @@ export default function NavigationMenu() {
         testId="overlay-tint"
       />
       <MenuItem
-        textHeading="LineFocus"
+        textHeading="Line Focus"
         messageOverView="Creates a line overlay for focus"
         icon={faWindowMaximize}
         to="/line-focus"
