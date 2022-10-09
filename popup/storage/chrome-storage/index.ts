@@ -17,7 +17,7 @@ export const initialState: AppData = {
     enabled: false,
     color: ColorsLists[0],
     opacity: 0.5,
-    height: 200
+    height: 100
   }
 }
 
