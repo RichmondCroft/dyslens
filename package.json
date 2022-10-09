@@ -1,7 +1,7 @@
 {
   "name": "dyslens",
   "displayName": "Dyslens",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Dyslens is making the web more accessible for people who have different reading needs and suffering with dyslexia.",
   "author": "RichmondCroft",
   "scripts": {
