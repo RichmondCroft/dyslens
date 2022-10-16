@@ -13,6 +13,7 @@
 .turbo
 .next
 .vercel
+.vscode
 
 # misc
 .DS_Store
