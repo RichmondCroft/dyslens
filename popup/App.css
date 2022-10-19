@@ -1,4 +1,14 @@
-body {
-  margin: 0px;
-  padding: 0px;
+@font-face {
+  font-family: "OpenSans";
+  src: url(../assets/fonts/OpenSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: "ComicSans";
+  src: url(../assets/fonts/ComicSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url(../assets/fonts/OpenDyslexic-Regular.woff) format('woff');
 }

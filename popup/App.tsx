@@ -14,16 +14,20 @@ import StoreContext, { AppData } from "./storage/StoreContext";
 import TextSettings from "./pages/TextSettings";
 import NavigationBar from "./components/NavigationBar";
 import COLORS from "./constants/colors";
+import { FONTS } from './constants/fonts';
+import './App.css';
 
 const StyledAppContainer = styled.div`
   margin: 0px;
   padding: 0px;
   width: 370px;
   background: ${COLORS.WARM_WHITE};
+  font-family: ${({ fontFamily }) => fontFamily};
 `;
 
 function App() {
   const [appData, setAppData] = useState<AppData | null>(null);
+  const selectedFontFamily = appData ? appData.text.fontFamily || FONTS.OpenDyslexic.name : FONTS.OpenDyslexic.name;
 
   useEffect(() => {
     fetchAppStateFromStorage().then((state: AppData) => {
@@ -40,7 +44,7 @@ function App() {
     appData === null ?
       <div>Loading...</div> :
       <StoreContext.Provider value={{ appData, setAppState: setAppStateWrapper }}>
-        <StyledAppContainer>
+        <StyledAppContainer fontFamily={selectedFontFamily}>
           <MemoryRouter>
             <NavigationBar />
             <Routes>
