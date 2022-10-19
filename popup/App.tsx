@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 import styled from "styled-components";
+import { CircularProgress, createTheme, ThemeProvider } from "@mui/material";
+import { Box } from "@mui/system";
 
 import "./App";
 
@@ -40,24 +42,40 @@ function App() {
     setAppData(state);
   }
 
+  const theme = createTheme({
+    typography: {
+      fontFamily: selectedFontFamily
+    }
+  });
+
   return (
     appData === null ?
-      <div>Loading...</div> :
-      <StoreContext.Provider value={{ appData, setAppState: setAppStateWrapper }}>
-        <StyledAppContainer fontFamily={selectedFontFamily}>
-          <MemoryRouter>
-            <NavigationBar />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/text-settings" element={<TextSettings />}></Route>
-              <Route path="/overlay-tint" element={<OverlayTint />}></Route>
-              <Route path="/line-focus" element={<LineFocus />}></Route>
-              <Route path="/highlighter" element={<HighLighter />}></Route>
-              <Route path="/hide-images" element={<HideImages />}></Route>
-            </Routes>
-          </MemoryRouter>
-        </StyledAppContainer>
-      </StoreContext.Provider>
+      <Box sx={{
+        width: 100,
+        height: 100,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-around'
+      }}>
+        <CircularProgress />
+      </Box> :
+      <ThemeProvider theme={theme}>
+        <StoreContext.Provider value={{ appData, setAppState: setAppStateWrapper }}>
+          <StyledAppContainer fontFamily={selectedFontFamily}>
+            <MemoryRouter>
+              <NavigationBar />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/text-settings" element={<TextSettings />}></Route>
+                <Route path="/overlay-tint" element={<OverlayTint />}></Route>
+                <Route path="/line-focus" element={<LineFocus />}></Route>
+                <Route path="/highlighter" element={<HighLighter />}></Route>
+                <Route path="/hide-images" element={<HideImages />}></Route>
+              </Routes>
+            </MemoryRouter>
+          </StyledAppContainer>
+        </StoreContext.Provider>
+      </ThemeProvider>
   );
 }
 
