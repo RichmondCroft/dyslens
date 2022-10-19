@@ -6,7 +6,7 @@ export const initialState: AppData = {
   text: {
     enabled: false,
     textColor: undefined,
-    fontFamily: 'ComicSans',
+    fontFamily: 'OpenDyslexic',
   },
   overlay: {
     enabled: false,
