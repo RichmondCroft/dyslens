@@ -34,7 +34,7 @@ const Overlay = () => {
     });
 
     chrome.storage.onChanged.addListener(handleOnStorageChange);
-  }, [setOverlaySettings, handleOnStorageChange]);
+  }, [setOverlaySettings]);
 
   return (
     overlaySettings &&
