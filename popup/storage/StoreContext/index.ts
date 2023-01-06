@@ -25,7 +25,6 @@ type AppState = {
   appData: AppData,
   setAppState: (updatedData: AppData) => void
 }
-
 const StoreContext = React.createContext<AppState>({
   appData: initialState,
   setAppState: (_store) => { }
