@@ -6,7 +6,7 @@ function cancelSpeechIfSpeaking() {
 
 async function handleOnMouseUp() {
   // In some cases the text selection/de-selection will not happen immediately
-  // or synchronously to handle this situation I have added timer
+  // or synchronously to handle this situation I have added timeout
   setTimeout(async () => {
     cancelSpeechIfSpeaking();
 
