@@ -62,7 +62,7 @@ const RefreshAnchor = styled.span`
   text-decoration: underline;
 `;
 
-const CustomDisableButton = styled(Button)<InputProps>({
+const StyledDisableButton = styled(Button)<InputProps>({
   color: "white",
   marginLeft: "auto"
 
@@ -117,7 +117,7 @@ export default function NavigationBar() {
         <StyledDysLensTextBox data-testid="dyslensText">
           Dyslens
         </StyledDysLensTextBox>
-        <CustomDisableButton onClick={handleOnDisableClick} variant="outlined"> Disable All</CustomDisableButton>
+        <StyledDisableButton onClick={handleOnDisableClick} variant="outlined"> Disable All</StyledDisableButton>
       </NavBarContainer>
       <InfoPanel>If the settings are not applied try to&nbsp;
         <RefreshAnchor onClick={handleOnRefreshClick}>refresh</RefreshAnchor>&nbsp;the page.
