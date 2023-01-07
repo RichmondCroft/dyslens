@@ -29,7 +29,6 @@ const NavBarContainer = styled.div`
   background-color: ${COLORS.DARK_BLUE};
   align-items: center;
   padding: ${SIZE.MEDIUM}px;
-
 `;
 
 const StyledDysLensImage = styled.div`
