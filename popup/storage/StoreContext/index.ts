@@ -19,6 +19,12 @@ export type AppData = {
     height: number,
     opacity: number
   }
+  textToSpeech: {
+    enabled: boolean,
+    pitch: number,
+    rate: number,
+    volume: number
+  }
 }
 
 type AppState = {
