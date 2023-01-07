@@ -37,7 +37,7 @@ const DraggableComponent = () => {
     });
 
     chrome.storage.onChanged.addListener(handleOnStorageChange);
-  }, [setLineFocusSettings, handleOnStorageChange]);
+  }, [setLineFocusSettings]);
 
   // Monitor changes to position state and update DOM
   useEffect(() => {
