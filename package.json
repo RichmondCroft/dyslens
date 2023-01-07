@@ -10,13 +10,13 @@
     "e2e": "jest --detectOpenHandles"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.0",
-    "@emotion/styled": "^11.10.0",
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
     "@fortawesome/fontawesome-svg-core": "^6.1.2",
     "@fortawesome/free-solid-svg-icons": "^6.1.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@mui/icons-material": "^5.10.2",
-    "@mui/material": "^5.10.1",
+    "@mui/material": "^5.10.11",
     "lodash": "^4.17.21",
     "plasmo": "0.46.3",
     "react": "18.2.0",
