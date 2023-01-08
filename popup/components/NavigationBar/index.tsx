@@ -81,7 +81,6 @@ export default function NavigationBar() {
         text: {
           ...appData.text,
           enabled: false,
-
         },
         overlay: {
           ...appData.overlay,
