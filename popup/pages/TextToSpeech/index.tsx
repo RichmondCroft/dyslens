@@ -64,7 +64,6 @@ export default function TextToSpeech() {
         })
     }
 
-
     return <div>
         <ComponentContainer label="Enabled" horizontal>
             <Switch

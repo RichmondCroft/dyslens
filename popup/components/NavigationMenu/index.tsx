@@ -28,7 +28,7 @@ export default function NavigationMenu() {
       />
       <MenuItem
         textHeading="Text To Speech"
-        messageOverView="Modify settings"
+        messageOverView="select the text to listen"
         icon={faMicrophone}
         to="/text-to-speech"
         testId="text-to-speech-settings"
