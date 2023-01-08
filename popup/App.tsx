@@ -69,7 +69,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/text-settings" element={<TextSettings />}></Route>
-                <Route path="//text-to-speech" element={<TextToSpeech />}></Route>
+                <Route path="/text-to-speech" element={<TextToSpeech />}></Route>
                 <Route path="/overlay-tint" element={<OverlayTint />}></Route>
                 <Route path="/line-focus" element={<LineFocus />}></Route>
                 <Route path="/highlighter" element={<HighLighter />}></Route>
