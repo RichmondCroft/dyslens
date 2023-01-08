@@ -78,7 +78,7 @@ function App() {
             </MemoryRouter>
           </StyledAppContainer>
         </StoreContext.Provider>
-      </ThemeProvider >
+      </ThemeProvider>
   );
 }
 
