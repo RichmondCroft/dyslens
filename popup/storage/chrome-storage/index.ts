@@ -18,6 +18,12 @@ export const initialState: AppData = {
     color: ColorsLists[0],
     opacity: 0.5,
     height: 100
+  },
+  textToSpeech: {
+    enabled: false,
+    pitch: 1,
+    rate: 1,
+    volume: 1
   }
 }
 

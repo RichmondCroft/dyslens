@@ -15,9 +15,11 @@ import OverlayTint from "./pages/OverlayTint";
 import StoreContext, { AppData } from "./storage/StoreContext";
 import TextSettings from "./pages/TextSettings";
 import NavigationBar from "./components/NavigationBar";
+import TextToSpeech from "./pages/TextToSpeech";
 import COLORS from "./constants/colors";
 import { FONTS } from './constants/fonts';
 import './App.css';
+
 
 const StyledAppContainer = styled.div`
   margin: 0px;
@@ -67,6 +69,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/text-settings" element={<TextSettings />}></Route>
+                <Route path="/text-to-speech" element={<TextToSpeech />}></Route>
                 <Route path="/overlay-tint" element={<OverlayTint />}></Route>
                 <Route path="/line-focus" element={<LineFocus />}></Route>
                 <Route path="/highlighter" element={<HighLighter />}></Route>

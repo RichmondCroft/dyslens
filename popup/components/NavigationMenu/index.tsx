@@ -4,6 +4,7 @@ import {
   faClone,
   faA,
   // faHighlighter,
+  faMicrophone,
   faWindowMaximize,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -24,6 +25,13 @@ export default function NavigationMenu() {
         icon={faA}
         to="/text-settings"
         testId="text-settings"
+      />
+      <MenuItem
+        textHeading="Text To Speech"
+        messageOverView="select the text to listen"
+        icon={faMicrophone}
+        to="/text-to-speech"
+        testId="text-to-speech-settings"
       />
       <MenuItem
         textHeading="Overlay Tint"
