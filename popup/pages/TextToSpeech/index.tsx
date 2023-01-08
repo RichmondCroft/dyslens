@@ -78,7 +78,7 @@ export default function TextToSpeech() {
                 value={pitch}
                 min={0}
                 max={2}
-                step={0.5}
+                step={0.1}
                 onChange={handleOnPitchChange}
                 onChangeCommitted={handleOnPitchChangeCommitted}
             />
@@ -87,8 +87,8 @@ export default function TextToSpeech() {
             <Slider
                 value={rate}
                 min={0.1}
-                max={10}
-                step={0.5}
+                max={2}
+                step={0.1}
                 onChange={handleOnRateChange}
                 onChangeCommitted={handleOnRateChangeCommitted}
             />
@@ -98,6 +98,7 @@ export default function TextToSpeech() {
                 value={volume}
                 min={0}
                 max={1}
+                step={0.1}
                 onChange={handleOnVolumeChange}
                 onChangeCommitted={handleOnVolumeChangeCommitted}
 
