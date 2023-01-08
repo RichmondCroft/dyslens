@@ -13,6 +13,7 @@ import { refreshActiveTab } from "~popup/chrome-utils/tabs";
 
 import StoreContext from "./../../storage/StoreContext"
 import { useContext } from "react";
+import TextToSpeech from "~popup/pages/TextToSpeech";
 
 
 type InputProps = {
@@ -89,6 +90,10 @@ export default function NavigationBar() {
         lineFocus: {
           ...appData.lineFocus,
           enabled: false,
+        },
+        textToSpeech: {
+          ...appData.textToSpeech,
+          enabled: false
         }
       })
   }
