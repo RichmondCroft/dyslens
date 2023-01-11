@@ -1,17 +1,28 @@
-import path from "path";
 import { bootstrap } from "./bootstrap";
+import { hexToRgb, wait } from "./utils";
 import { HomePageTesters } from "./testers/HomePageTesters";
 import { LineFocusPageTesters } from "./testers/LineFocusPageTesters";
 import { OverlayPageTesters } from "./testers/OverlayPageTesters";
+import { TEST_PAGE_SERVER_PORT } from "./constants";
 import { TextSettingsTester } from "./testers/TextSettingsTesters";
-import { hexToRgb, wait } from "./utils";
+import testPageServer from './testPageServer';
+import ColorsLists from "../popup/constants/colorsList";
 
 jest.setTimeout(10 * 60 * 1000);
 
+beforeAll(() => {
+  testPageServer.listen(TEST_PAGE_SERVER_PORT);
+})
+
+afterAll(() => {
+  testPageServer.close()
+})
+
 describe('Verify Text Changes', () => {
   test('text changes are applied', async () => {
-    const url = path.join('file://', __dirname, `./test-pages/basic-page.html`);
-    const context = await bootstrap({ appUrl: url });
+    const appUrl = `http://localhost:${TEST_PAGE_SERVER_PORT}/basic-page.html`;
+    
+    const context = await bootstrap({ appUrl });
     const { appPage, browser, extensionPage } = context;
 
     try {
@@ -24,7 +35,7 @@ describe('Verify Text Changes', () => {
       await homePageTesters.goToTextSettingsPage();
       await textSettingsTester.enableSwitch();
       await textSettingsTester.selectFont('ComicSans');
-      await textSettingsTester.selectColor('#ff4d2b');
+      await textSettingsTester.selectColor(ColorsLists[0]);
 
       appPage.bringToFront();
       await wait(2000);
@@ -39,7 +50,7 @@ describe('Verify Text Changes', () => {
       });
 
       expect(headerProps).toEqual({
-        color: hexToRgb('#ff4d2b'),
+        color: hexToRgb(ColorsLists[0]),
         fontFamily: 'ComicSans'
       });
 
@@ -49,7 +60,7 @@ describe('Verify Text Changes', () => {
       await homePageTesters.goBack();
       await homePageTesters.goToOverlayPage();
       await overlayPageTesters.enableSwitch();
-      await overlayPageTesters.selectColor('#ff4d2b');
+      await overlayPageTesters.selectColor(ColorsLists[2]);
 
       await appPage.bringToFront();
       await wait(2000);
@@ -63,7 +74,7 @@ describe('Verify Text Changes', () => {
       });
 
       expect(overlayComputedStyles).toEqual({
-        backgroundColor: hexToRgb('#ff4d2b')
+        backgroundColor: hexToRgb(ColorsLists[2])
       });
 
       await extensionPage.bringToFront();
@@ -73,7 +84,7 @@ describe('Verify Text Changes', () => {
       await homePageTesters.goBack();
       await homePageTesters.goToLineFocusPage();
       await lineFocusPageTesters.enableSwitch();
-      await lineFocusPageTesters.selectColor('#ff4d2b');
+      await lineFocusPageTesters.selectColor(ColorsLists[3]);
 
       await appPage.bringToFront();
       await wait(2000);
