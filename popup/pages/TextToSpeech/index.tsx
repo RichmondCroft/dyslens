@@ -126,7 +126,7 @@ export default function TextToSpeech() {
                 onChange={handleOnVoiceChange}
                 noSelectionItem={{ displayValue: 'default voice', value: "" }}
                 value={appData.textToSpeech.voice || ""}
-                testId="text-settings-switch" />
+                testId="text-settings-switch-voice-list" />
         </ComponentContainer>
         <ComponentContainer label="Volume">
             <Slider
