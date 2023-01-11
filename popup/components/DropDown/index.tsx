@@ -7,17 +7,14 @@ type Item = {
 };
 
 type Props = {
-  items?: Item[],
+  items: Item[],
   onChange: (selectedValue?: string) => void,
-  noSelectionItem?: Item,
-  defaultValue?: any,
+  noSelectionItem: Item,
   value: string,
   testId: string
 };
 
 export default function DropDown({ items, onChange, noSelectionItem, value, testId }: Props) {
-
-  console.log('items', items)
   const [dropdownValue, setDropdownValue] = useState(value);
 
   function handleOnSelectionChange(e: SelectChangeEvent<string>) {

@@ -136,7 +136,6 @@ export default function TextToSpeech() {
                 step={0.1}
                 onChange={handleOnVolumeChange}
                 onChangeCommitted={handleOnVolumeChangeCommitted}
-
             />
         </ComponentContainer>
     </div>
