@@ -23,6 +23,7 @@ export type AppData = {
     enabled: boolean,
     pitch: number,
     rate: number,
+    voice: string,
     volume: number
   }
 }
