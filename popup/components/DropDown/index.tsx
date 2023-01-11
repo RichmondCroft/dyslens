@@ -2,15 +2,15 @@ import { FormControl, Select, MenuItem, SelectChangeEvent } from "@mui/material"
 import { useState } from "react";
 
 type Item = {
-  displayValue?: string,
-  value?: string
+  displayValue: string,
+  value: string
 };
 
 type Props = {
   items: Item[],
   onChange: (selectedValue?: string) => void,
-  noSelectionItem: Item,
-  value: string,
+  noSelectionItem?: Item,
+  value?: string,
   testId: string
 };
 
