@@ -52,7 +52,8 @@
       }
     ],
     "permissions": [
-      "storage"
+      "storage",
+      "tts"
     ]
   }
 }

@@ -1,5 +1,5 @@
 import { Slider, Switch } from "@mui/material";
-import { ChangeEvent, useContext, useMemo, useState } from "react";
+import { ChangeEvent, useContext, useState } from "react";
 
 import ColorPicker from "../../components/ColorPicker";
 import ComponentContainer from "../../components/ComponentContainer";

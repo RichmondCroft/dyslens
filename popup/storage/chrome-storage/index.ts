@@ -23,6 +23,7 @@ export const initialState: AppData = {
     enabled: false,
     pitch: 1,
     rate: 1,
+    voice: "default voice",
     volume: 1
   }
 }

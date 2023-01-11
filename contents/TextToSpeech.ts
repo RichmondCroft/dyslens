@@ -21,7 +21,15 @@ async function handleOnMouseUp() {
     utterance.pitch = appState?.textToSpeech?.pitch || 1;
     utterance.rate = appState?.textToSpeech?.rate || 1;
     utterance.volume = appState?.textToSpeech?.volume || 1;
-    utterance.voice = appState?.textToSpeech?.voice || null;
+
+    let voice = null;
+    if (appState?.textToSpeech?.voice) {
+      const voices = window.speechSynthesis.getVoices();
+      const selectedVoice = voices.find((v) => v.name === appState?.textToSpeech?.voice)
+      voice = selectedVoice;
+    }
+
+    utterance.voice = voice;
 
     speechSynthesis.speak(utterance);
   }, 10);
