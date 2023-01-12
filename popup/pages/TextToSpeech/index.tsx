@@ -6,7 +6,7 @@ import styled from "styled-components";
 import StoreContext from "~popup/storage/StoreContext";
 import ComponentContainer from "~popup/components/ComponentContainer";
 import DropDown from "~popup/components/DropDown";
-import imageGif from "./../../images/dyslens-gif-feature.gif";
+import imageGif from "./../../images/dyslens-gif-feat.gif";
 
 
 const StyledGifImage = styled.img`
