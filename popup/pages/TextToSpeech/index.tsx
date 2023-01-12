@@ -1,10 +1,17 @@
 import { Slider, Switch } from "@mui/material";
 import { ChangeEvent, useContext, useEffect, useState } from "react";
+import styled from "styled-components";
 
 
 import StoreContext from "~popup/storage/StoreContext";
 import ComponentContainer from "~popup/components/ComponentContainer";
 import DropDown from "~popup/components/DropDown";
+import imageGif from "./../../images/dyslens-gif-feat.gif";
+
+
+const StyledGifImage = styled.img`
+  width: 100%;
+`;
 
 export default function TextToSpeech() {
     const { appData, setAppState } = useContext(StoreContext);
@@ -88,6 +95,9 @@ export default function TextToSpeech() {
     }
 
     return <div>
+        <ComponentContainer label="How to use">
+            <StyledGifImage data-testid="image-gif" src={imageGif} alt="dyslensGifFeature" />
+        </ComponentContainer>
         <ComponentContainer label="Enabled" horizontal>
             <Switch
                 checked={appData.textToSpeech.enabled}

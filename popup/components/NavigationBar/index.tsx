@@ -21,7 +21,6 @@ type InputProps = {
   marginLeft: string
 }
 
-
 const NavBarContainer = styled.div`
   display: flex;
   flex-direction: row;
