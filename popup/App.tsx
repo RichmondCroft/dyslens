@@ -22,6 +22,7 @@ import './App.css';
 
 
 const StyledAppContainer = styled.div`
+  overflow:hidden;
   margin: 0px;
   padding: 0px;
   width: 370px;
