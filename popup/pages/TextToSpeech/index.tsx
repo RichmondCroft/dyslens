@@ -10,8 +10,7 @@ import imageGif from "./../../images/dyslens-gif-feat.gif";
 
 
 const StyledGifImage = styled.img`
-width :100%
-
+  width: 100%;
 `;
 
 export default function TextToSpeech() {
