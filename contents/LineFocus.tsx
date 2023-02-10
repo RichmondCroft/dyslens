@@ -20,8 +20,10 @@ export const getRootContainer = () => {
 }
 
 const DraggableComponent = () => {
-  const [pressed, setPressed] = useState(false)
-  const [position, setPosition] = useState({ x: 0, y: 0 })
+  const [pressed, setPressed] = useState(false);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [touchPressed, setTouchPressed] = useState(false);
+  const [touchedPosition, setTouchedPosition] = useState({ x: 0, y: 0 })
   const [lineFocusSettings, setLineFocusSettings] = useState(null);
   const ref = useRef<HTMLDivElement>()
 
@@ -32,6 +34,7 @@ const DraggableComponent = () => {
 
   useEffect(() => {
     chrome.storage.sync.get('appState').then(({ appState }) => {
+      console.log("appstate", appState)
       if (!appState) return;
       setLineFocusSettings(appState.lineFocus);
     });
@@ -42,8 +45,16 @@ const DraggableComponent = () => {
   // Monitor changes to position state and update DOM
   useEffect(() => {
     if (ref.current) {
+      ref.current.style.transform = `translate(${touchedPosition.x}px, ${touchedPosition.y}px)`
+    }
+
+  }, [touchPressed]);
+
+  useEffect(() => {
+    if (ref.current) {
       ref.current.style.transform = `translate(${position.x}px, ${position.y}px)`
     }
+
   }, [position])
 
   useEffect(() => {
@@ -62,10 +73,34 @@ const DraggableComponent = () => {
       window.removeEventListener('mousemove', onMouseMove, true);
     }
 
+
+
+    function onTouchMove(event) {
+      let y = event.touches[0].clientY - lineFocusSettings.height / 2
+      setTouchedPosition({
+        x: 0,
+        y: y < 0 ? 0 : y
+      });
+    }
+
+    if (touchPressed) {
+      window.addEventListener('touchmove', onTouchMove, true);
+
+    }
+    else {
+      window.removeEventListener('touchmove', onTouchMove, true);
+    }
+
     return (() => {
-      window.removeEventListener('mousemove', onMouseMove, true);
+      if (touchPressed) {
+        window.removeEventListener('touchmove', onTouchMove, true);
+      }
+      else {
+        window.removeEventListener('mousemove', onMouseMove, true);
+      }
     })
-  }, [pressed, position, lineFocusSettings]);
+
+  }, [pressed, position, touchPressed, touchedPosition, lineFocusSettings]);
 
 
 
@@ -81,6 +116,8 @@ const DraggableComponent = () => {
       style={style}
       onMouseDown={() => setPressed(true)}
       onMouseUp={() => setPressed(false)}
+      onTouchStart={() => setTouchPressed(true)}
+      onTouchEnd={() => setTouchPressed(false)}
       className="line-focus"
     />
   )
