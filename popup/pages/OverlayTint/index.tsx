@@ -56,6 +56,7 @@ export default function OverlayTint() {
           step={0.05}
           onChange={handleOnOpacityChange}
           onChangeCommitted={handleOnOpacityChangeCommitted}
+          valueLabelDisplay="auto"
         />
       </ComponentContainer>
       <ComponentContainer label="Color">

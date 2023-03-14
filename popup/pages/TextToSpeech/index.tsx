@@ -113,6 +113,7 @@ export default function TextToSpeech() {
                 step={0.1}
                 onChange={handleOnPitchChange}
                 onChangeCommitted={handleOnPitchChangeCommitted}
+                valueLabelDisplay="auto"
             />
         </ComponentContainer>
         <ComponentContainer label="Rate">
@@ -123,6 +124,7 @@ export default function TextToSpeech() {
                 step={0.1}
                 onChange={handleOnRateChange}
                 onChangeCommitted={handleOnRateChangeCommitted}
+                valueLabelDisplay="auto"
             />
         </ComponentContainer>
         <ComponentContainer label="Voice">
@@ -146,6 +148,7 @@ export default function TextToSpeech() {
                 step={0.1}
                 onChange={handleOnVolumeChange}
                 onChangeCommitted={handleOnVolumeChangeCommitted}
+                valueLabelDisplay="auto"
             />
         </ComponentContainer>
     </div>

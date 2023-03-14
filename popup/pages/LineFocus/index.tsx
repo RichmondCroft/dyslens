@@ -82,6 +82,7 @@ export default function LineFocus() {
           step={0.05}
           onChange={handleOnOpacityChange}
           onChangeCommitted={handleOnOpacityChangeCommitted}
+          valueLabelDisplay="auto"
         />
       </ComponentContainer>
       <ComponentContainer label="Height">
@@ -91,6 +92,7 @@ export default function LineFocus() {
           max={500}
           onChange={handleOnHeightChange}
           onChangeCommitted={handleOnHeightChangeCommitted}
+          valueLabelDisplay="auto"
         />
       </ComponentContainer>
     </div>
