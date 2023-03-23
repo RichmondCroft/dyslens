@@ -12,13 +12,13 @@ import imageLogo from "./../../images/icon-16.png";
 import { refreshActiveTab } from "~popup/chrome-utils/tabs";
 
 import StoreContext from "./../../storage/StoreContext"
-import { useContext } from "react";
-import TextToSpeech from "~popup/pages/TextToSpeech";
+import { useContext, useState } from "react";
 
 
 type InputProps = {
   color: string,
-  marginLeft: string
+  marginLeft: string,
+  value?: boolean
 }
 
 const NavBarContainer = styled.div`
@@ -64,8 +64,7 @@ const RefreshAnchor = styled.span`
 
 const StyledDisableButton = styled(Button)<InputProps>({
   color: "white",
-  marginLeft: "auto"
-
+  marginLeft: "auto",
 }) as typeof Button;
 
 
@@ -73,7 +72,13 @@ const StyledDisableButton = styled(Button)<InputProps>({
 export default function NavigationBar() {
   const { appData, setAppState } = useContext(StoreContext);
 
+  const disabled = (!appData.text.enabled &&
+    !appData.overlay.enabled &&
+    !appData.lineFocus.enabled &&
+    !appData.textToSpeech.enabled);
+
   function handleOnDisableClick() {
+
     setAppState(
       {
         ...appData,
@@ -120,7 +125,7 @@ export default function NavigationBar() {
         <StyledDysLensTextBox data-testid="dyslensText">
           Dyslens
         </StyledDysLensTextBox>
-        <StyledDisableButton onClick={handleOnDisableClick} variant="outlined"> Disable All</StyledDisableButton>
+        <StyledDisableButton onClick={handleOnDisableClick} disabled={disabled} variant="outlined"> Disable All</StyledDisableButton>
       </NavBarContainer>
       <InfoPanel>If the settings are not applied try to&nbsp;
         <RefreshAnchor onClick={handleOnRefreshClick}>refresh</RefreshAnchor>&nbsp;the page.
