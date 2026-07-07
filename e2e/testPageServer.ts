@@ -1,6 +1,8 @@
 import fs from 'fs';
 import http from 'http';
 
+export const TEST_PAGE_SERVER_PORT = 3000;
+
 const testPageServer = http.createServer(function (req, res) {
   fs.readFile(`${__dirname}/test-pages${req.url}`, function (err, data) {
     if (err) {

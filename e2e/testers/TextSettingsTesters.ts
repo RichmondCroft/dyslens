@@ -1,47 +1,22 @@
-import type { Page } from 'puppeteer';
-import { wait } from '../utils';
-import type { Context } from '../types';
+import type { Page } from '@playwright/test';
 
 export class TextSettingsTester {
-  private extensionPage: Page;
-
-  constructor(context: Context) {
-    this.extensionPage = context.extensionPage;
-  }
+  constructor(private readonly popup: Page) {}
 
   async enableSwitch() {
-    await wait(100);
-    const enableSwitch = await this.extensionPage.$('[data-testid="text-settings-switch"]');
-    await enableSwitch.click();
-    await wait(100);
+    await this.popup.getByTestId('text-settings-switch').click();
   }
 
   async disableSwitch() {
-    await wait(100);
-    const enableSwitch = await this.extensionPage.$('[data-testid="text-settings-switch"]');
-    await enableSwitch.click();
-    await wait(100);
+    await this.popup.getByTestId('text-settings-switch').click();
   }
 
   async selectFont(fontName: string) {
-    await wait(1000);
-
-    const dropDownForm = await this.extensionPage.$('[data-testid="text-settings-switch-form"]');
-    await dropDownForm.click();
-
-    await wait(500);
-
-    const comicSansListItem = await this.extensionPage.$(`[data-testid="${fontName}"]`);
-    await comicSansListItem.click();
-
-    await wait(1000);
+    await this.popup.getByTestId('text-settings-switch-form').click();
+    await this.popup.getByTestId(fontName).click();
   }
 
   async selectColor(color: string) {
-    await wait(1000);
-    const redColor = await this.extensionPage.$(`[data-testid="${color}"]`);
-    await redColor.click();
-
-    await wait(1000);
+    await this.popup.getByTestId(color).click();
   }
 }

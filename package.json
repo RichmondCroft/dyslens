@@ -7,9 +7,10 @@
   "scripts": {
     "dev": "plasmo dev",
     "build": "plasmo build",
-    "test:unit": "jest --selectProjects unit",
+    "test:unit": "jest",
     "test": "npm run test:unit",
-    "e2e": "jest --selectProjects e2e --detectOpenHandles"
+    "test:e2e": "playwright test",
+    "e2e": "npm run build && npm run test:e2e"
   },
   "dependencies": {
     "@emotion/react": "^11.10.4",
@@ -31,6 +32,7 @@
     "@babel/preset-env": "^7.18.10",
     "@babel/preset-react": "^7.29.7",
     "@babel/preset-typescript": "^7.18.6",
+    "@playwright/test": "1.61.1",
     "@plasmohq/prettier-plugin-sort-imports": "1.1.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
@@ -44,7 +46,6 @@
     "jest-environment-jsdom": "^29.7.0",
     "jest-webextension-mock": "^4.2.0",
     "prettier": "2.7.1",
-    "puppeteer": "^16.2.0",
     "typescript": "4.7.4"
   },
   "manifest": {

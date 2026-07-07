@@ -11,17 +11,25 @@ Dyslens is a Chrome extension (Manifest V3) that makes the web more accessible f
 ```
 npm install       # install dependencies
 npm run dev        # plasmo dev — builds unpacked extension to build/chrome-mv3-dev with watch mode
-npm run build       # plasmo build — production build
-npm run e2e        # jest --detectOpenHandles — runs Puppeteer e2e tests against the built extension
+npm run build       # plasmo build — production build, outputs to build/chrome-mv3-prod
+npm run test:unit    # jest — fast unit tests (jsdom + chrome.* API mock), no browser needed
+npm run e2e        # builds the extension, then runs the Playwright e2e suite against it
 ```
 
 There is no separate lint/typecheck script; `plasmo build`/`plasmo dev` runs the TypeScript compiler as part of the build.
 
-### Running e2e tests
+### Unit tests (`npm run test:unit`)
 
-- e2e tests (`e2e/launch.test.ts`) drive the **built** extension with Puppeteer, so run `npm run build` (or have a `build/chrome-mv3-dev` from `npm run dev`) before `npm run e2e`.
-- `e2e/constants.ts` hardcodes `EXTENSION_ID` and `POPUP_FILE` (the popup's hashed filename). These are derived from the current build output — if the build output changes (e.g. popup bundle hash changes), these constants must be updated or the e2e tests will fail to find the extension pages.
-- e2e tests spin up a local static server (`e2e/testPageServer.ts`) on port 3000 (`TEST_PAGE_SERVER_PORT`) serving `e2e/test-pages/basic-page.html`, and drive both the popup page and the served page in the same Puppeteer browser instance.
+- Jest + jsdom, config at `jest.config.js`. `chrome.*` APIs are mocked via `jest-webextension-mock`; `test/wireStorageOnChanged.ts` is a required companion shim — the mock library does **not** actually invoke `chrome.storage.onChanged` listeners on `.set()`, so this shim restores that real-browser behavior (needed since `chrome.storage.onChanged` is this extension's only popup↔content-script communication channel).
+- Tests are co-located with source (`*.test.ts`/`*.test.tsx` next to the file they cover), not under a parallel `__tests__/` tree.
+- Some tests intentionally use Jest's `test.failing` to document known bugs (e.g. `ColorPicker`/`DropDown` prop-resync issues) without failing the suite — don't "fix" these by deleting the assertion; the fix is to actually fix the underlying bug and then remove `test.failing`.
+
+### e2e tests (`npm run e2e`)
+
+- Playwright, config at `playwright.config.ts`, specs at `e2e/*.spec.ts`. Requires the **production** build (`build/chrome-mv3-prod`, from `npm run build`/`plasmo build`) — not `build/chrome-mv3-dev` (that's only produced by `plasmo dev`'s watch mode, which isn't suitable for a one-shot CI/test build).
+- `e2e/fixtures.ts` loads the unpacked extension via `chromium.launchPersistentContext(..., { channel: 'chromium', headless: true, args: ['--disable-extensions-except=...', '--load-extension=...'] })` — Playwright's own bundled Chromium supports loading extensions headlessly. The extension ID and popup filename are derived at runtime from the launched service worker's URL and the built `manifest.json` respectively — never hardcoded, so they can't go stale across builds.
+- `e2e/testPageServer.ts` is a small static file server for `e2e/test-pages/*.html`, started/stopped via `e2e/globalSetup.ts`/`globalTeardown.ts` (referenced from `playwright.config.ts`) rather than per-test lifecycle hooks.
+- `docs/testing/` has one markdown scenario file per e2e test scenario (precondition/steps/expected-result), linking back to its spec file. This is for automated e2e scenarios only — unit tests aren't documented this way.
 
 ### Loading the extension manually in Chrome
 
