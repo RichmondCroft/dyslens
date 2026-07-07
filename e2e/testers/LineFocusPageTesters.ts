@@ -1,34 +1,29 @@
-import { wait } from '../utils';
-import type { Context } from '../types';
-import type { Page } from 'puppeteer';
+import type { Page } from '@playwright/test';
 
 export class LineFocusPageTesters {
-  private extensionPage: Page;
-
-  constructor(context: Context) {
-    this.extensionPage = context.extensionPage;
-  }
+  constructor(private readonly popup: Page) {}
 
   async enableSwitch() {
-    await wait(1000);
-    const lineFocusEnableSwitch = await this.extensionPage.$('[data-testid="line-focus-switch"]');
-    await lineFocusEnableSwitch.click();
-    await wait(1000);
+    await this.popup.getByTestId('line-focus-switch').click();
   }
 
   async disableSwitch() {
-    await wait(1000);
-    const lineFocusEnableSwitch = await this.extensionPage.$('[data-testid="line-focus-switch"]');
-    await lineFocusEnableSwitch.click();
-    await wait(1000);
+    await this.popup.getByTestId('line-focus-switch').click();
   }
 
   async selectColor(color: string) {
-    await wait(1000);
+    await this.popup.getByTestId(color).click();
+  }
 
-    const lineFocusRedColor = await this.extensionPage.$(`[data-testid="${color}"]`);
-    await lineFocusRedColor.click();
-
-    await wait(1000);
+  // The Height slider has no distinguishing testid/aria-label in the popup
+  // markup, so it's targeted by DOM order: 0 = Opacity, 1 = Height.
+  async setHeight(targetHeight: number) {
+    const slider = this.popup.getByRole('slider').nth(1);
+    await slider.focus();
+    const currentValue = Number(await slider.getAttribute('aria-valuenow'));
+    const key = targetHeight > currentValue ? 'ArrowRight' : 'ArrowLeft';
+    for (let i = 0; i < Math.abs(targetHeight - currentValue); i++) {
+      await this.popup.keyboard.press(key);
+    }
   }
 }

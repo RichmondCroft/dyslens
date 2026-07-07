@@ -1,34 +1,17 @@
-import type { Page } from 'puppeteer';
-import { wait } from '../utils';
-import type { Context } from '../types';
+import type { Page } from '@playwright/test';
 
 export class OverlayPageTesters {
-  private extensionPage: Page;
-
-  constructor(context: Context) {
-    this.extensionPage = context.extensionPage;
-  }
+  constructor(private readonly popup: Page) {}
 
   async enableSwitch() {
-    await wait(1000);
-    const overlayEnableSwitch = await this.extensionPage.$('[data-testid="overlay-tint-switch"]');
-    await overlayEnableSwitch.click();
-    await wait(1000);
+    await this.popup.getByTestId('overlay-tint-switch').click();
   }
 
   async disableSwitch() {
-    await wait(1000);
-    const overlayEnableSwitch = await this.extensionPage.$('[data-testid="overlay-tint-switch"]');
-    await overlayEnableSwitch.click();
-    await wait(1000);
+    await this.popup.getByTestId('overlay-tint-switch').click();
   }
 
   async selectColor(color: string) {
-    await wait(1000);
-    
-    const overlayRedColor = await this.extensionPage.$(`[data-testid="${color}"]`);
-    await overlayRedColor.click();
-
-    await wait(1000);
+    await this.popup.getByTestId(color).click();
   }
 }
